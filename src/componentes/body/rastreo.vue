@@ -53,13 +53,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
+
+const emit = defineEmits(['abrio', 'cerro'])
 
 const isExpanded = ref(false)
 const numeroGuia = ref('')
 
 const toggleExpanded = () => {
     isExpanded.value = !isExpanded.value
+    if (isExpanded.value) emit('abrio')
+    else emit('cerro')
 }
 
 const rastrear = () => {

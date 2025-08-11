@@ -46,7 +46,7 @@
                             OPERACIÓN LOGÍSTICA</a>
                         <span class="text-orange-200 hidden md:inline">|</span>
                         <a href="#"
-                            class="hover:text-yellow-300 cursor-pointer transition-colors duration-300 py-1">PORTAL TCC
+                            class="hover:text-yellow-300 cursor-pointer transition-colors duration-300 py-1">PORTAL Agencia IR
                             CORPORATIVO</a>
                     </div>
                 </div>

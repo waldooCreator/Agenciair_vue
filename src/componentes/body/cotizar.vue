@@ -2,8 +2,8 @@
     <div 
         class="relative w-full mx-auto z-10 transition-all duration-300"
         :class="{
-            'max-w-md': !isExpanded || isDesktop,
-            'max-w-full px-4': isExpanded && !isDesktop
+            'max-w-md': isDesktop,
+            'max-w-full': !isDesktop
         }"
     >
         <!-- Barra compacta (siempre visible) -->
@@ -29,13 +29,15 @@
         <!-- Contenido expandido -->
         <div 
             v-show="isExpanded"
-            class="absolute top-full left-0 w-full mt-2 transform transition-all duration-300 ease-in-out z-20"
+            class="absolute top-full left-0 w-full mt-2 transform transition-all duration-300 ease-in-out z-30"
             :class="{ 
                 'opacity-100 translate-y-0': isExpanded,
-                'opacity-0 -translate-y-2': !isExpanded
+                'opacity-0 -translate-y-2': !isExpanded,
+                'md:max-w-md': isDesktop,
+                'max-w-full': !isDesktop
             }"
         >
-            <div class="bg-white rounded-lg shadow-lg p-4 border-t-2 border-[rgb(235,102,55)]">
+            <div class="bg-white rounded-lg shadow-xl p-4 border-t-2 border-[rgb(235,102,55)]">
                 <div class="space-y-3">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -65,7 +67,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">
                             Dimensiones del paquete:
                         </label>
-                        <div class="grid grid-cols-4 gap-2">
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
                             <div>
                                 <input 
                                     type="number" 

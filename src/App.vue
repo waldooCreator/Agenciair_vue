@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="min-h-screen bg-[rgba(241,241,240,1)]">
-        <!-- Header Component (siempre visible) -->
-        <HeaderComponent />
+        <!-- Header Component (siempre visible menos noticias) -->
+        <HeaderComponent v-if="!$route.meta.hideHeader" />
         
         <!-- Router View - aquí se mostrarán las diferentes páginas -->
         <router-view />

@@ -1,6 +1,6 @@
 <template>
     <div
-        class="bg-[rgba(235,102,55,255)] mt-4 md:mt-8 text-white rounded-2xl md:rounded-full px-4 sm:px-6 md:px-10 lg:px-16 py-3 md:py-4 shadow-md max-w-7xl mx-auto w-full flex items-center justify-between mb-8 md:mb-12 relative">
+        class="bg-[rgba(235,102,55,255)] mt-4 md:mt-4 text-white rounded-2xl md:rounded-full px-4 sm:px-6 md:px-10 lg:px-16 py-3 md:py-4 shadow-md max-w-7xl mx-auto w-full flex items-center justify-between mb-8 md:mb-12 relative">
 
         <!-- LOGO/TÍTULO -->
         <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">
@@ -21,7 +21,7 @@
         <!-- MENÚ DESPLEGABLE MÓVIL -->
         <div v-show="mobileMenuOpen"
             class="md:hidden absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl py-3 w-[80vw] max-w-[350px] z-40 border border-gray-100">
-            
+
             <!-- ENVÍA MÓVIL -->
             <div class="relative">
                 <button @click="toggleMobileDropdown('envia')"
@@ -33,10 +33,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div v-show="mobileDropdowns.envia"
-                    class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded">
+                <div v-show="mobileDropdowns.envia" class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded">
                     <button @click="irAHacerEnvio"
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         Hacer envío
                     </button>
                 </div>
@@ -56,15 +55,15 @@
                 <div v-show="mobileDropdowns.servicios"
                     class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded">
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
-                        Pick‑Up
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
+                        Pick-Up
                     </button>
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         UPS Internacional
                     </button>
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         TCC
                     </button>
                 </div>
@@ -84,15 +83,15 @@
                 <div v-show="mobileDropdowns.beneficios"
                     class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded">
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         De Cúcuta Pal' Mundo
                     </button>
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         Cliente Leal
                     </button>
                     <button
-                        class="block w-full text-left px-4 py-2 text-orange-500 hover:bg-orange-100 transition text-sm font-medium">
+                        class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium">
                         Acumula tus Box
                     </button>
                 </div>
@@ -102,7 +101,15 @@
                 class="block w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200">
                 Convenios
             </button>
-            <button
+
+            <!-- INICIAR SESIÓN MÓVIL -->
+            <button @click="irASesion" @touchstart="irASesion"
+                class="block w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200">
+                Iniciar sesión
+            </button>
+
+            <!-- REGÍSTRATE MÓVIL -->
+            <button @click="irARegistro" @touchstart="irARegistro"
                 class="block w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200">
                 Regístrate
             </button>
@@ -110,7 +117,7 @@
 
         <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
         <div class="hidden md:flex gap-4 lg:gap-8 xl:gap-12 text-base lg:text-lg xl:text-xl font-medium relative">
-            
+
             <!-- ENVÍA DROPDOWN -->
             <div class="relative" @mouseenter="mostrarDropdown('envia')" @mouseleave="ocultarDropdown('envia')">
                 <button class="text-white font-medium border-b-2 border-transparent transition duration-300 py-1"
@@ -120,7 +127,7 @@
                 <div v-show="dropdownsVisible.envia"
                     class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[160px]">
                     <button @click="irAHacerEnvio"
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         Hacer envío
                     </button>
                 </div>
@@ -135,15 +142,15 @@
                 <div v-show="dropdownsVisible.servicios"
                     class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[180px]">
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
-                        Pick‑Up
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        Pick-Up
                     </button>
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         UPS Internacional
                     </button>
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         TCC
                     </button>
                 </div>
@@ -159,28 +166,31 @@
                 <div v-show="dropdownsVisible.beneficios"
                     class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[200px]">
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         De Cúcuta Pal' Mundo
                     </button>
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         Cliente Leal
                     </button>
                     <button
-                        class="block w-full text-left px-6 py-2 text-orange-500 hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+                        class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
                         Acumula tus Box
                     </button>
                 </div>
             </div>
 
-            <button
-                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1">
-                Convenios
-            </button>
-            <button
-                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1">
+            <!-- INICIAR SESIÓN DESKTOP -->
+            <router-link to="/sesion" @touchstart.native="irASesion"
+                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1 cursor-pointer inline-block">
+                Iniciar sesión
+            </router-link>
+
+            <!-- REGÍSTRATE DESKTOP -->
+            <router-link to="/register" @touchstart.native="irARegistro"
+                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1 cursor-pointer inline-block">
                 Regístrate
-            </button>
+            </router-link>
         </div>
     </div>
 </template>
@@ -189,6 +199,11 @@
     import {
         ref
     } from 'vue'
+    import {
+        useRouter
+    } from 'vue-router'
+
+    const router = useRouter()
 
     // Dropdowns desktop
     const dropdownsVisible = ref({
@@ -238,5 +253,15 @@
 
     function irAHacerEnvio() {
         window.location.href = '/hacer-envio'
+    }
+
+    function irASesion() {
+        router.push('/sesion')
+        mobileMenuOpen.value = false
+    }
+
+    function irARegistro() {
+        router.push('/register')
+        mobileMenuOpen.value = false
     }
 </script>
