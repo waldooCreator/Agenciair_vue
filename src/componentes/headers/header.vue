@@ -1,15 +1,41 @@
 <template>
+    <!--
+    Header responsive sin overflow horizontal:
+    - En móvil/tablet usamos un ancho calculado (w-[calc(100%-2rem)] / w-[calc(100%-3rem)])
+      para tener “márgenes” sin usar mx + w-full (eso causa scroll horizontal).
+    - En desktop recuperamos w-full + max-w-7xl y centrado con mx-auto.
+    - Redondeado cilíndrico en TODAS las resoluciones (rounded-full).
+    - Padding y tipografía reducidos en móvil/tablet para que “entre” completo.
+  -->
     <div
-        class="bg-[rgba(235,102,55,255)] mt-4 md:mt-4 text-white rounded-2xl md:rounded-full px-4 sm:px-6 md:px-10 lg:px-16 py-3 md:py-4 shadow-md max-w-7xl mx-auto w-full flex items-center justify-between mb-8 md:mb-12 relative">
+        class="
+      bg-[rgba(235,102,55,255)]
+      text-white
+      rounded-full
+      shadow-md
+      relative
+      flex items-center justify-between
 
-        <!-- LOGO/TÍTULO -->
-        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">
+      /* Tamaño y separaciones */
+      px-3 sm:px-4 md:px-8 lg:px-16
+      py-2 sm:py-2.5 md:py-3
+
+      /* Ancho sin overflow: en móvil/tablet usamos ancho calculado + centrado */
+      w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] md:w-full
+      mx-auto
+      md:max-w-7xl
+
+      /* Márgenes verticales coherentes */
+      mt-4 md:mt-4 mb-6 md:mb-10
+    ">
+        <!-- LOGO/TÍTULO (tamaño más contenido en móviles para que no rompa el pill) -->
+        <h1 class="text-lg sm:text-xl md:text-2xl font-bold">
             Agencia Ir
         </h1>
 
-        <!-- BOTÓN HAMBURGUESA MÓVIL -->
+        <!-- BOTÓN HAMBURGUESA (móvil) -->
         <button @click="toggleMobileMenu"
-            class="md:hidden flex flex-col items-center justify-center w-8 h-8 relative z-50">
+            class="md:hidden flex flex-col items-center justify-center w-8 h-8 relative z-50" aria-label="Abrir menú">
             <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300 transform"
                 :class="{ 'rotate-45 translate-y-1.5 mb-0': mobileMenuOpen }"></span>
             <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300"
@@ -18,10 +44,10 @@
                 :class="{ '-rotate-45 -translate-y-1.5': mobileMenuOpen }"></span>
         </button>
 
-        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <!-- MENÚ MÓVIL (se posiciona relativo al header, ancho 80vw para entrar sobrado) -->
         <div v-show="mobileMenuOpen"
-            class="md:hidden absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl py-3 w-[80vw] max-w-[350px] z-40 border border-gray-100">
-
+            class="md:hidden absolute top-full right-4 sm:right-6 mt-2 bg-white rounded-xl shadow-xl py-3 
+             w-[80vw] max-w-[350px] z-40 border border-gray-100">
             <!-- ENVÍA MÓVIL -->
             <div class="relative">
                 <button @click="toggleMobileDropdown('envia')"
@@ -102,23 +128,21 @@
                 Convenios
             </button>
 
-            <!-- INICIAR SESIÓN MÓVIL -->
             <button @click="irASesion" @touchstart="irASesion"
                 class="block w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200">
                 Iniciar sesión
             </button>
 
-            <!-- REGÍSTRATE MÓVIL -->
             <button @click="irARegistro" @touchstart="irARegistro"
                 class="block w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200">
                 Regístrate
             </button>
         </div>
 
-        <!-- MENÚ DE NAVEGACIÓN DESKTOP -->
+        <!-- MENÚ DESKTOP (oculto en móvil) -->
         <div class="hidden md:flex gap-4 lg:gap-8 xl:gap-12 text-base lg:text-lg xl:text-xl font-medium relative">
 
-            <!-- ENVÍA DROPDOWN -->
+            <!-- Envía -->
             <div class="relative" @mouseenter="mostrarDropdown('envia')" @mouseleave="ocultarDropdown('envia')">
                 <button class="text-white font-medium border-b-2 border-transparent transition duration-300 py-1"
                     :class="{ 'border-white': dropdownsVisible.envia }">
@@ -133,7 +157,7 @@
                 </div>
             </div>
 
-            <!-- SERVICIOS DROPDOWN -->
+            <!-- Servicios -->
             <div class="relative" @mouseenter="mostrarDropdown('servicios')" @mouseleave="ocultarDropdown('servicios')">
                 <button class="text-white font-medium border-b-2 border-transparent transition duration-300 py-1"
                     :class="{ 'border-white': dropdownsVisible.servicios }">
@@ -156,7 +180,7 @@
                 </div>
             </div>
 
-            <!-- BENEFICIOS DROPDOWN -->
+            <!-- Beneficios -->
             <div class="relative" @mouseenter="mostrarDropdown('beneficios')"
                 @mouseleave="ocultarDropdown('beneficios')">
                 <button class="text-white font-medium border-b-2 border-transparent transition duration-300 py-1"
@@ -180,15 +204,14 @@
                 </div>
             </div>
 
-            <!-- INICIAR SESIÓN DESKTOP -->
+            <!-- Acciones -->
             <router-link to="/sesion" @touchstart.native="irASesion"
-                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1 cursor-pointer inline-block">
+                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1">
                 Iniciar sesión
             </router-link>
 
-            <!-- REGÍSTRATE DESKTOP -->
             <router-link to="/register" @touchstart.native="irARegistro"
-                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1 cursor-pointer inline-block">
+                class="text-white font-medium border-b-2 border-transparent hover:border-white transition duration-300 py-1">
                 Regístrate
             </router-link>
         </div>
@@ -205,7 +228,6 @@
 
     const router = useRouter()
 
-    // Dropdowns desktop
     const dropdownsVisible = ref({
         envia: false,
         servicios: false,
@@ -216,8 +238,6 @@
         servicios: false,
         beneficios: false
     })
-
-    // Menú móvil
     const mobileMenuOpen = ref(false)
     const timeouts = ref({})
 

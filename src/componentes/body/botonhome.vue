@@ -39,8 +39,7 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll)
-    this.handleScroll() // Verificar posición inicial
-    // Mostrar el botón siempre
+    this.handleScroll()
     this.showButton = true
   },
   beforeUnmount() {
@@ -48,21 +47,15 @@ export default {
   },
   methods: {
     handleScroll() {
-      // Opcional: mantener la lógica de scroll para otras páginas
-      // this.showButton = window.scrollY > 300
-      
-      // O simplemente mantener siempre visible:
       this.showButton = true
     },
     goToHome() {
-      // Si estamos en la página Home, hacer scroll al inicio
       if (this.$route.name === 'Home') {
         window.scrollTo({
           top: 0,
           behavior: 'smooth'
         })
       } else {
-        // Si estamos en otra página, redirigir a Home
         this.$router.push('/')
       }
     }
@@ -89,54 +82,27 @@ export default {
   transition: all 0.3s ease;
   z-index: 1000;
 }
-
 .boton-home:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   background: rgba(215, 82, 35, 1);
 }
-
 .boton-home:active {
   transform: translateY(-1px) scale(1.02);
 }
-
 .boton-home svg {
   width: 24px;
   height: 24px;
   transition: transform 0.2s ease;
 }
-
 .boton-home:hover svg {
   transform: scale(1.1);
 }
-
-/* Animación de aparición/desaparición */
-.fade-enter-active, .fade-leave-active {
-  transition: all 0.3s ease;
-}
-
-.fade-enter-from {
-  opacity: 0;
-  transform: translateY(20px) scale(0.8);
-}
-
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(20px) scale(0.8);
-}
-
-/* Responsive */
+.fade-enter-active, .fade-leave-active { transition: all 0.3s ease; }
+.fade-enter-from { opacity: 0; transform: translateY(20px) scale(0.8); }
+.fade-leave-to { opacity: 0; transform: translateY(20px) scale(0.8); }
 @media (max-width: 768px) {
-  .boton-home {
-    bottom: 15px;
-    right: 15px;
-    width: 50px;
-    height: 50px;
-  }
-  
-  .boton-home svg {
-    width: 20px;
-    height: 20px;
-  }
+  .boton-home { bottom: 15px; right: 15px; width: 50px; height: 50px; }
+  .boton-home svg { width: 20px; height: 20px; }
 }
 </style>

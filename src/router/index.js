@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../componentes/home.vue'
 import HacerEnvio from '../componentes/redireccionar/hacerenvio.vue'
-import Register from '../componentes/redireccionar/register.vue' // ← Agrega esta línea
+import Register from '../componentes/redireccionar/register.vue'
 import Sesion from '@/componentes/redireccionar/sesion.vue'
 import Separador1Noticias from '../componentes/redireccionar/separador1Noticias.vue'
 
@@ -17,26 +17,39 @@ const routes = [
     component: HacerEnvio
   },
   {
-    path: '/register', // ← Agrega esta ruta
+    path: '/register',
     name: 'Register',
     component: Register
   },
   {
-    path: '/sesion', // ← Agrega esta ruta
+    path: '/sesion',
     name: 'Sesion',
-    component: Sesion 
+    component: Sesion
   },
   {
     path: '/separador1-noticias',
     name: 'Separador1Noticias',
     component: Separador1Noticias,
-    meta: { hideHeader: true } // 👈 aquí
+    meta: { hideHeader: true }
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  // 📌 Controla el scroll siempre que navegas
+  scrollBehavior(to, from, savedPosition) {
+    // Si hay ancla (#id), ve a ese elemento (header de noticias, etc.)
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
+    // Si vienes con back/forward del navegador:
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Por defecto, siempre arriba
+    return { left: 0, top: 0, behavior: 'smooth' }
+  }
 })
 
 export default router
