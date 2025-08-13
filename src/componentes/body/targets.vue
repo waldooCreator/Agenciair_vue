@@ -2,23 +2,33 @@
     <div class="bg-[rgba(241,241,240,1)]">
         <div class="py-16 max-w-7xl mx-auto px-8">
 
-            <!-- TÍTULO PRINCIPAL (responsive) -->
-            <div class="text-center mb-12">
-                <h2
-                  class="text-2xl sm:text-4xl font-bold text-gray-800 uppercase tracking-normal sm:tracking-wide leading-snug sm:leading-tight break-words px-2">
-                    — SOMOS EXPERTOS EN LOGÍSTICA | CONOCE NUESTROS PORTALES —
+            <!-- TÍTULO PRINCIPAL -->
+            <div class="text-center mb-20 max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug">
+                    SOMOS EXPERTOS EN LOGÍSTICA
+                </h2>
+
+                <!-- Separador estético -->
+                <div class="flex justify-center my-3">
+                    <span class="block w-24 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></span>
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug">
+                    CONOCE NUESTROS PORTALES
                 </h2>
             </div>
 
+
             <!-- CONTENEDOR DE TARGETS CON GRID -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            <div class=" mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
 
                 <!-- TARJETA GENÉRICA -->
-                <div
-                  v-for="(item, key) in servicesData" :key="key"
-                  @click="handleTargetClick(key)"
-                  class="relative w-full h-64 sm:h-72 md:h-80 lg:h-80 xl:h-80
-                         rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer group">
+                <div v-for="(item, key) in servicesData" :key="key" @click="handleTargetClick(key)"
+                    class="relative w-full
+                 aspect-[3/4] sm:aspect-[3/4] md:aspect-[2/3] lg:aspect-[2/3] xl:aspect-[7/10]
+                 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl
+                 transition-all duration-300 transform hover:scale-105
+                 cursor-pointer group">
 
                     <!-- Imagen -->
                     <div class="absolute inset-0">
@@ -31,9 +41,8 @@
                     <!-- Contenido -->
                     <div class="absolute inset-0 p-6 flex flex-col justify-between text-white">
                         <div>
-                            <!-- Título de tarjeta (responsive) -->
                             <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wide mb-2">
-                                {{ item.title }}
+                                {{ item . title }}
                             </h3>
                         </div>
                         <div class="self-end">
@@ -55,26 +64,26 @@
 </template>
 
 <script setup>
-const servicesData = {
-    courier: {
-        title: "Servicios",
-        image: "/images/agg-Pica.png"
-    },
-    transporte: {
-        title: "TRANSPORTE",
-        image: "/images/neta.png"
-    },
-    cargaInternacional: {
-        title: "CARGA INTERNACIONAL",
-        image: "/images/avion.png"
-    },
-    logisticaIntegral: {
-        title: "LOGÍSTICA INTEGRAL",
-        image: "/images/Gemini_Generated_Image_25c4dq25c4dq25c4.png"
+    const servicesData = {
+        courier: {
+            title: "Servicios",
+            image: "/images/agg-Pica.png"
+        },
+        transporte: {
+            title: "TRANSPORTE",
+            image: "/images/neta.png"
+        },
+        cargaInternacional: {
+            title: "CARGA INTERNACIONAL",
+            image: "/images/avion.png"
+        },
+        logisticaIntegral: {
+            title: "LOGÍSTICA INTEGRAL",
+            image: "/images/Gemini_Generated_Image_25c4dq25c4dq25c4.png"
+        }
     }
-}
 
-function handleTargetClick(targetType) {
-    console.log(`Clicked on ${targetType}`)
-}
+    function handleTargetClick(targetType) {
+        console.log(`Clicked on ${targetType}`)
+    }
 </script>

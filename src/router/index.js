@@ -4,6 +4,7 @@ import HacerEnvio from '../componentes/redireccionar/hacerenvio.vue'
 import Register from '../componentes/redireccionar/register.vue'
 import Sesion from '@/componentes/redireccionar/sesion.vue'
 import Separador1Noticias from '../componentes/redireccionar/separador1Noticias.vue'
+import terminosCondiciones from '@/componentes/redireccionar/terminos-condiciones.vue'  
 
 const routes = [
   {
@@ -30,6 +31,12 @@ const routes = [
     path: '/separador1-noticias',
     name: 'Separador1Noticias',
     component: Separador1Noticias,
+    meta: { hideHeader: true }
+  },
+  {
+    path: '/terminos-condiciones',
+    name: 'TerminosCondiciones',
+    component: terminosCondiciones,
     meta: { hideHeader: true }
   }
 ]

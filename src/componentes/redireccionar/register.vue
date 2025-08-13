@@ -11,17 +11,13 @@
                 <!-- Nombre y Apellidos -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Nombre
-                        </label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
                         <input v-model="formData.nombre" type="text" placeholder="Ingrese su nombre"
                             class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                             required>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Apellidos
-                        </label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Apellidos</label>
                         <input v-model="formData.apellidos" type="text" placeholder="Ingrese sus apellidos"
                             class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                             required>
@@ -31,9 +27,7 @@
                 <!-- Tipo de documento y Número -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Tipo de documento
-                        </label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de documento</label>
                         <div class="relative">
                             <select v-model="formData.tipoDocumento"
                                 class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 bg-white appearance-none"
@@ -53,9 +47,7 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">
-                            Número de documento
-                        </label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Número de documento</label>
                         <input v-model="formData.numeroDocumento" type="text" placeholder="Número de documento"
                             class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                             required>
@@ -64,9 +56,7 @@
 
                 <!-- Correo electrónico -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Correo electrónico
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Correo electrónico</label>
                     <input v-model="formData.email" type="email" placeholder="correo@ejemplo.com"
                         class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                         required>
@@ -74,9 +64,7 @@
 
                 <!-- Teléfono -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Teléfono
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
                     <input v-model="formData.telefono" type="tel" placeholder="Número de teléfono"
                         class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                         required>
@@ -84,9 +72,7 @@
 
                 <!-- Dirección -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Dirección
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Dirección</label>
                     <input v-model="formData.direccion" type="text" placeholder="Dirección completa"
                         class="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[rgba(235,102,55,255)] focus:border-transparent transition-all duration-300 text-gray-700 placeholder-gray-400"
                         required>
@@ -94,9 +80,7 @@
 
                 <!-- Fecha de nacimiento -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">
-                        Fecha de nacimiento
-                    </label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Fecha de nacimiento</label>
                     <div class="relative">
                         <input v-model="fechaFormateada" @click="mostrarCalendario = !mostrarCalendario" type="text"
                             placeholder="Seleccione su fecha de nacimiento" readonly
@@ -133,24 +117,19 @@
                                     </button>
                                 </div>
 
-                                <!-- Input de año mejorado -->
+                                <!-- Input de año -->
                                 <div class="flex items-center justify-center mt-3 gap-3 px-3">
-                                  <div class="relative w-32">
-                                    <input 
-                                      v-model.number="añoInput"
-                                      @input="validarYCambiarAño"
-                                      @blur="validarAñoCompleto"
-                                      type="number"
-                                      :min="añoMinimo"
-                                      :max="añoMaximo"
-                                      placeholder="Año"
-                                      class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-lg text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-40 placeholder-white placeholder-opacity-70 text-center"
-                                      :class="{'border-2 border-red-300': errorAño}"
-                                    >
-                                    <div v-if="errorAño" class="absolute top-full left-0 right-0 mt-1 text-xs text-red-200 text-center bg-red-500 bg-opacity-20 rounded px-2 py-1">
-                                      {{ mensajeErrorAño }}
+                                    <div class="relative w-32">
+                                        <input v-model.number="añoInput" @input="validarYCambiarAño"
+                                            @blur="validarAñoCompleto" type="number" :min="añoMinimo"
+                                            :max="añoMaximo" placeholder="Año"
+                                            class="w-full px-3 py-2 bg-white bg-opacity-20 rounded-lg text-white text-sm font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-40 placeholder-white placeholder-opacity-70 text-center"
+                                            :class="{ 'border-2 border-red-300': errorAño }">
+                                        <div v-if="errorAño"
+                                            class="absolute top-full left-0 right-0 mt-1 text-xs text-red-200 text-center bg-red-500 bg-opacity-20 rounded px-2 py-1">
+                                            {{ mensajeErrorAño }}
+                                        </div>
                                     </div>
-                                  </div>
                                 </div>
                             </div>
 
@@ -175,11 +154,11 @@
                                         'bg-[rgba(235,102,55,255)] text-white font-semibold shadow-lg' : '',
                                         !dia.esDelMes ? 'opacity-30' : ''
                                     ]">
-                                    {{ dia.numero }}
+                                    {{ dia . numero }}
                                 </button>
                             </div>
 
-                            <!-- Footer del calendario -->
+                            <!-- Footer calendario -->
                             <div class="border-t bg-gray-50 p-3 flex justify-end space-x-2">
                                 <button @click="limpiarFecha" type="button"
                                     class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors duration-200">
@@ -201,8 +180,11 @@
                         required>
                     <label for="terminos" class="text-sm text-gray-700">
                         Acepto los
-                        <a href="#" class="text-[rgba(235,102,55,255)] hover:underline font-medium">términos y
-                            condiciones</a>
+                        <!-- 🔗 ahora es un router-link a la ruta de T&C -->
+                        <router-link to="/terminos-condiciones"
+                            class="text-[rgb(248,112,62)] hover:underline font-medium">
+                            términos y condiciones
+                        </router-link>
                         y la
                         <a href="#" class="text-[rgba(235,102,55,255)] hover:underline font-medium">política de
                             privacidad</a>
@@ -282,10 +264,10 @@
                 return this.meses[this.mesActual]
             },
             añoMinimo() {
-                return new Date().getFullYear() - 90 // Máximo 90 años de edad
+                return new Date().getFullYear() - 90
             },
             añoMaximo() {
-                return new Date().getFullYear() - 18 // Mínimo 18 años de edad
+                return new Date().getFullYear() - 18
             },
             fechaFormateada() {
                 if (!this.fechaSeleccionada) return ''
@@ -303,7 +285,7 @@
                 const ultimoDia = new Date(this.añoActual, this.mesActual + 1, 0).getDate()
                 const hoy = new Date()
 
-                // Días del mes anterior
+                // del mes anterior
                 const mesAnterior = new Date(this.añoActual, this.mesActual, 0).getDate()
                 for (let i = primerDia - 1; i >= 0; i--) {
                     dias.push({
@@ -315,7 +297,7 @@
                     })
                 }
 
-                // Días del mes actual
+                // mes actual
                 for (let dia = 1; dia <= ultimoDia; dia++) {
                     const fechaDia = new Date(this.añoActual, this.mesActual, dia)
                     dias.push({
@@ -323,12 +305,12 @@
                         fecha: fechaDia,
                         esDelMes: true,
                         esHoy: fechaDia.toDateString() === hoy.toDateString(),
-                        estaSeleccionado: this.fechaSeleccionada && fechaDia.toDateString() === this
-                            .fechaSeleccionada.toDateString()
+                        estaSeleccionado: this.fechaSeleccionada &&
+                            fechaDia.toDateString() === this.fechaSeleccionada.toDateString()
                     })
                 }
 
-                // Días del mes siguiente para completar la grilla
+                // siguiente
                 const diasRestantes = 42 - dias.length
                 for (let dia = 1; dia <= diasRestantes; dia++) {
                     dias.push({
@@ -346,17 +328,15 @@
             validarYCambiarAño() {
                 this.errorAño = false
                 this.mensajeErrorAño = ''
-
                 if (this.añoInput && this.añoInput.toString().length === 4) {
                     if (this.añoInput < this.añoMinimo) {
-                        this.errorAño = true
+                        this.errorAño = true;
                         this.mensajeErrorAño = 'Edad máxima: 90 años'
                     } else if (this.añoInput > this.añoMaximo) {
-                        this.errorAño = true
+                        this.errorAño = true;
                         this.mensajeErrorAño = 'Debe ser mayor de 18 años'
                     } else {
                         this.añoActual = this.añoInput
-                        // Ajustar el mes si es necesario
                         if (this.mesActual > 11) this.mesActual = 11
                         if (this.mesActual < 0) this.mesActual = 0
                     }
@@ -364,34 +344,28 @@
             },
             validarAñoCompleto() {
                 if (!this.añoInput || this.añoInput.toString().length !== 4) {
-                    this.errorAño = true
-                    this.mensajeErrorAño = 'Ingrese un año válido (4 dígitos)'
+                    this.errorAño = true;
+                    this.mensajeErrorAño = 'Ingrese un año válido (4 dígitos)';
                     return
                 }
-                
-                if (this.añoInput < this.añoMinimo || this.añoInput > this.añoMaximo) {
-                    // El error ya se muestra en validarYCambiarAño
-                    return
-                }
-
-                this.errorAño = false
+                if (this.añoInput < this.añoMinimo || this.añoInput > this.añoMaximo) return
+                this.errorAño = false;
                 this.mensajeErrorAño = ''
             },
             cambiarMes(direccion) {
                 this.mesActual += direccion
                 if (this.mesActual < 0) {
-                    this.mesActual = 11
-                    this.añoActual--
+                    this.mesActual = 11;
+                    this.añoActual--;
                     this.añoInput = this.añoActual
                 } else if (this.mesActual > 11) {
-                    this.mesActual = 0
-                    this.añoActual++
+                    this.mesActual = 0;
+                    this.añoActual++;
                     this.añoInput = this.añoActual
                 }
             },
             seleccionarFecha(dia) {
                 if (!dia.esDelMes) return
-
                 this.fechaSeleccionada = dia.fecha
                 this.formData.fechaNacimiento = dia.fecha.toISOString().split('T')[0]
                 this.mostrarCalendario = false
@@ -403,37 +377,24 @@
             },
             async handleSubmit() {
                 this.isSubmitting = true
-
                 try {
-                    // Validar que el usuario sea mayor de edad y menor de 90 años
                     const validacionEdad = this.validarEdadCompleta()
                     if (!validacionEdad.valida) {
-                        alert(validacionEdad.mensaje)
+                        alert(validacionEdad.mensaje);
                         return
                     }
 
-                    // Simular procesamiento
-                    await new Promise(resolve => setTimeout(resolve, 2000))
-
+                    await new Promise(r => setTimeout(r, 2000))
                     console.log('Datos de registro:', this.formData)
-
-                    // Aquí puedes agregar tu lógica de registro
-                    // Ejemplo: await this.$http.post('/api/register', this.formData)
-
-                    // Mostrar mensaje de éxito
                     alert('¡Cuenta creada exitosamente!')
-
-                    // Redirigir o limpiar formulario
                     this.resetForm()
-
-                } catch (error) {
-                    console.error('Error al crear cuenta:', error)
+                } catch (e) {
+                    console.error('Error al crear cuenta:', e)
                     alert('Error al crear la cuenta. Intente nuevamente.')
                 } finally {
                     this.isSubmitting = false
                 }
             },
-
             validarEdadCompleta() {
                 if (!this.formData.fechaNacimiento) {
                     return {
@@ -441,39 +402,28 @@
                         mensaje: 'Debe seleccionar su fecha de nacimiento'
                     }
                 }
-
                 const fechaNacimiento = new Date(this.formData.fechaNacimiento)
                 const hoy = new Date()
-                
-                // Calcular la edad exacta
                 let edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
                 const mesActual = hoy.getMonth()
                 const mesNacimiento = fechaNacimiento.getMonth()
-
-                if (mesActual < mesNacimiento || (mesActual === mesNacimiento && hoy.getDate() < fechaNacimiento.getDate())) {
+                if (mesActual < mesNacimiento || (mesActual === mesNacimiento && hoy.getDate() < fechaNacimiento
+                        .getDate())) {
                     edad = edad - 1
                 }
-
-                if (edad < 18) {
-                    return {
-                        valida: false,
-                        mensaje: 'Debe ser mayor de 18 años para registrarse'
-                    }
+                if (edad < 18) return {
+                    valida: false,
+                    mensaje: 'Debe ser mayor de 18 años para registrarse'
                 }
-
-                if (edad > 90) {
-                    return {
-                        valida: false,
-                        mensaje: 'La edad máxima permitida es de 90 años'
-                    }
+                if (edad > 90) return {
+                    valida: false,
+                    mensaje: 'La edad máxima permitida es de 90 años'
                 }
-
                 return {
                     valida: true,
                     mensaje: ''
                 }
             },
-
             resetForm() {
                 this.formData = {
                     nombre: '',
@@ -494,7 +444,13 @@
             }
         },
         mounted() {
-            // Cerrar calendario al hacer clic fuera
+            // ✅ Marcar automáticamente la casilla si vienes desde /terminos-condiciones?aceptaTerminos=1
+            const q = this.$route.query
+            if (q.aceptaTerminos === '1' || q.terminos === 'true' || q.accepted === 'true') {
+                this.formData.aceptaTerminos = true
+            }
+
+            // Cerrar calendario al hacer clic fuera (tu lógica original)
             document.addEventListener('click', (e) => {
                 if (!this.$el.contains(e.target)) {
                     this.mostrarCalendario = false
@@ -505,31 +461,26 @@
 </script>
 
 <style scoped>
-    /* Animación para el botón */
     .transform {
         transition: transform 0.2s ease-in-out;
     }
 
-    /* Estados de focus mejorados */
     input:focus,
     select:focus {
         outline: none;
         box-shadow: 0 0 0 3px rgba(235, 102, 55, 0.1);
     }
 
-    /* Hover effects para inputs */
     input:hover,
     select:hover {
         border-color: rgba(235, 102, 55, 0.3);
     }
 
-    /* Estilos para el placeholder */
     input::placeholder {
         color: #9CA3AF;
         opacity: 1;
     }
 
-    /* Estilos específicos para el input de año */
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -540,30 +491,25 @@
         -moz-appearance: textfield;
     }
 
-    /* Estilos para el select */
     select {
         background-image: none;
     }
 
-    /* Animación suave para el botón deshabilitado */
     button:disabled {
         transform: none !important;
     }
 
-    /* Estilos para checkbox */
     input[type="checkbox"]:checked {
         background-color: rgba(235, 102, 55, 255);
         border-color: rgba(235, 102, 55, 255);
     }
 
-    /* Mejora visual en dispositivos móviles */
     @media (max-width: 640px) {
         .grid-cols-2 {
             grid-template-columns: 1fr;
         }
     }
 
-    /* Animación de entrada para el calendario */
     @keyframes slideDown {
         from {
             opacity: 0;
@@ -580,18 +526,15 @@
         animation: slideDown 0.2s ease-out;
     }
 
-    /* Efectos hover para los días del calendario */
     .calendar-day:hover {
         transform: scale(1.05);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Transiciones suaves para los botones del calendario */
     button {
         transition: all 0.2s ease-in-out;
     }
 
-    /* Sombra personalizada para el calendario */
     .shadow-2xl {
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }

@@ -2,7 +2,9 @@
   <div
     class="relative w-full mx-auto z-10 transition-all duration-300"
     :class="{ 'max-w-md': isDesktop, 'max-w-full': !isDesktop }"
+    ref="root"
   >
+    <!-- Barra compacta (toggle) -->
     <div
       class="flex items-center justify-between bg-white rounded-full shadow-md px-4 py-3 cursor-pointer hover:shadow-lg transition-shadow"
       @click="toggleExpanded"
@@ -17,6 +19,7 @@
       </svg>
     </div>
 
+    <!-- Panel -->
     <div
       v-show="isExpanded"
       class="absolute top-full left-0 w-full mt-2 transform transition-all duration-300 ease-in-out z-30"
@@ -36,6 +39,7 @@
               class="w-full bg-gray-50 text-gray-700 text-sm px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[rgb(235,102,55)] focus:border-transparent"
             />
           </div>
+
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Ciudad de destino:</label>
             <input
@@ -43,6 +47,7 @@
               class="w-full bg-gray-50 text-gray-700 text-sm px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[rgb(235,102,55)] focus:border-transparent"
             />
           </div>
+
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">Dimensiones del paquete:</label>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -65,6 +70,7 @@
             </div>
           </div>
         </div>
+
         <button
           @click="cotizar"
           class="w-full mt-4 bg-[rgb(235,102,55)] hover:bg-[rgba(235,102,55,0.9)] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
@@ -78,7 +84,10 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, defineEmits } from 'vue'
+
 const emit = defineEmits(['abrio', 'cerro'])
+
+const root = ref(null)  // contenedor raíz para detectar click-outside
 const isExpanded = ref(false)
 const origen = ref('')
 const destino = ref('')
@@ -89,13 +98,33 @@ const largo = ref('')
 const isDesktop = ref(false)
 
 const updateViewport = () => { isDesktop.value = window.innerWidth >= 768 }
-onMounted(() => { updateViewport(); window.addEventListener('resize', updateViewport) })
-onUnmounted(() => { window.removeEventListener('resize', updateViewport) })
+
+onMounted(() => {
+  updateViewport()
+  window.addEventListener('resize', updateViewport)
+
+  // Cierre al hacer click fuera del componente
+  document.addEventListener('click', onClickOutside, true)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateViewport)
+  document.removeEventListener('click', onClickOutside, true)
+})
 
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value
   if (isExpanded.value) emit('abrio'); else emit('cerro')
 }
+
+const onClickOutside = (e) => {
+  if (!isExpanded.value) return
+  if (root.value && !root.value.contains(e.target)) {
+    isExpanded.value = false
+    emit('cerro')
+  }
+}
+
 const cotizar = () => {
   if (origen.value.trim() && destino.value.trim() && peso.value && altura.value && ancho.value && largo.value) {
     console.log('Cotizando envío:', {
