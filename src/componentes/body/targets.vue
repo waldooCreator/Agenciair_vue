@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-[rgba(241,241,240,1)]">
+    <div class="bg-[rgba(241,241,240,1)] font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
         <div class="py-16 max-w-7xl mx-auto px-8">
 
             <!-- TÍTULO PRINCIPAL -->
             <div class="text-center mb-20 max-w-5xl mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px]">
                     SOMOS EXPERTOS EN LOGÍSTICA
                 </h2>
 
@@ -13,7 +13,7 @@
                     <span class="block w-24 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></span>
                 </div>
 
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px]">
                     CONOCE NUESTROS PORTALES
                 </h2>
             </div>
@@ -41,7 +41,7 @@
                     <!-- Contenido -->
                     <div class="absolute inset-0 p-6 flex flex-col justify-between text-white">
                         <div>
-                            <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wide mb-2">
+                            <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wide mb-2 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
                                 {{ item . title }}
                             </h3>
                         </div>

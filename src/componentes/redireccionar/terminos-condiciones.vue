@@ -142,7 +142,7 @@
                 </h3>
                 
                 <p class="text-base md:text-lg text-[rgb(58,26,29)] mb-8 max-w-lg mx-auto">
-                  Si continúas, te pediremos crear tu cuenta y comenzar a disfrutar de nuestros servicios.
+                  Deberas aceptar estos términos para continuar creando tu cuenta y utilizar nuestros servicios.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">

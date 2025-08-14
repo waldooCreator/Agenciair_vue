@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-[rgba(235,102,55,255)] rounded-2xl overflow-hidden shadow-lg">
+    <div class="w-full bg-[rgba(235,102,55,255)] rounded-2xl overflow-hidden shadow-lg font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
         <div class="flex items-center min-h-[200px] p-8 lg:p-12">
             <!-- Imagen a la izquierda -->
             <div class="hidden md:block md:w-1/3 lg:w-1/4 mr-8">
@@ -29,17 +29,17 @@
             <!-- Contenido principal -->
             <div class="flex-1">
                 <div class="text-white">
-                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 leading-tight">
+                    <h2 class="text-2xl lg:text-3xl font-bold mb-4 leading-tight text-[18px] sm:text-[22px] md:text-[26px] lg:text-[30px]">
                         Sortear los Últimos Cambios Arancelarios
                     </h2>
-                    <p class="text-lg lg:text-xl mb-6 leading-relaxed opacity-95 max-w-2xl">
+                    <p class="text-lg lg:text-xl mb-6 leading-relaxed opacity-95 max-w-2xl text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
                         El comercio a nivel mundial es cada vez más difícil debido a los nuevos aranceles de Estados
                         Unidos y a las diversas medidas de reciprocidad que surgen entre países e industrias. En Agencia
                         IR, estamos comprometidos con ayudarte a sortear estos cambios.
                     </p>
                     <!-- En separador1.vue -->
                     <router-link to="/separador1-noticias" role="button"
-                        class="inline-block bg-white text-orange-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300">
+                        class="inline-block bg-white text-orange-600 font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
                         Explore Nuestras Soluciones
                     </router-link>
 

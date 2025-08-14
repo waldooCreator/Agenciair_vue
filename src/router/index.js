@@ -5,6 +5,7 @@ import Register from '../componentes/redireccionar/register.vue'
 import Sesion from '@/componentes/redireccionar/sesion.vue'
 import Separador1Noticias from '../componentes/redireccionar/separador1Noticias.vue'
 import terminosCondiciones from '@/componentes/redireccionar/terminos-condiciones.vue'  
+import CotizarInfo from '@/componentes/redireccionar/cotizar-info.vue'
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: '/sesion',
     name: 'Sesion',
     component: Sesion
+  },
+  {
+    path: '/cotizar-info',
+    name: 'CotizarInfo',
+    component: CotizarInfo,
   },
   {
     path: '/separador1-noticias',

@@ -1,20 +1,19 @@
 <template>
-    <section class="w-full bg-[#EB6637] py-10 lg:py-16 px-6 lg:px-12 rounded-2xl overflow-hidden shadow-lg">
-        <div class="flex flex-col lg:flex-row items-center min-h-[200px] p-8 lg:p-12 gap-12">
+    <section class="w-full bg-[#EB6637] py-10 lg:py-16 px-6 lg:px-12 rounded-2xl overflow-hidden shadow-lg font-sans antialiased">
+        <div class="flex flex-col lg:flex-row items-center justify-center min-h-[200px] p-8 lg:p-12 gap-12">
 
             <!-- Contenido de texto -->
-            <div class="text-white space-y-6 lg:pr-8 flex-1">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <div class="text-white space-y-6 lg:pr-8 flex-1 text-center lg:text-left">
+                <h1 class="font-bold leading-tight text-[22px] sm:text-[28px] md:text-[36px] lg:text-[44px]">
                     {{ title }}
                 </h1>
-                <p class="text-base lg:text-lg text-white/90 leading-relaxed">
+                <p class="leading-relaxed text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] opacity-90">
                     {{ subtitle }}
                 </p>
-
                 <!-- Botón de acción -->
                 <div class="pt-4">
                     <a :href="buttonUrl"
-                        class="inline-flex items-center bg-white text-[#EB6637] px-6 py-3 rounded-full font-bold text-base hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+                        class="inline-flex items-center bg-white text-[#EB6637] px-6 py-3 rounded-full font-bold text-[15px] sm:text-[17px] md:text-[18px] lg:text-[20px] hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
                         {{ buttonText }}
                         <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -26,7 +25,7 @@
                 <!-- Características adicionales -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6" v-if="features && features.length > 0">
                     <div v-for="(feature, index) in features" :key="index"
-                        class="flex items-center space-x-2 text-white/90 text-sm lg:text-base">
+                        class="flex items-center justify-center lg:justify-start space-x-2 text-white/90 text-[15px] sm:text-[17px] md:text-[18px] lg:text-[20px]">
                         <div class="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                         <span>{{ feature }}</span>
                     </div>
@@ -35,72 +34,33 @@
 
             <!-- Mockup de teléfonos -->
             <div class="relative flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-3 flex-1">
-                <!-- Teléfono 1 con imagen completa -->
-                 <div class="z-10">
-                    <div
-                        class="w-32 sm:w-36 lg:w-40 h-64 sm:h-72 lg:h-80 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
-
-                        <!-- Parte superior del teléfono -->
-                        <div
-                            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20">
-                        </div>
-
-                        <!-- Imagen cubriendo toda la pantalla del teléfono -->
+                <!-- Teléfono 1 -->
+                <div class="z-10">
+                    <div class="w-32 sm:w-36 lg:w-40 h-64 sm:h-72 lg:h-80 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20"></div>
                         <img src="/public/images/ig.png" alt="Imagen WhatsApp"
                             class="absolute inset-0 w-full h-full object-cover" />
-
-                        <!-- Parte inferior del teléfono -->
-                        <div
-                            class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20">
-                        </div>
-
+                        <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20"></div>
                     </div>
                 </div>
-
 
                 <!-- Teléfono 2 -->
-
                 <div class="z-10">
-                    <div
-                        class="w-36 sm:w-40 lg:w-44 h-72 sm:h-80 lg:h-88 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
-
-                        <!-- Parte superior del teléfono -->
-                        <div
-                            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20">
-                        </div>
-
-                        <!-- Imagen cubriendo toda la pantalla del teléfono -->
+                    <div class="w-36 sm:w-40 lg:w-44 h-72 sm:h-80 lg:h-88 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20"></div>
                         <img src="/public/images/wasa.png" alt="Imagen WhatsApp"
                             class="absolute inset-0 w-full h-full object-cover" />
-
-                        <!-- Parte inferior del teléfono -->
-                        <div
-                            class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20">
-                        </div>
-
+                        <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20"></div>
                     </div>
                 </div>
-
 
                 <!-- Teléfono 3 -->
                 <div class="z-10">
-                    <div
-                        class="w-32 sm:w-36 lg:w-40 h-64 sm:h-72 lg:h-80 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
-
-                        <!-- Parte superior del teléfono -->
-                        <div
-                            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20">
-                        </div>
-
-                        <!-- Imagen cubriendo toda la pantalla del teléfono -->
+                    <div class="w-32 sm:w-36 lg:w-40 h-64 sm:h-72 lg:h-80 bg-black rounded-[2rem] shadow-2xl overflow-hidden border-4 border-gray-800 relative">
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-5 bg-black rounded-b-2xl z-20"></div>
                         <img src="/public/images/tik.png" alt="Imagen WhatsApp"
                             class="absolute inset-0 w-full h-full object-cover" />
-
-                        <!-- Parte inferior del teléfono -->
-                        <div
-                            class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20">
-                        </div>
-
+                        <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-8 sm:w-10 h-1 bg-white rounded-full z-20"></div>
                     </div>
                 </div>
             </div>
@@ -108,6 +68,7 @@
         </div>
     </section>
 </template>
+
 
 
 <script setup>
