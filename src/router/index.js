@@ -6,6 +6,7 @@ import Sesion from '@/componentes/redireccionar/sesion.vue'
 import Separador1Noticias from '../componentes/redireccionar/separador1Noticias.vue'
 import terminosCondiciones from '@/componentes/redireccionar/terminos-condiciones.vue'  
 import CotizarInfo from '@/componentes/redireccionar/cotizar-info.vue'
+import Mapa from '@/componentes/redireccionar/mapa.vue'
 
 const routes = [
   {
@@ -43,6 +44,12 @@ const routes = [
     path: '/terminos-condiciones',
     name: 'TerminosCondiciones',
     component: terminosCondiciones,
+    meta: { hideHeader: true }
+  },
+  {
+    path: '/mapa',
+    name: 'Mapa',
+    component: Mapa,
     meta: { hideHeader: true }
   }
 ]

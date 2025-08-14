@@ -21,7 +21,7 @@
 export default {
   name: 'BotonSubir',
   props: {
-    threshold: { type: Number, default: 250 },
+    threshold: { type: Number, default: 100 },
     onlyHome: { type: Boolean, default: true }
   },
   data() {

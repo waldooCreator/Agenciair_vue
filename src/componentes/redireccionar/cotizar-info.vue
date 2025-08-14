@@ -13,7 +13,7 @@
                             <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 012 2z" />
                             </svg>
                             <span class="text-sm font-bold text-[rgb(58,26,29)] tracking-wider uppercase">
                                 Cotizador
@@ -57,21 +57,21 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                         </svg>
-                                        <span class="text-sm md:text-base">{{ tab . label }}</span>
+                                        <span class="text-sm md:text-base">{{ tab.label }}</span>
                                     </button>
                                 </div>
                             </div>
 
                             <div class="p-6 md:p-8 lg:p-10">
                                 <!-- Locations -->
-                                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
                                     <div>
                                         <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
                                             Lugar de origen
                                         </label>
                                         <input type="text" v-model="formData.origen"
                                             placeholder="Ingrese ciudad de origen"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)]" />
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
                                     </div>
 
                                     <div>
@@ -80,7 +80,28 @@
                                         </label>
                                         <input type="text" v-model="formData.destino"
                                             placeholder="Ingrese ciudad de destino"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)]" />
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                    </div>
+                                </div>
+
+                                <!-- Códigos Postales -->
+                                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
+                                            Código postal de origen
+                                        </label>
+                                        <input type="text" v-model="formData.codigoPostalOrigen"
+                                            placeholder="Ingrese código postal de origen"
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
+                                            Código postal de destino
+                                        </label>
+                                        <input type="text" v-model="formData.codigoPostalDestino"
+                                            placeholder="Ingrese código postal de destino"
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
                                     </div>
                                 </div>
 
@@ -115,7 +136,7 @@
                                             Cantidad
                                         </label>
                                         <input type="number" v-model="formData.cantidad"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)]" />
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
                                     </div>
 
                                     <div>
@@ -124,7 +145,7 @@
                                         </label>
                                         <div class="relative">
                                             <input type="number" v-model="formData.peso"
-                                                class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)] pr-12" />
+                                                class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] pr-12" />
                                             <span
                                                 class="absolute right-4 top-1/2 transform -translate-y-1/2 text-[rgb(248,112,62)] font-bold text-sm">
                                                 kg
@@ -138,11 +159,11 @@
                                         </label>
                                         <div class="grid grid-cols-3 gap-3">
                                             <input type="number" v-model="formData.largo" placeholder="Largo"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)] text-sm" />
+                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
                                             <input type="number" v-model="formData.ancho" placeholder="Ancho"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)] text-sm" />
+                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
                                             <input type="number" v-model="formData.alto" placeholder="Alto"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)] text-sm" />
+                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
                                         </div>
                                     </div>
                                 </div>
@@ -160,20 +181,17 @@
                                             <div class="space-y-3">
                                                 <div class="flex justify-between items-center">
                                                     <span class="text-[rgb(58,26,29)]">Valor de envío</span>
-                                                    <span class="font-bold text-[rgb(58,26,29)]">$
-                                                        {{ valorEnvio }}</span>
+                                                    <span class="font-bold text-[rgb(58,26,29)]">$ {{ valorEnvio }}</span>
                                                 </div>
                                                 <div class="flex justify-between items-center">
                                                     <span class="text-[rgb(58,26,29)]">Seguro del envío</span>
-                                                    <span class="font-bold text-[rgb(58,26,29)]">$
-                                                        {{ seguroEnvio }}</span>
+                                                    <span class="font-bold text-[rgb(58,26,29)]">$ {{ seguroEnvio }}</span>
                                                 </div>
                                                 <div class="border-t border-gray-300 pt-3">
                                                     <div class="flex justify-between items-center">
                                                         <span
                                                             class="text-lg font-bold text-[rgb(58,26,29)]">TOTAL</span>
-                                                        <span class="text-2xl font-black text-[rgb(248,112,62)]">$
-                                                            {{ totalCost }}</span>
+                                                        <span class="text-2xl font-black text-[rgb(248,112,62)]">$ {{ totalCost }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -205,9 +223,9 @@
 
                                 <!-- Action Buttons -->
                                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                                    <button @click="solicitarRecoleccion"
-                                        class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
-                                        <span>Solicitar Recolección</span>
+                                    <button @click="hacerPedido"
+                                        class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duración-300 flex items-center justify-center gap-3">
+                                        <span>Hacer Pedido</span>
                                         <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform"
                                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -216,7 +234,7 @@
                                     </button>
 
                                     <button @click="acercarsePuntoServicio"
-                                        class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-8 py-4 rounded-2xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duration-300 flex items-center justify-center gap-3 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40">
+                                        class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-8 py-4 rounded-2xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duración-300 flex items-center justify-center gap-3 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -229,7 +247,7 @@
                                     </button>
 
                                     <button @click="limpiarFormulario"
-                                        class="group font-bold text-[rgb(248,112,62)] hover:text-white px-8 py-4 rounded-2xl bg-transparent hover:bg-[rgb(248,112,62)] border-2 border-[rgb(248,112,62)] transition-all duration-300 flex items-center justify-center gap-3">
+                                        class="group font-bold text-[rgb(248,112,62)] hover:text-white px-8 py-4 rounded-2xl bg-transparent hover:bg-[rgb(248,112,62)] border-2 border-[rgb(248,112,62)] transition-all duración-300 flex items-center justify-center gap-3">
                                         <span>Limpiar</span>
                                     </button>
                                 </div>
@@ -245,13 +263,16 @@
 <script setup>
     import {
         ref,
-        computed
+        computed,
+        onMounted
     } from 'vue'
     import {
-        useRouter
+        useRouter,
+        useRoute
     } from 'vue-router'
 
     const router = useRouter()
+    const route = useRoute()
 
     // Reactive data
     const activeTab = ref('paquete')
@@ -264,10 +285,51 @@
         ancho: '30',
         alto: '30',
         origen: '',
-        destino: ''
+        destino: '',
+        codigoPostalOrigen: '',
+        codigoPostalDestino: ''
     })
 
-    // Tab configuration (solo paquetes y documentos)
+    // === NUEVO: al montar, prellenar desde query o sessionStorage ===
+    onMounted(() => {
+        const q = route.query || {}
+        const desdeQuery = {
+            origen: q.origen ?? '',
+            destino: q.destino ?? '',
+            peso: q.peso ?? '',
+            largo: q.largo ?? '',
+            ancho: q.ancho ?? '',
+            // en Cotizar se llama "altura"; aquí "alto"
+            alto: q.altura ?? q.alto ?? ''
+        }
+
+        const hayQuery = Object.values(desdeQuery).some(v => v !== '' && v != null)
+        if (hayQuery) {
+            formData.value.origen = String(desdeQuery.origen)
+            formData.value.destino = String(desdeQuery.destino)
+            formData.value.peso    = String(desdeQuery.peso)
+            formData.value.largo   = String(desdeQuery.largo)
+            formData.value.ancho   = String(desdeQuery.ancho)
+            formData.value.alto    = String(desdeQuery.alto)
+        } else {
+            const raw = sessionStorage.getItem('cotizacion')
+            if (raw) {
+                try {
+                    const s = JSON.parse(raw)
+                    formData.value.origen = s.origen ?? formData.value.origen
+                    formData.value.destino = s.destino ?? formData.value.destino
+                    formData.value.peso = s.peso ?? formData.value.peso
+                    formData.value.largo = s.largo ?? formData.value.largo
+                    formData.value.ancho = s.ancho ?? formData.value.ancho
+                    formData.value.alto  = s.altura ?? s.alto ?? formData.value.alto
+                } catch (e) {
+                    // silencio: si falla el parse, seguimos con valores por defecto
+                }
+            }
+        }
+    })
+
+    // Tab configuración (solo paquetes y documentos)
     const tabs = ref([{
             id: 'documento',
             label: 'Documento'
@@ -292,23 +354,50 @@
     })
 
     // Methods
-    const solicitarRecoleccion = () => {
-        // Preparar datos para el formulario de hacer envío
-        const datosParaEnvio = {
+    const hacerPedido = () => {
+        // 🔒 Validación detallada de campos obligatorios
+        const faltantes = []
+
+        if (!isProhibited.value) faltantes.push('Aceptar la declaración')
+        const cpOrigen  = String(formData.value.codigoPostalOrigen || '').trim()
+        const cpDestino = String(formData.value.codigoPostalDestino || '').trim()
+        if (!cpOrigen)  faltantes.push('Código postal de origen')
+        if (!cpDestino) faltantes.push('Código postal de destino')
+
+        const vacioNum = v => v === '' || v === null || v === undefined
+        if (vacioNum(formData.value.largo)) faltantes.push('Largo')
+        if (vacioNum(formData.value.ancho)) faltantes.push('Ancho')
+        if (vacioNum(formData.value.alto))  faltantes.push('Alto')
+
+        if (faltantes.length > 0) {
+            alert(`⚠️ Faltan campos obligatorios:\n- ${faltantes.join('\n- ')}`)
+            return
+        }
+
+        // Preparar todos los datos para el formulario de hacer envío
+        const datosCompletos = {
+            // Mapear los campos del cotizador a los campos del formulario hacer envío
             ciudadOrigen: formData.value.origen,
             ciudadDestino: formData.value.destino,
             alto: formData.value.alto,
             largo: formData.value.largo,
             ancho: formData.value.ancho,
             peso: formData.value.peso,
+            valorDeclarado: '10', // Valor por defecto mínimo
+            // También incluimos información adicional por si la necesitamos
             tipoEnvio: activeTab.value,
-            valorDeclarado: '10' // valor mínimo por defecto
+            cantidad: formData.value.cantidad,
+            codigoPostalOrigen: formData.value.codigoPostalOrigen,
+            codigoPostalDestino: formData.value.codigoPostalDestino,
+            valorEnvio: valorEnvio.value,
+            seguroEnvio: seguroEnvio.value,
+            totalCost: totalCost.value
         }
-
-        // Navegar a la página hacer-envio con los datos
+        
+        // Navegar a la página hacer-envio con todos los datos
         router.push({
-            name: 'HacerEnvio',
-            params: datosParaEnvio
+            name: 'HacerEnvio', // Cambia esto por el nombre exacto de tu ruta
+            query: datosCompletos // Usamos query en lugar de params para pasar más datos
         })
     }
 
@@ -325,7 +414,9 @@
             ancho: '30',
             alto: '30',
             origen: '',
-            destino: ''
+            destino: '',
+            codigoPostalOrigen: '',
+            codigoPostalDestino: ''
         }
         isProhibited.value = false
         activeTab.value = 'paquete'

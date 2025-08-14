@@ -127,16 +127,21 @@ const onClickOutside = (e) => {
 
 const cotizar = () => {
   if (origen.value.trim() && destino.value.trim() && peso.value && altura.value && ancho.value && largo.value) {
+    // === NUEVO: guardamos un "payload" en sessionStorage ===
+    const payload = {
+      origen: origen.value,
+      destino: destino.value,
+      peso: peso.value,
+      altura: altura.value,
+      ancho: ancho.value,
+      largo: largo.value
+    }
+    sessionStorage.setItem('cotizacion', JSON.stringify(payload))
+
+    // Navegamos (dejé tus query params tal cual)
     router.push({ 
       name: 'CotizarInfo', 
-      query: {
-        origen: origen.value,
-        destino: destino.value,
-        peso: peso.value,
-        altura: altura.value,
-        ancho: ancho.value,
-        largo: largo.value
-      }
+      query: payload
     })
   } else {
     alert('Por favor completa todos los campos')

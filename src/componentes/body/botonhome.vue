@@ -67,7 +67,7 @@ export default {
 .boton-home {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px; /* Cambiado de right a left */
   width: 56px;
   height: 56px;
   background: rgba(235, 102, 55, 1);
@@ -102,7 +102,7 @@ export default {
 .fade-enter-from { opacity: 0; transform: translateY(20px) scale(0.8); }
 .fade-leave-to { opacity: 0; transform: translateY(20px) scale(0.8); }
 @media (max-width: 768px) {
-  .boton-home { bottom: 15px; right: 15px; width: 50px; height: 50px; }
+  .boton-home { bottom: 15px; left: 15px; width: 50px; height: 50px; }
   .boton-home svg { width: 20px; height: 20px; }
 }
 </style>
