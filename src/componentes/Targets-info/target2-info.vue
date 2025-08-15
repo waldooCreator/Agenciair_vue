@@ -1,0 +1,408 @@
+<template>
+  <main class="min-h-screen bg-[rgb(241,241,240)]">
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-12 md:py-20">
+      <div class="container mx-auto px-6 md:px-10 lg:px-16 relative">
+        <!-- Badge -->
+        <div class="flex justify-center mb-8">
+          <div class="group relative">
+            <div class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
+            <div class="relative inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-lg">
+              <div class="w-3 h-3 bg-[rgb(248,112,62)] rounded-full animate-pulse"></div>
+              <span class="text-sm font-bold text-[rgb(58,26,29)] tracking-wider uppercase">
+                Envíos Nacionales
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Título principal -->
+        <div class="text-center max-w-5xl mx-auto">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-[rgb(248,112,62)] to-[rgb(248,112,62)] bg-clip-text text-transparent leading-tight mb-6">
+            Cubrimos Todo Colombia
+          </h1>
+          
+          <p class="text-lg md:text-xl text-[rgb(58,26,29)] leading-relaxed max-w-3xl mx-auto mb-8">
+            Descubre cómo nuestros aliados nacionales nos permiten 
+            <span class="font-semibold text-[rgb(248,112,62)]">llegar a cada rincón de Colombia</span> 
+            con la confianza de trabajar con las empresas de mensajería más reconocidas del país.
+          </p>
+
+          <!-- Stats destacados -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+            <div class="text-center">
+              <div class="text-3xl font-black text-[rgb(248,112,62)]">{{ totalAliados }}+</div>
+              <div class="text-sm text-[rgb(58,26,29)] font-medium">Aliados Nacionales</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-black text-[rgb(248,112,62)]">{{ totalMunicipios }}+</div>
+              <div class="text-sm text-[rgb(58,26,29)] font-medium">Municipios Cubiertos</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-black text-[rgb(248,112,62)]">{{ ratingPromedio }}</div>
+              <div class="text-sm text-[rgb(58,26,29)] font-medium">Rating Promedio</div>
+            </div>
+          </div>
+
+          <!-- Scroll indicator -->
+          <div class="flex justify-center">
+            <div class="animate-bounce">
+              <svg class="w-6 h-6 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <section class="container mx-auto px-6 md:px-10 lg:px-16 pb-24">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Introducción narrativa -->
+        <article class="section-spacing ">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-3xl blur opacity-0 group-hover:opacity-20 transition duration-500"></div>
+            
+            <div class="relative glass-effect rounded-3xl p-8 md:p-12 shadow-lg border border-white/50">
+              <div class="text-center mb-8">
+                <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
+                  <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  </svg>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-[rgb(58,26,29)] mb-6">
+                  La Red Nacional Más Completa
+                </h2>
+              </div>
+
+              <div class="prose prose-lg max-w-none text-[rgb(58,26,29)] space-y-6">
+                <p class="text-lg leading-relaxed">
+                  Colombia es un país de geografía diversa y desafiante, desde las costas del Caribe y el Pacífico hasta los picos andinos y la selva amazónica. 
+                  <strong class="text-[rgb(248,112,62)]">Conocer este territorio es nuestra ventaja</strong>. 
+                  Por eso hemos formado alianzas estratégicas con los líderes nacionales que mejor conocen cada región, cada ciudad y cada pueblo de nuestro país.
+                </p>
+                
+                <p class="text-lg leading-relaxed">
+                  Trabajamos con TCC, Servientrega, Coordinadora, Deprisa e Interrápidísimo - empresas colombianas con décadas de experiencia 
+                  que han construido las redes de distribución más robustas del país. Esta combinación de conocimiento local y cobertura nacional 
+                  nos permite garantizar que tu envío llegue a cualquier destino en Colombia, sin importar lo remoto que sea.
+                </p>
+
+                <div class="bg-[rgb(248,112,62)]/10 rounded-2xl p-6 border-l-4 border-[rgb(248,112,62)]">
+                  <blockquote class="text-xl font-medium text-[rgb(58,26,29)] italic">
+                    "Cada aliado aporta su fortaleza: algunos dominan las grandes ciudades, otros se especializan en zonas rurales, 
+                    pero todos comparten nuestro compromiso de llevar cada paquete a su destino con puntualidad y cuidado."
+                  </blockquote>
+                  <cite class="text-sm text-[rgb(248,112,62)] font-semibold mt-2 block">- Equipo de Logística Nacional</cite>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sección de aliados nacionales -->
+        <div class="section-spacing">
+          <!-- Título de categoría -->
+          <div class="relative group mb-8">
+            
+          </div>
+
+          <!-- Contenido de cada aliado -->
+          <div v-for="(aliado, indiceAliado) in aliadosNacionales" :key="indiceAliado" class="relative group mb-12">
+            <div class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-3xl blur opacity-0 group-hover:opacity-15 transition duration-500"></div>
+            
+            <div class="relative glass-effect rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
+              <!-- Header con imagen -->
+              <div class="mb-8">
+                <div class="w-full h-48 md:h-64 rounded-2xl mb-6 overflow-hidden shadow-lg">
+                  <img 
+                    :src="aliado.imagenUrl" 
+                    :alt="aliado.nombre"
+                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                
+                <div class="flex flex-wrap items-center gap-4 mb-6">
+                  <span class="px-4 py-2 bg-[rgb(248,112,62)]/20 text-[rgb(248,112,62)] text-sm font-bold rounded-full">
+                    {{ aliado.categoria }}
+                  </span>
+                  <span class="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full flex items-center gap-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    Aliado desde {{ aliado.fechaAlianza }}
+                  </span>
+                  <div class="flex items-center gap-1">
+                    <div class="flex">
+                      <svg v-for="estrella in 5" :key="estrella" 
+                           class="w-4 h-4" 
+                           :class="estrella <= aliado.rating ? 'text-yellow-400' : 'text-gray-300'" 
+                           fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    </div>
+                    <span class="text-sm text-[rgb(58,26,29)] font-medium ml-1">{{ aliado.rating }}/5</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="prose prose-lg max-w-none text-[rgb(58,26,29)] space-y-6">
+                <p class="text-lg leading-relaxed" v-html="aliado.descripcionCompleta"></p>
+                
+                <p class="text-lg leading-relaxed" v-html="aliado.descripcionAdicional"></p>
+
+                <div class="grid md:grid-cols-2 gap-6 my-8">
+                  <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                    <div class="flex items-center gap-3 mb-4">
+                      <svg class="w-6 h-6 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      </svg>
+                      <h4 class="font-bold text-[rgb(58,26,29)]">Cobertura Nacional</h4>
+                    </div>
+                    <p class="text-[rgb(58,26,29)]">{{ aliado.cobertura }}</p>
+                  </div>
+                  
+                  <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                    <div class="flex items-center gap-3 mb-4">
+                      <svg class="w-6 h-6 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                      <h4 class="font-bold text-[rgb(58,26,29)]">Rendimiento</h4>
+                    </div>
+                    <p class="text-[rgb(58,26,29)]">Más de {{ aliado.enviosCompletados.toLocaleString() }} envíos nacionales exitosos</p>
+                  </div>
+                </div>
+
+                <div class="bg-[rgb(248,112,62)]/5 rounded-2xl p-6 border border-[rgb(248,112,62)]/10">
+                  <h4 class="font-bold text-[rgb(58,26,29)] mb-3">Servicios Especializados:</h4>
+                  <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <span v-for="servicio in aliado.servicios" :key="servicio"
+                          class="px-3 py-2 bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] text-sm font-medium rounded-xl text-center">
+                      {{ servicio }}
+                    </span>
+                  </div>
+                </div>
+
+                <div v-if="aliado.casos" class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+                  <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Casos de Éxito Nacional
+                  </h4>
+                  <div class="space-y-3">
+                    <div v-for="caso in aliado.casos" :key="caso.titulo" class="bg-white rounded-xl p-4 border">
+                      <h5 class="font-semibold text-[rgb(58,26,29)] mb-2">{{ caso.titulo }}</h5>
+                      <p class="text-sm text-[rgb(58,26,29)]/80">{{ caso.descripcion }}</p>
+                      <span class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                        {{ caso.resultado }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección de contacto -->
+        <div class="relative group mt-16">
+          <div class="relative bg-white rounded-3xl p-8 md:p-10 lg:p-12 shadow-md border border-gray-200">
+            <div class="text-center">
+              <div class="w-16 h-16 md:w-20 md:h-20 bg-[rgb(248,112,62)] rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-black text-[rgb(58,26,29)] mb-4">
+                ¿Necesitas enviar dentro de Colombia?
+              </h3>
+              
+              <p class="text-base md:text-lg text-[rgb(58,26,29)] mb-8 max-w-lg mx-auto">
+                Conecta tu negocio con todo el territorio nacional a través de nuestros aliados de confianza.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  @click="cotizarNacional"
+                  class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-2xl shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 flex items-center gap-3 text-sm md:text-base"
+                >
+                  <span class="relative z-10">Cotizar Envío Nacional</span>
+                  <svg class="w-4 h-4 md:w-5 md:h-5 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                  </svg>
+                </button>
+
+                <button
+                  @click="masInformacion"
+                  class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duration-300 flex items-center gap-3 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40 text-sm md:text-base"
+                >
+                  <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                  </svg>
+                  <span>Más información</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
+
+<script setup>
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// Datos de los aliados nacionales
+const aliadosNacionales = [
+  {
+    nombre: 'TCC - Transporte de Carga Coordinado',
+    categoria: 'Líder Nacional en Logística',
+    imagenUrl: 'https://www.portafolio.co/files/article_new_multimedia/uploads/2022/09/20/6329b41db2a33.png', // Reemplaza por imagen de TCC o centro de distribución
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">TCC</strong> es uno de los operadores logísticos más importantes de Colombia, con más de 25 años de experiencia en el mercado nacional. Su amplia red de distribución y su enfoque en la innovación tecnológica los convierte en un aliado estratégico fundamental para nuestras operaciones en todo el territorio nacional.',
+    descripcionAdicional: 'Con presencia en más de 900 municipios y una flota moderna que incluye vehículos especializados para diferentes tipos de carga, TCC ha demostrado ser un socio confiable para envíos que requieren atención especializada. Su sistema de seguimiento en tiempo real y su compromiso con los tiempos de entrega los posiciona como uno de los líderes indiscutibles del sector.',
+    servicios: ['Envío Express', 'Carga Consolidada', 'Última Milla', 'Reverse Logistics', 'Cross Docking', 'Almacenamiento'],
+    cobertura: 'Más de 900 municipios en todo Colombia, con centros de distribución en las principales ciudades',
+    fechaAlianza: 'Febrero 2020',
+    rating: 5,
+    enviosCompletados: 85000,
+    casos: [
+      {
+        titulo: 'Proyecto E-commerce Nacional',
+        descripcion: 'Gestión de distribución para tienda online con 2000 envíos mensuales a nivel nacional.',
+        resultado: '98.5% satisfacción cliente'
+      },
+      {
+        titulo: 'Logística Inversa Masiva',
+        descripcion: 'Coordinación de devoluciones desde 15 ciudades hacia centro de distribución principal.',
+        resultado: '95% recuperación exitosa'
+      }
+    ]
+  },
+  {
+    nombre: 'Servientrega',
+    categoria: 'Red Nacional de Mensajería',
+    imagenUrl: 'https://img.lalr.co/cms/2021/02/08151702/servientrega-900.jpg?w=960', // Reemplaza por imagen de Servientrega
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Servientrega</strong> es sinónimo de confianza en Colombia. Con más de 40 años de experiencia, es la empresa de mensajería que ha acompañado el crecimiento del país, conectando familias, empresas y comunidades desde Leticia hasta La Guajira, desde San Andrés hasta el Amazonas.',
+    descripcionAdicional: 'Su red capilar de más de 1,400 puntos de atención a nivel nacional y su profundo conocimiento del territorio colombiano los convierte en el aliado perfecto para llegar a destinos que otros consideran imposibles. Servientrega entiende la idiosincrasia colombiana y ha adaptado sus servicios para satisfacer las necesidades específicas de cada región.',
+    servicios: ['Mensajería Express', 'Paquetería Nacional', 'Giros y Pagos', 'Logística Rural', 'Servicios Especiales', 'Soluciones B2B'],
+    cobertura: 'Más de 1,100 municipios con 1,400+ puntos de atención, incluyendo zonas rurales y apartadas',
+    fechaAlianza: 'Enero 2019',
+    rating: 5,
+    enviosCompletados: 125000,
+    casos: [
+      {
+        titulo: 'Conexión con Zona Rural del Chocó',
+        descripcion: 'Establecimiento de ruta regular hacia municipios de difícil acceso en el pacífico colombiano.',
+        resultado: 'Cobertura 100% exitosa'
+      },
+      {
+        titulo: 'Programa de Inclusión Amazónica',
+        descripcion: 'Envíos regulares a comunidades indígenas del Amazonas con productos de primera necesidad.',
+        resultado: '15 comunidades conectadas'
+      }
+    ]
+  },
+  {
+    nombre: 'Coordinadora',
+    categoria: 'Mensajería Especializada',
+    imagenUrl: 'https://img.lalr.co/cms/2021/06/22164349/MACK2.png?size=sm', // Reemplaza por imagen de Coordinadora
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Coordinadora</strong> se ha especializado en ofrecer soluciones logísticas personalizadas para el mercado empresarial. Con más de 30 años en el mercado colombiano, han desarrollado una propuesta de valor única enfocada en la flexibilidad y la adaptación a las necesidades específicas de cada cliente.',
+    descripcionAdicional: 'Su fortaleza radica en el manejo de envíos especiales y su capacidad de personalización de servicios. Coordinadora ha sido pionera en implementar tecnologías de seguimiento y en desarrollar soluciones para sectores específicos como farmacéutico, textil y agroindustrial, ofreciendo condiciones especiales de transporte según el tipo de mercancía.',
+    servicios: ['Mensajería Empresarial', 'Carga Especial', 'Sector Farmacéutico', 'Textil y Confección', 'Agro-logística', 'Tecnología'],
+    cobertura: 'Cobertura estratégica en más de 600 municipios con enfoque en corredores industriales',
+    fechaAlianza: 'Abril 2020',
+    rating: 4,
+    enviosCompletados: 65000,
+    casos: [
+      {
+        titulo: 'Cadena de Frío Farmacéutica',
+        descripcion: 'Transporte especializado de medicamentos termolábiles entre Bogotá y Medellín.',
+        resultado: '100% cadena de frío intacta'
+      },
+      {
+        titulo: 'Logística Textil Antioqueña',
+        descripcion: 'Distribución semanal de productos textiles desde Medellín hacia 20 ciudades principales.',
+        resultado: '97% entregas puntuales'
+      }
+    ]
+  },
+  {
+    nombre: 'Deprisa',
+    categoria: 'Envíos Rápidos Nacional',
+    imagenUrl: 'https://zonacaptiva.com/wp-content/uploads/2023/09/Zona-Captiva-post-2023-09-18T152201.306.png', // Reemplaza por imagen de Deprisa
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Deprisa</strong> ha revolucionado el concepto de velocidad en envíos nacionales. Como especialistas en entregas rápidas y servicios express, han construido una red optimizada para minimizar los tiempos de tránsito sin comprometer la seguridad y el cuidado de los envíos.',
+    descripcionAdicional: 'Su modelo operativo se centra en rutas directas y frecuencias altas entre las principales ciudades del país. Deprisa ha implementado sistemas de clasificación automatizada y manejo predictivo de la demanda, lo que les permite ofrecer ventanas de entrega muy precisas y servicios same-day en ciudades principales.',
+    servicios: ['Express Nacional', 'Same Day', 'Next Day', 'Documentos Urgentes', 'E-commerce Rápido', 'Entregas Programadas'],
+    cobertura: 'Red express cubriendo 300+ municipios con enfoque en velocidad entre ciudades principales',
+    fechaAlianza: 'Junio 2020',
+    rating: 4,
+    enviosCompletados: 45000,
+    casos: [
+      {
+        titulo: 'Documentos Legales Urgentes',
+        descripcion: 'Envío express de documentos legales críticos entre Bogotá y Cali en menos de 24 horas.',
+        resultado: 'Entregado en 18 horas'
+      },
+      {
+        titulo: 'Same Day Médico',
+        descripcion: 'Servicio same-day para equipos médicos urgentes dentro del área metropolitana.',
+        resultado: '95% entregas mismo día'
+      }
+    ]
+  },
+  {
+    nombre: 'Interrápidísimo',
+    categoria: 'Mensajería Integral',
+    imagenUrl: 'https://www.usme.com.co/wp-content/uploads/cache/images/interrapidisimo-usme-bogota/interrapidisimo-usme-bogota-3751659047.jpg', // Reemplaza por imagen de Interrápidísimo
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Interrápidísimo</strong> representa la evolución de la mensajería tradicional hacia una propuesta integral de servicios logísticos. Con presencia histórica en el mercado colombiano, han sabido adaptarse a los nuevos tiempos manteniendo su esencia de servicio personalizado y cercanía con el cliente.',
+    descripcionAdicional: 'Su red combina la tradición de la mensajería colombiana con tecnología moderna, ofreciendo soluciones que van desde el envío de documentos hasta la logística completa para pequeñas y medianas empresas. Interrápidísimo se destaca por su flexibilidad operativa y su capacidad de adaptarse a necesidades específicas de cada cliente.',
+    servicios: ['Mensajería Tradicional', 'Paquetería', 'Logística PYME', 'Servicios Financieros', 'Recaudo', 'Distribución Local'],
+    cobertura: 'Amplia red nacional con más de 800 municipios y fuerte presencia en ciudades intermedias',
+    fechaAlianza: 'Marzo 2021',
+    rating: 4,
+    enviosCompletados: 55000,
+    casos: [
+      {
+        titulo: 'Apoyo a PYMES Regionales',
+        descripcion: 'Programa de logística integral para 50 pequeñas empresas en ciudades intermedias.',
+        resultado: '40% crecimiento ventas clientes'
+      },
+      {
+        titulo: 'Red de Recaudo Nacional',
+        descripcion: 'Implementación de sistema de recaudo para empresa de servicios públicos.',
+        resultado: '99.2% efectividad recaudo'
+      }
+    ]
+  }
+]
+
+// Calcular estadísticas
+const totalAliados = computed(() => aliadosNacionales.length)
+
+const totalMunicipios = computed(() => {
+  return '1100' // Aproximadamente cuántos municipios cubren entre todos
+})
+
+const ratingPromedio = computed(() => {
+  const suma = aliadosNacionales.reduce((acc, a) => acc + (a.rating || 0), 0)
+  const promedio = suma / (aliadosNacionales.length || 1)
+  return promedio.toFixed(1)
+})
+
+// Métodos usados en los botones (ajusta la navegación si tu router usa otros nombres/paths)
+function cotizarNacional () {
+  // Cambia a tu ruta real si es distinta
+  router.push('/cotizar-info') // o: router.push({ name: 'CotizarNacional' })
+}
+
+function masInformacion () {
+  router.push({ name: 'cotizar-info' }) // ruta dada por ti
+}
+</script>

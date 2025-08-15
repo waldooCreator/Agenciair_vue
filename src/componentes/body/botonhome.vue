@@ -67,28 +67,40 @@ export default {
 .boton-home {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* Cambiado de right a left */
+  left: 20px; /* Mantener a la izquierda */
   width: 56px;
   height: 56px;
   background: rgba(235, 102, 55, 1);
-  border: none;
+
+  /* Estilo elegante (coincide con los otros botones) */
+  border: 1.5px solid rgba(255, 255, 255, .85);
   border-radius: 50%;
   color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+
+  /* Halo sutil y profundidad */
+  outline: 3px solid rgba(235, 102, 55, .16);
+  outline-offset: 3px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+
+  transition: transform .3s ease, box-shadow .3s ease, outline-color .3s ease;
   z-index: 1000;
 }
 .boton-home:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
+  outline-color: rgba(235, 102, 55, .28);
   background: rgba(215, 82, 35, 1);
 }
 .boton-home:active {
   transform: translateY(-1px) scale(1.02);
+}
+.boton-home:focus-visible {
+  outline: 4px solid rgba(235, 102, 55, .35);
+  outline-offset: 4px;
 }
 .boton-home svg {
   width: 24px;
@@ -98,9 +110,13 @@ export default {
 .boton-home:hover svg {
   transform: scale(1.1);
 }
+
+/* Transiciones */
 .fade-enter-active, .fade-leave-active { transition: all 0.3s ease; }
 .fade-enter-from { opacity: 0; transform: translateY(20px) scale(0.8); }
 .fade-leave-to { opacity: 0; transform: translateY(20px) scale(0.8); }
+
+/* Móvil */
 @media (max-width: 768px) {
   .boton-home { bottom: 15px; left: 15px; width: 50px; height: 50px; }
   .boton-home svg { width: 20px; height: 20px; }

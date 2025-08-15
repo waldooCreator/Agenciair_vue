@@ -8,6 +8,12 @@ import terminosCondiciones from '@/componentes/redireccionar/terminos-condicione
 import CotizarInfo from '@/componentes/redireccionar/cotizar-info.vue'
 import Mapa from '@/componentes/redireccionar/mapa.vue'
 
+// Importar componentes de targets
+import Target1Info from '../componentes/Targets-info/target1-info.vue'
+import Target2Info from '../componentes/Targets-info/target2-info.vue'
+import Target3Info from '@/componentes/Targets-info/target3-info.vue'
+
+
 const routes = [
   {
     path: '/',
@@ -51,6 +57,25 @@ const routes = [
     path: '/mapa',
     name: 'Mapa',
     component: Mapa,
+    meta: { hideHeader: true }
+  },
+  // Rutas de los targets
+  {
+    path: '/target1-info',
+    name: 'Target1Info',
+    component: Target1Info,
+    meta: { hideHeader: true }
+  },
+  {
+    path: '/target2-info',
+    name: 'Target2Info',
+    component: Target2Info,
+    meta: { hideHeader: true }
+  },
+  {
+    path: '/target3-info',
+    name: 'Target3Info',
+    component: Target3Info,
     meta: { hideHeader: true }
   }
 ]

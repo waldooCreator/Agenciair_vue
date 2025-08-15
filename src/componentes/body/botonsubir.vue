@@ -65,27 +65,47 @@ export default {
   width: 56px;
   height: 56px;
   background: rgba(235, 102, 55, 1);
-  border: none;
+  /* Borde fino y elegante */
+  border: 1.5px solid rgba(255,255,255,.85);
   border-radius: 50%;
   color: #fff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,.2);
-  transition: all .3s ease;
+  /* Halo sutil alrededor del botón */
+  outline: 3px solid rgba(235,102,55,.16);
+  outline-offset: 3px;
+
+  /* Profundidad suave */
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  transition: transform .3s ease, box-shadow .3s ease, outline-color .3s ease;
   z-index: 1000;
 }
 .boton-subir:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0,0,0,.3);
+  box-shadow: 0 10px 28px rgba(0,0,0,.26);
+  outline-color: rgba(235,102,55,.28);
   background: rgba(215, 82, 35, 1);
 }
-.boton-subir:active { transform: translateY(-1px) scale(1.02); }
-.boton-subir svg { width: 24px; height: 24px; transition: transform .2s ease; }
+.boton-subir:active {
+  transform: translateY(-1px) scale(1.02);
+}
+.boton-subir:focus-visible {
+  outline: 4px solid rgba(235,102,55,.35);
+  outline-offset: 4px;
+}
+.boton-subir svg {
+  width: 24px; height: 24px;
+  transition: transform .2s ease;
+}
 .boton-subir:hover svg { transform: scale(1.1); }
+
+/* Transiciones del fade */
 .fade-enter-active, .fade-leave-active { transition: all .25s ease; }
 .fade-enter-from, .fade-leave-to { opacity: 0; transform: translateY(12px) scale(.95); }
+
+/* Ajustes en móvil */
 @media (max-width: 768px) {
   .boton-subir { bottom: 15px; right: 15px; width: 50px; height: 50px; }
   .boton-subir svg { width: 20px; height: 20px; }

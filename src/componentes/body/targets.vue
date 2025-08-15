@@ -18,9 +18,8 @@
                 </h2>
             </div>
 
-
             <!-- CONTENEDOR DE TARGETS CON GRID -->
-            <div class=" mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
+            <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
 
                 <!-- TARJETA GENÉRICA -->
                 <div v-for="(item, key) in servicesData" :key="key" @click="handleTargetClick(key)"
@@ -42,7 +41,7 @@
                     <div class="absolute inset-0 p-6 flex flex-col justify-between text-white">
                         <div>
                             <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wide mb-2 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
-                                {{ item . title }}
+                                {{ item.title }}
                             </h3>
                         </div>
                         <div class="self-end">
@@ -64,26 +63,37 @@
 </template>
 
 <script setup>
-    const servicesData = {
-        courier: {
-            title: "Servicios",
-            image: "/images/agg-Pica.png"
-        },
-        transporte: {
-            title: "TRANSPORTE",
-            image: "/images/neta.png"
-        },
-        cargaInternacional: {
-            title: "CARGA INTERNACIONAL",
-            image: "/images/avion.png"
-        },
-        logisticaIntegral: {
-            title: "LOGÍSTICA INTEGRAL",
-            image: "/images/Gemini_Generated_Image_25c4dq25c4dq25c4.png"
-        }
-    }
+import { useRouter } from 'vue-router'
 
-    function handleTargetClick(targetType) {
-        console.log(`Clicked on ${targetType}`)
+const router = useRouter()
+
+const servicesData = {
+    courier: {
+        title: "Servicios",
+        image: "/images/agg-Pica.png",
+        route: '/target1-info'
+    },
+    transporte: {
+        title: "TRANSPORTE",
+        image: "/images/neta.png",
+        route: '/target2-info'
+    },
+    cargaInternacional: {
+        title: "CARGA INTERNACIONAL",
+        image: "/images/avion.png",
+        route: '/target3-info'
+    },
+    logisticaIntegral: {
+        title: "LOGÍSTICA INTEGRAL",
+        image: "/images/Gemini_Generated_Image_25c4dq25c4dq25c4.png",
+        route: '/target4-info'
     }
+}
+
+function handleTargetClick(targetType) {
+    const targetData = servicesData[targetType]
+    if (targetData && targetData.route) {
+        router.push(targetData.route)
+    }
+}
 </script>
