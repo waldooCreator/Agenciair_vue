@@ -9,6 +9,8 @@
         <!-- Botón para ir a Home: visible en TODAS las rutas menos Home -->
         <BotonHome v-if="route.name !== 'Home'" />
 
+        <BotonAtras :maxScroll="150" :hideOnRoutes="['Home']" hideMetaKey="hideBack" :hideOnPaths="['/']" />
+
         <!-- Mostrarlo siempre -->
         <BotonSubir :threshold="100" :onlyHome="false" />
 
@@ -21,6 +23,7 @@
     } from 'vue-router'
     import HeaderComponent from './componentes/headers/header.vue'
     import BotonHome from './componentes/body/botonhome.vue'
+    import BotonAtras from './componentes/body/botonatras.vue'
     import BotonSubir from './componentes/body/botonsubir.vue'
 
     /* Ruta reactiva para usar en el template */

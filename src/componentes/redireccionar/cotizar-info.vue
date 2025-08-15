@@ -6,14 +6,11 @@
                 <!-- Header -->
                 <div class="text-center mb-8 md:mb-12">
                     <div class="group relative inline-block mb-6">
-                        <div
-                            class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-full blur opacity-75 group-hover:opacity-100 transition">
-                        </div>
+                        <div class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-full blur opacity-75 group-hover:opacity-100 transition"></div>
                         <div class="relative inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-lg">
-                            <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 012 2z" />
+                                      d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 012 2z" />
                             </svg>
                             <span class="text-sm font-bold text-[rgb(58,26,29)] tracking-wider uppercase">
                                 Cotizador
@@ -21,8 +18,7 @@
                         </div>
                     </div>
 
-                    <h1
-                        class="text-3xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-[rgb(248,112,62)] to-[rgb(248,112,62)] bg-clip-text text-transparent leading-tight">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-[rgb(248,112,62)] to-[rgb(248,112,62)] bg-clip-text text-transparent leading-tight">
                         Cotiza tu envío
                     </h1>
                 </div>
@@ -30,12 +26,18 @@
                 <!-- Main Form -->
                 <div class="max-w-4xl mx-auto">
                     <div class="relative group">
-                        <div
-                            class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500">
-                        </div>
+                        <div class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
 
-                        <div
-                            class="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden">
+                        <div class="relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden">
+
+                            <!-- Panel de errores global -->
+                            <div v-if="errorSummary.length"
+                                 class="mx-6 md:mx-8 lg:mx-10 mt-6 rounded-2xl border border-red-200 bg-red-50 p-4">
+                                <h4 class="font-bold text-red-700 mb-2">Por favor corrige lo siguiente:</h4>
+                                <ul class="list-disc list-inside text-red-700 space-y-1 text-sm">
+                                    <li v-for="(msg, i) in errorSummary" :key="i">{{ msg }}</li>
+                                </ul>
+                            </div>
 
                             <!-- Tabs -->
                             <div class="border-b border-gray-100">
@@ -47,15 +49,13 @@
                                             'text-[rgb(248,112,62)] border-b-3 border-[rgb(248,112,62)] bg-[rgb(248,112,62)]/5' :
                                             'text-[rgb(58,26,29)] hover:text-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/5'
                                         ]">
-                                        <svg v-if="tab.id === 'documento'" class="w-4 h-4 md:w-5 md:h-5" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg v-if="tab.id === 'documento'" class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                         </svg>
-                                        <svg v-else class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
+                                        <svg v-else class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                         </svg>
                                         <span class="text-sm md:text-base">{{ tab.label }}</span>
                                     </button>
@@ -69,18 +69,20 @@
                                         <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
                                             Lugar de origen
                                         </label>
-                                        <input type="text" v-model="formData.origen"
-                                            placeholder="Ingrese ciudad de origen"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                        <input name="origen" type="text" v-model="formData.origen"
+                                            :class="inputClass('origen')"
+                                            placeholder="Ingrese ciudad de origen" />
+                                        <p v-if="errors.origen" class="mt-1 text-xs text-red-600">{{ errors.origen }}</p>
                                     </div>
 
                                     <div>
                                         <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
                                             Lugar de destino
                                         </label>
-                                        <input type="text" v-model="formData.destino"
-                                            placeholder="Ingrese ciudad de destino"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                        <input name="destino" type="text" v-model="formData.destino"
+                                            :class="inputClass('destino')"
+                                            placeholder="Ingrese ciudad de destino" />
+                                        <p v-if="errors.destino" class="mt-1 text-xs text-red-600">{{ errors.destino }}</p>
                                     </div>
                                 </div>
 
@@ -90,18 +92,20 @@
                                         <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
                                             Código postal de origen
                                         </label>
-                                        <input type="text" v-model="formData.codigoPostalOrigen"
-                                            placeholder="Ingrese código postal de origen"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                        <input name="codigoPostalOrigen" type="text" v-model="formData.codigoPostalOrigen"
+                                            :class="inputClass('codigoPostalOrigen')"
+                                            placeholder="Ingrese código postal de origen" />
+                                        <p v-if="errors.codigoPostalOrigen" class="mt-1 text-xs text-red-600">{{ errors.codigoPostalOrigen }}</p>
                                     </div>
 
                                     <div>
                                         <label class="block text-sm font-semibold text-[rgb(58,26,29)] mb-3">
                                             Código postal de destino
                                         </label>
-                                        <input type="text" v-model="formData.codigoPostalDestino"
-                                            placeholder="Ingrese código postal de destino"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                        <input name="codigoPostalDestino" type="text" v-model="formData.codigoPostalDestino"
+                                            :class="inputClass('codigoPostalDestino')"
+                                            placeholder="Ingrese código postal de destino" />
+                                        <p v-if="errors.codigoPostalDestino" class="mt-1 text-xs text-red-600">{{ errors.codigoPostalDestino }}</p>
                                     </div>
                                 </div>
 
@@ -115,18 +119,18 @@
                                                 isProhibited ? 'border-[rgb(248,112,62)] bg-[rgb(248,112,62)]' :
                                                 'border-gray-300'
                                             ]">
-                                            <svg v-if="isProhibited" class="w-3 h-3 text-white" fill="currentColor"
-                                                viewBox="0 0 20 20">
+                                            <svg v-if="isProhibited" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
-                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                    clip-rule="evenodd" />
+                                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                      clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                         <span class="text-sm text-[rgb(248,112,62)] font-medium">
-                                            Declaro que mi envío no es <strong>Mercancía de Prohibido
-                                                Transporte</strong>
+                                            Declaro que mi envío no es <strong>Mercancía de Prohibido Transporte</strong>
+                                            <router-link to="/prohibidos" class="underline hover:no-underline ml-1">Ver lista</router-link>
                                         </span>
                                     </label>
+                                    <p v-if="errors.declaracion" class="mt-2 text-xs text-red-600">{{ errors.declaracion }}</p>
                                 </div>
 
                                 <!-- Package Details -->
@@ -136,7 +140,7 @@
                                             Cantidad
                                         </label>
                                         <input type="number" v-model="formData.cantidad"
-                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)]" />
+                                            class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duration-300 text-[rgb(58,26,29)]" />
                                     </div>
 
                                     <div>
@@ -144,13 +148,13 @@
                                             Peso
                                         </label>
                                         <div class="relative">
-                                            <input type="number" v-model="formData.peso"
-                                                class="w-full px-4 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] pr-12" />
-                                            <span
-                                                class="absolute right-4 top-1/2 transform -translate-y-1/2 text-[rgb(248,112,62)] font-bold text-sm">
+                                            <input name="peso" type="number" v-model="formData.peso"
+                                                :class="inputClass('peso', true)" />
+                                            <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-[rgb(248,112,62)] font-bold text-sm">
                                                 kg
                                             </span>
                                         </div>
+                                        <p v-if="errors.peso" class="mt-1 text-xs text-red-600">{{ errors.peso }}</p>
                                     </div>
 
                                     <div class="lg:col-span-2">
@@ -158,26 +162,28 @@
                                             Dimensiones (cm)
                                         </label>
                                         <div class="grid grid-cols-3 gap-3">
-                                            <input type="number" v-model="formData.largo" placeholder="Largo"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
-                                            <input type="number" v-model="formData.ancho" placeholder="Ancho"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
-                                            <input type="number" v-model="formData.alto" placeholder="Alto"
-                                                class="w-full px-3 py-4 rounded-2xl border border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 outline-none transition-all duración-300 text-[rgb(58,26,29)] text-sm" />
+                                            <input name="largo" type="number" v-model="formData.largo" placeholder="Largo"
+                                                :class="inputClass('largo', true)" />
+                                            <input name="ancho" type="number" v-model="formData.ancho" placeholder="Ancho"
+                                                :class="inputClass('ancho', true)" />
+                                            <input name="alto" type="number" v-model="formData.alto" placeholder="Alto"
+                                                :class="inputClass('alto', true)" />
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-3 mt-1">
+                                            <p v-if="errors.largo" class="text-xs text-red-600 col-span-1">{{ errors.largo }}</p>
+                                            <p v-if="errors.ancho" class="text-xs text-red-600 col-span-1">{{ errors.ancho }}</p>
+                                            <p v-if="errors.alto"  class="text-xs text-red-600 col-span-1">{{ errors.alto }}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Quote Summary -->
-                                <div class="grid md:grid-cols-2 gap-8">
+                                <!-- Quote Summary & Delivery Info (mismo alto) -->
+                                <div class="grid md:grid-cols-2 gap-8 items-stretch">
                                     <!-- Pricing Details -->
-                                    <div class="relative">
-                                        <div
-                                            class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-2xl blur opacity-20">
-                                        </div>
-                                        <div class="relative bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                                            <h3 class="text-lg font-bold text-[rgb(58,26,29)] mb-4">Desglose de costos
-                                            </h3>
+                                    <div class="relative h-full">
+                                        <div class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-2xl blur opacity-20"></div>
+                                        <div class="relative bg-gray-50 rounded-2xl p-6 border border-gray-200 h-full flex flex-col">
+                                            <h3 class="text-lg font-bold text-[rgb(58,26,29)] mb-4">Desglose de costos</h3>
                                             <div class="space-y-3">
                                                 <div class="flex justify-between items-center">
                                                     <span class="text-[rgb(58,26,29)]">Valor de envío</span>
@@ -187,10 +193,9 @@
                                                     <span class="text-[rgb(58,26,29)]">Seguro del envío</span>
                                                     <span class="font-bold text-[rgb(58,26,29)]">$ {{ seguroEnvio }}</span>
                                                 </div>
-                                                <div class="border-t border-gray-300 pt-3">
+                                                <div class="border-t border-gray-300 pt-3 mt-auto">
                                                     <div class="flex justify-between items-center">
-                                                        <span
-                                                            class="text-lg font-bold text-[rgb(58,26,29)]">TOTAL</span>
+                                                        <span class="text-lg font-bold text-[rgb(58,26,29)]">TOTAL</span>
                                                         <span class="text-2xl font-black text-[rgb(248,112,62)]">$ {{ totalCost }}</span>
                                                     </div>
                                                 </div>
@@ -199,19 +204,14 @@
                                     </div>
 
                                     <!-- Delivery Info -->
-                                    <div class="relative">
-                                        <div
-                                            class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-2xl blur opacity-20">
-                                        </div>
-                                        <div class="relative bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                                            <h3 class="text-lg font-bold text-[rgb(58,26,29)] mb-4">Información de
-                                                entrega</h3>
+                                    <div class="relative h-full">
+                                        <div class="absolute -inset-0.5 bg-[rgb(248,112,62)] rounded-2xl blur opacity-20"></div>
+                                        <div class="relative bg-gray-50 rounded-2xl p-6 border border-gray-200 h-full flex flex-col">
+                                            <h3 class="text-lg font-bold text-[rgb(58,26,29)] mb-4">Información de entrega</h3>
                                             <div class="space-y-4">
                                                 <div>
-                                                    <span class="block text-sm text-[rgb(58,26,29)] mb-1">Tiempo de
-                                                        entrega</span>
-                                                    <span class="text-xl font-bold text-[rgb(248,112,62)]">3-4 días
-                                                        hábiles</span>
+                                                    <span class="block text-sm text-[rgb(58,26,29)] mb-1">Tiempo de entrega</span>
+                                                    <span class="text-xl font-bold text-[rgb(248,112,62)]">3-4 días hábiles</span>
                                                 </div>
                                                 <p class="text-sm text-[rgb(58,26,29)] italic">
                                                     *El TOTAL es un valor estimado, el envío está sujeto a verificación.
@@ -224,30 +224,27 @@
                                 <!-- Action Buttons -->
                                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                                     <button @click="hacerPedido"
-                                        class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duración-300 flex items-center justify-center gap-3">
+                                        class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
                                         <span>Hacer Pedido</span>
-                                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                         </svg>
                                     </button>
 
                                     <button @click="acercarsePuntoServicio"
-                                        class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-8 py-4 rounded-2xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duración-300 flex items-center justify-center gap-3 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
+                                        class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-8 py-4 rounded-2xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duration-300 flex items-center justify-center gap-3 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
                                         <span class="hidden sm:inline">Acércate a un Punto de Servicio</span>
                                         <span class="sm:hidden">Punto de Servicio</span>
                                     </button>
 
                                     <button @click="limpiarFormulario"
-                                        class="group font-bold text-[rgb(248,112,62)] hover:text-white px-8 py-4 rounded-2xl bg-transparent hover:bg-[rgb(248,112,62)] border-2 border-[rgb(248,112,62)] transition-all duración-300 flex items-center justify-center gap-3">
+                                        class="group font-bold text-[rgb(248,112,62)] hover:text-white px-8 py-4 rounded-2xl bg-transparent hover:bg-[rgb(248,112,62)] border-2 border-[rgb(248,112,62)] transition-all duration-300 flex items-center justify-center gap-3">
                                         <span>Limpiar</span>
                                     </button>
                                 </div>
@@ -261,209 +258,209 @@
 </template>
 
 <script setup>
-    import {
-        ref,
-        computed,
-        onMounted
-    } from 'vue'
-    import {
-        useRouter,
-        useRoute
-    } from 'vue-router'
+import { ref, computed, onMounted, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
-    const router = useRouter()
-    const route = useRoute()
+const router = useRouter()
+const route = useRoute()
 
-    // Reactive data
-    const activeTab = ref('paquete')
-    const isProhibited = ref(false)
+// Reactive data
+const activeTab = ref('paquete')
+const isProhibited = ref(false)
 
-    const formData = ref({
-        cantidad: '1',
-        peso: '15',
-        largo: '20',
-        ancho: '30',
-        alto: '30',
-        origen: '',
-        destino: '',
-        codigoPostalOrigen: '',
-        codigoPostalDestino: ''
-    })
+const formData = ref({
+  cantidad: '1',
+  peso: '15',
+  largo: '20',
+  ancho: '30',
+  alto: '30',
+  origen: '',
+  destino: '',
+  codigoPostalOrigen: '',
+  codigoPostalDestino: ''
+})
 
-    // === NUEVO: al montar, prellenar desde query o sessionStorage ===
-    onMounted(() => {
-        const q = route.query || {}
-        const desdeQuery = {
-            origen: q.origen ?? '',
-            destino: q.destino ?? '',
-            peso: q.peso ?? '',
-            largo: q.largo ?? '',
-            ancho: q.ancho ?? '',
-            // en Cotizar se llama "altura"; aquí "alto"
-            alto: q.altura ?? q.alto ?? ''
-        }
-
-        const hayQuery = Object.values(desdeQuery).some(v => v !== '' && v != null)
-        if (hayQuery) {
-            formData.value.origen = String(desdeQuery.origen)
-            formData.value.destino = String(desdeQuery.destino)
-            formData.value.peso    = String(desdeQuery.peso)
-            formData.value.largo   = String(desdeQuery.largo)
-            formData.value.ancho   = String(desdeQuery.ancho)
-            formData.value.alto    = String(desdeQuery.alto)
-        } else {
-            const raw = sessionStorage.getItem('cotizacion')
-            if (raw) {
-                try {
-                    const s = JSON.parse(raw)
-                    formData.value.origen = s.origen ?? formData.value.origen
-                    formData.value.destino = s.destino ?? formData.value.destino
-                    formData.value.peso = s.peso ?? formData.value.peso
-                    formData.value.largo = s.largo ?? formData.value.largo
-                    formData.value.ancho = s.ancho ?? formData.value.ancho
-                    formData.value.alto  = s.altura ?? s.alto ?? formData.value.alto
-                } catch (e) {
-                    // silencio: si falla el parse, seguimos con valores por defecto
-                }
-            }
-        }
-    })
-
-    // Tab configuración (solo paquetes y documentos)
-    const tabs = ref([{
-            id: 'documento',
-            label: 'Documento'
-        },
-        {
-            id: 'paquete',
-            label: 'Paquete'
-        }
-    ])
-
-    // Computed values for pricing
-    const valorEnvio = computed(() => {
-        return 72500
-    })
-
-    const seguroEnvio = computed(() => {
-        return 10800
-    })
-
-    const totalCost = computed(() => {
-        return valorEnvio.value + seguroEnvio.value
-    })
-
-    // Methods
-    const hacerPedido = () => {
-        // 🔒 Validación detallada de campos obligatorios
-        const faltantes = []
-
-        if (!isProhibited.value) faltantes.push('Aceptar la declaración')
-        const cpOrigen  = String(formData.value.codigoPostalOrigen || '').trim()
-        const cpDestino = String(formData.value.codigoPostalDestino || '').trim()
-        if (!cpOrigen)  faltantes.push('Código postal de origen')
-        if (!cpDestino) faltantes.push('Código postal de destino')
-
-        const vacioNum = v => v === '' || v === null || v === undefined
-        if (vacioNum(formData.value.largo)) faltantes.push('Largo')
-        if (vacioNum(formData.value.ancho)) faltantes.push('Ancho')
-        if (vacioNum(formData.value.alto))  faltantes.push('Alto')
-
-        if (faltantes.length > 0) {
-            alert(`⚠️ Faltan campos obligatorios:\n- ${faltantes.join('\n- ')}`)
-            return
-        }
-
-        // Preparar todos los datos para el formulario de hacer envío
-        const datosCompletos = {
-            // Mapear los campos del cotizador a los campos del formulario hacer envío
-            ciudadOrigen: formData.value.origen,
-            ciudadDestino: formData.value.destino,
-            alto: formData.value.alto,
-            largo: formData.value.largo,
-            ancho: formData.value.ancho,
-            peso: formData.value.peso,
-            valorDeclarado: '10', // Valor por defecto mínimo
-            // También incluimos información adicional por si la necesitamos
-            tipoEnvio: activeTab.value,
-            cantidad: formData.value.cantidad,
-            codigoPostalOrigen: formData.value.codigoPostalOrigen,
-            codigoPostalDestino: formData.value.codigoPostalDestino,
-            valorEnvio: valorEnvio.value,
-            seguroEnvio: seguroEnvio.value,
-            totalCost: totalCost.value
-        }
-        
-        // Navegar a la página hacer-envio con todos los datos
-        router.push({
-            name: 'HacerEnvio', // Cambia esto por el nombre exacto de tu ruta
-            query: datosCompletos // Usamos query en lugar de params para pasar más datos
-        })
+// === Precarga: solo si vienen query params; si no, campos en blanco ===
+onMounted(() => {
+  const q = route.query || {}
+  const desdeQuery = {
+    origen: q.origen ?? '',
+    destino: q.destino ?? '',
+    peso: q.peso ?? '',
+    largo: q.largo ?? '',
+    ancho: q.ancho ?? '',
+    alto: q.altura ?? q.alto ?? ''
+  }
+  const hayQuery = Object.values(desdeQuery).some(v => v !== '' && v != null)
+  if (hayQuery) {
+    formData.value.origen = String(desdeQuery.origen)
+    formData.value.destino = String(desdeQuery.destino)
+    formData.value.peso    = String(desdeQuery.peso)
+    formData.value.largo   = String(desdeQuery.largo)
+    formData.value.ancho   = String(desdeQuery.ancho)
+    formData.value.alto    = String(desdeQuery.alto)
+  } else {
+    formData.value = {
+      cantidad: '',
+      peso: '',
+      largo: '',
+      ancho: '',
+      alto: '',
+      origen: '',
+      destino: '',
+      codigoPostalOrigen: '',
+      codigoPostalDestino: ''
     }
+    isProhibited.value = false
+    activeTab.value = 'paquete'
+  }
+})
 
-    const acercarsePuntoServicio = () => {
-        console.log('Mostrando puntos de servicio...')
-        // Aquí iría la lógica para mostrar puntos de servicio
-    }
+// Tabs
+const tabs = ref([
+  { id: 'documento', label: 'Documento' },
+  { id: 'paquete', label: 'Paquete' }
+])
 
-    const limpiarFormulario = () => {
-        formData.value = {
-            cantidad: '1',
-            peso: '15',
-            largo: '20',
-            ancho: '30',
-            alto: '30',
-            origen: '',
-            destino: '',
-            codigoPostalOrigen: '',
-            codigoPostalDestino: ''
-        }
-        isProhibited.value = false
-        activeTab.value = 'paquete'
+// Precios
+const valorEnvio = computed(() => 72500)
+const seguroEnvio = computed(() => 10800)
+const totalCost = computed(() => valorEnvio.value + seguroEnvio.value)
+
+// ===== Validación elegante =====
+const errors = ref({
+  origen: '',
+  destino: '',
+  codigoPostalOrigen: '',
+  codigoPostalDestino: '',
+  peso: '',
+  largo: '',
+  ancho: '',
+  alto: '',
+  declaracion: ''
+})
+const errorSummary = ref([])
+
+function clearFieldError (field) {
+  if (errors.value[field]) errors.value[field] = ''
+  if (errorSummary.value.length) {
+    setTimeout(buildSummary, 0)
+  }
+}
+
+function buildSummary () {
+  const msgs = []
+  Object.values(errors.value).forEach(v => { if (v) msgs.push(v) })
+  errorSummary.value = msgs
+}
+
+function validate () {
+  Object.keys(errors.value).forEach(k => (errors.value[k] = ''))
+
+  const v = formData.value
+  const requiredText = (val) => String(val || '').trim().length > 0
+  const requiredNum  = (val) => val !== '' && val !== null && val !== undefined
+
+  if (!requiredText(v.origen)) errors.value.origen = 'Ingresa el lugar de origen.'
+  if (!requiredText(v.destino)) errors.value.destino = 'Ingresa el lugar de destino.'
+  if (!requiredText(v.codigoPostalOrigen)) errors.value.codigoPostalOrigen = 'Ingresa el código postal de origen.'
+  if (!requiredText(v.codigoPostalDestino)) errors.value.codigoPostalDestino = 'Ingresa el código postal de destino.'
+
+  if (!requiredNum(v.peso))  errors.value.peso  = 'Ingresa el peso.'
+  if (!requiredNum(v.largo)) errors.value.largo = 'Ingresa el largo.'
+  if (!requiredNum(v.ancho)) errors.value.ancho = 'Ingresa el ancho.'
+  if (!requiredNum(v.alto))  errors.value.alto  = 'Ingresa el alto.'
+
+  if (!isProhibited.value) errors.value.declaracion = 'Debes aceptar la declaración de mercancía no prohibida.'
+
+  buildSummary()
+  return errorSummary.value.length === 0
+}
+
+// Limpiar errores cuando el usuario escribe
+watch(formData, () => {
+  Object.entries(formData.value).forEach(([k, val]) => {
+    if (String(val ?? '').trim() !== '') clearFieldError(k)
+  })
+}, { deep: true })
+watch(isProhibited, (nv) => { if (nv) clearFieldError('declaracion') })
+
+// Clases base para inputs
+function inputClass (field, isNumber = false) {
+  const base = 'w-full px-4 py-4 rounded-2xl border outline-none transition-all duration-300 text-[rgb(58,26,29)] ' +
+               'border-gray-200 focus:border-[rgb(248,112,62)] focus:ring-2 focus:ring-[rgb(248,112,62)]/20 ' +
+               (isNumber ? 'pr-12 ' : '')
+  const errorC = errors.value[field] ? ' border-red-400 focus:border-red-500 focus:ring-red-200' : ''
+  return base + errorC
+}
+
+// Acciones
+const hacerPedido = () => {
+  if (!validate()) {
+    const firstKey = Object.keys(errors.value).find(k => errors.value[k])
+    if (firstKey) {
+      const el = document.querySelector(`[name="${firstKey}"]`) || document.querySelector('main')
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' })
     }
+    return
+  }
+
+  const datosCompletos = {
+    ciudadOrigen: formData.value.origen,
+    ciudadDestino: formData.value.destino,
+    alto: formData.value.alto,
+    largo: formData.value.largo,
+    ancho: formData.value.ancho,
+    peso: formData.value.peso,
+    valorDeclarado: '10',
+    tipoEnvio: activeTab.value,
+    cantidad: formData.value.cantidad,
+    codigoPostalOrigen: formData.value.codigoPostalOrigen,
+    codigoPostalDestino: formData.value.codigoPostalDestino,
+    valorEnvio: valorEnvio.value,
+    seguroEnvio: seguroEnvio.value,
+    totalCost: totalCost.value
+  }
+
+  router.push({
+    name: 'HacerEnvio',
+    query: datosCompletos
+  })
+}
+
+const acercarsePuntoServicio = () => {
+  router.push({ name: 'Mapa' })
+}
+
+const limpiarFormulario = () => {
+  formData.value = {
+    cantidad: '1',
+    peso: '15',
+    largo: '20',
+    ancho: '30',
+    alto: '30',
+    origen: '',
+    destino: '',
+    codigoPostalOrigen: '',
+    codigoPostalDestino: ''
+  }
+  isProhibited.value = false
+  activeTab.value = 'paquete'
+  Object.keys(errors.value).forEach(k => (errors.value[k] = ''))
+  errorSummary.value = []
+}
 </script>
 
 <style scoped>
-    /* Custom styles for better visual effects */
-    .backdrop-blur-sm {
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-    }
+.backdrop-blur-sm { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.border-b-3 { border-bottom-width: 3px; }
+* { transition-property: all; transition-timing-function: cubic-bezier(0.4,0,0.2,1); transition-duration: 300ms; }
+input:focus, select:focus { box-shadow: 0 0 0 3px rgba(248,112,62,0.1); }
+button:hover { transform: translateY(-1px); }
+.overflow-x-auto::-webkit-scrollbar { height: 4px; }
+.overflow-x-auto::-webkit-scrollbar-track { background: #f1f1f0; }
+.overflow-x-auto::-webkit-scrollbar-thumb { background: rgb(248,112,62); border-radius: 4px; }
 
-    /* Animation for tabs */
-    .border-b-3 {
-        border-bottom-width: 3px;
-    }
 
-    /* Smooth transitions */
-    * {
-        transition-property: all;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 300ms;
-    }
 
-    /* Custom focus styles */
-    input:focus,
-    select:focus {
-        box-shadow: 0 0 0 3px rgba(248, 112, 62, 0.1);
-    }
-
-    /* Hover animations */
-    button:hover {
-        transform: translateY(-1px);
-    }
-
-    /* Custom scrollbar for mobile tabs */
-    .overflow-x-auto::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .overflow-x-auto::-webkit-scrollbar-track {
-        background: #f1f1f0;
-    }
-
-    .overflow-x-auto::-webkit-scrollbar-thumb {
-        background: rgb(248, 112, 62);
-        border-radius: 4px;
-    }
 </style>

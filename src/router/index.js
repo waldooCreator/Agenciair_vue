@@ -33,6 +33,7 @@ const routes = [
     path: '/cotizar-info',
     name: 'CotizarInfo',
     component: CotizarInfo,
+    meta: { hideHeader: true }
   },
   {
     path: '/separador1-noticias',

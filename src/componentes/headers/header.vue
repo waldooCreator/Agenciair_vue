@@ -10,7 +10,7 @@
 
       /* Tamaño y separaciones */
       px-3 sm:px-4 md:px-8 lg:px-16
-      py-4 sm:py-2.5 md:py-3   /* ⬅️ SOLO móvil más alto; sm/md igual */
+      py-4 sm:py-2.5 md:py-3
 
       /* Ancho sin overflow: en móvil/tablet usamos ancho calculado + centrado */
       w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] md:w-full
@@ -78,6 +78,12 @@
             class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
           >
             Hacer envío
+          </button>
+          <button
+            @click="irACotizarEnvio"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+          >
+            Cotiza tu envío
           </button>
         </div>
       </div>
@@ -200,6 +206,12 @@
           >
             Hacer envío
           </button>
+          <button
+            @click="irACotizarEnvio"
+            class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap"
+          >
+            Cotiza tu envío
+          </button>
         </div>
       </div>
 
@@ -317,6 +329,11 @@ function toggleMobileDropdown (tipo) {
 
 function irAHacerEnvio () {
   window.location.href = '/hacer-envio'
+}
+
+function irACotizarEnvio () {
+  router.push('/cotizar-info')
+  mobileMenuOpen.value = false
 }
 
 function irASesion () {

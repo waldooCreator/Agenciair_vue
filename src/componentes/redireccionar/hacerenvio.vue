@@ -5,9 +5,7 @@
         <div class="text-center mb-8">
             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Hacer Pedido</h2>
             <p class="text-gray-600">Complete la información para procesar su envío</p>
-            <div v-if="datosPrellenos" class="mt-2 text-sm text-green-600 bg-green-50 px-3 py-2 rounded-lg">
-                ✅ Datos cargados automáticamente desde el cotizador
-            </div>
+            
         </div>
 
         <!-- Selector de tipo de envío -->
