@@ -10,8 +10,9 @@
                 <p class="leading-relaxed text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] opacity-90">
                     {{ subtitle }}
                 </p>
+
                 <!-- Botones de contacto -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 md:justify-center lg:justify-start">
                     <!-- Botón de teléfono -->
                     <a :href="phoneUrl"
                         class="inline-flex items-center bg-white text-[#EB6637] px-6 py-3 rounded-full font-bold text-[15px] sm:text-[17px] md:text-[18px] lg:text-[20px] hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
@@ -95,8 +96,6 @@
         </div>
     </section>
 </template>
-
-
 
 <script setup>
     // Props para personalizar el componente
@@ -250,6 +249,4 @@
     .group:hover .group-hover\:scale-105 {
         transform: scale(1.05);
     }
-
-
 </style>

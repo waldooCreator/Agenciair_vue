@@ -1,99 +1,73 @@
 <template>
-    <div class="bg-[rgba(241,241,240,1)] font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
-        <div class="py-16 max-w-7xl mx-auto px-8">
+  <div class="bg-[rgba(241,241,240,1)] font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
+    <div class="py-16 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
-            <!-- TÍTULO PRINCIPAL -->
-            <div class="text-center mb-20 max-w-5xl mx-auto px-4">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px]">
-                    SOMOS EXPERTOS EN LOGÍSTICA
-                </h2>
-
-                <!-- Separador estético -->
-                <div class="flex justify-center my-3">
-                    <span class="block w-24 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></span>
-                </div>
-
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-snug text-[18px] sm:text-[24px] md:text-[30px] lg:text-[36px]">
-                    CONOCE NUESTROS PORTALES
-                </h2>
-            </div>
-
-            <!-- CONTENEDOR DE TARGETS CON GRID -->
-            <div class="mb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
-
-                <!-- TARJETA GENÉRICA -->
-                <div v-for="(item, key) in servicesData" :key="key" @click="handleTargetClick(key)"
-                    class="relative w-full
-                 aspect-[3/4] sm:aspect-[3/4] md:aspect-[2/3] lg:aspect-[2/3] xl:aspect-[7/10]
-                 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl
-                 transition-all duration-300 transform hover:scale-105
-                 cursor-pointer group">
-
-                    <!-- Imagen -->
-                    <div class="absolute inset-0">
-                        <img :src="item.image" class="w-full h-full object-cover" :alt="item.title">
-                    </div>
-
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-
-                    <!-- Contenido -->
-                    <div class="absolute inset-0 p-6 flex flex-col justify-between text-white">
-                        <div>
-                            <h3 class="text-lg sm:text-xl font-bold uppercase tracking-wide mb-2 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
-                                {{ item.title }}
-                            </h3>
-                        </div>
-                        <div class="self-end">
-                            <div
-                                class="w-10 h-10 bg-[rgba(235,102,55,255)] rounded-full flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300">
-                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <!-- TÍTULO PRINCIPAL -->
+      <div class="text-center mb-12 md:mb-16 lg:mb-20 max-w-5xl mx-auto px-4">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
+          SOMOS EXPERTOS EN LOGÍSTICA
+        </h2>
+        <div class="flex justify-center my-3">
+          <span class="block w-24 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></span>
         </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
+          CONOCE NUESTROS PORTALES
+        </h2>
+      </div>
+
+      <!-- TARJETAS -->
+      <!-- Teléfono: 1 col | Tablet: 2 cols con 1ª tarjeta spanning 2 | PC: 3 cols normales -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 xl:gap-10
+               md:[&>*:first-child]:col-span-2 lg:[&>*:first-child]:col-span-1">
+        <div
+          v-for="item in servicesData"
+          :key="item.key"
+          @click="go(item.route)"
+          class="relative w-full h-80 sm:h-[440px] md:h-[480px] lg:h-[520px]
+                 rounded-[28px] overflow-hidden shadow-xl ring-1 ring-black/5
+                 bg-gray-900 cursor-pointer transition-all duration-300
+                 hover:shadow-2xl hover:-translate-y-1 group">
+
+          <!-- Imagen -->
+          <img :src="item.image" :alt="item.title" class="absolute inset-0 w-full h-full object-cover" />
+
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/70 md:from-black/30 md:via-black/10 md:to-black/60"></div>
+
+          <!-- Título -->
+          <div class="absolute top-4 md:top-5 left-5 md:left-6 right-16 md:right-20">
+            <h3 class="text-white font-extrabold uppercase tracking-wide text-sm sm:text-base md:text-lg drop-shadow-[0_1px_1px_rgba(0,0,0,.5)]">
+              {{ item.title }}
+            </h3>
+          </div>
+
+          <!-- Botón -->
+          <div class="absolute bottom-5 right-5 md:right-6">
+            <div class="w-11 h-11 md:w-12 md:h-12 rounded-full bg-[rgba(235,102,55,255)] flex items-center justify-center shadow-lg ring-1 ring-white/30 transition-transform duration-300 group-hover:translate-x-1">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
 
-const servicesData = {
-    courier: {
-        title: "Servicios",
-        image: "/images/agg-Pica.png",
-        route: '/target1-info'
-    },
-    transporte: {
-        title: "TRANSPORTE",
-        image: "/images/neta.png",
-        route: '/target2-info'
-    },
-    cargaInternacional: {
-        title: "CARGA INTERNACIONAL",
-        image: "/images/avion.png",
-        route: '/target3-info'
-    },
-    logisticaIntegral: {
-        title: "LOGÍSTICA INTEGRAL",
-        image: "/images/Gemini_Generated_Image_25c4dq25c4dq25c4.png",
-        route: '/target4-info'
-    }
-}
+const servicesData = [
+  { key: 'courier',            title: 'SERVICIOS',           image: '/images/agg-Pica.png', route: '/target1-info' },
+  { key: 'transporte',         title: 'TRANSPORTE',          image: '/images/neta.png',     route: '/target2-info' },
+  { key: 'cargaInternacional', title: 'CARGA INTERNACIONAL', image: '/images/avion.png',    route: '/target3-info' }
+]
 
-function handleTargetClick(targetType) {
-    const targetData = servicesData[targetType]
-    if (targetData && targetData.route) {
-        router.push(targetData.route)
-    }
+function go(path) {
+  if (path) router.push(path)
 }
 </script>

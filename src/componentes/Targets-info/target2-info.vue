@@ -29,7 +29,7 @@
           </p>
 
           <!-- Stats destacados -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-12">
             <div class="text-center">
               <div class="text-3xl font-black text-[rgb(248,112,62)]">{{ totalAliados }}+</div>
               <div class="text-sm text-[rgb(58,26,29)] font-medium">Aliados Nacionales</div>
@@ -106,7 +106,21 @@
         <div class="section-spacing">
           <!-- Título de categoría -->
           <div class="relative group mb-8">
-            
+            <div class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+
+            <div class="relative glass-effect rounded-2xl p-6 md:p-8 shadow-lg border border-white/50">
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center shadow-lg">
+                  <span class="text-white font-black text-xl">1</span>
+                </div>
+                <div>
+                  <h2 class="text-2xl md:text-3xl font-bold text-[rgb(58,26,29)]">
+                    Líderes Nacionales en Mensajería
+                  </h2>
+                  <p class="text-[rgb(58,26,29)]/70 mt-2">Aliados con cobertura en más de 1100 municipios</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- Contenido de cada aliado -->
@@ -116,11 +130,13 @@
             <div class="relative glass-effect rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
               <!-- Header con imagen -->
               <div class="mb-8">
-                <div class="w-full h-48 md:h-64 rounded-2xl mb-6 overflow-hidden shadow-lg">
+                <!-- ÚNICO CAMBIO: responsive en móvil/tablet; desktop igual que antes -->
+                <div class="w-full rounded-2xl mb-6 overflow-hidden shadow-lg
+                            aspect-[4/3] md:aspect-[16/9] lg:aspect-auto lg:h-64">
                   <img 
                     :src="aliado.imagenUrl" 
                     :alt="aliado.nombre"
-                    class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    class="block w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
@@ -184,6 +200,50 @@
                   </div>
                 </div>
 
+                <!-- Fortalezas Regionales -->
+                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                  <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    Fortalezas Regionales
+                  </h4>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div v-for="fortaleza in aliado.fortalezasRegionales" :key="fortaleza.region"
+                        class="bg-white/70 rounded-xl p-4 border border-white/30">
+                      <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-[rgb(248,112,62)] rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <h5 class="font-semibold text-[rgb(58,26,29)] mb-1">{{ fortaleza.region }}</h5>
+                          <p class="text-sm text-[rgb(58,26,29)]/80">{{ fortaleza.descripcion }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tiempos de Entrega -->
+                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                  <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Tiempos de Entrega Promedio
+                  </h4>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div v-for="(tiempo, region) in aliado.tiemposEntrega" :key="region"
+                        class="bg-white/70 rounded-xl p-4 text-center border border-white/30">
+                      <div class="text-2xl font-black text-[rgb(248,112,62)] mb-1">{{ tiempo }}</div>
+                      <div class="text-sm text-[rgb(58,26,29)] font-medium">{{ region }}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Casos de Éxito -->
                 <div v-if="aliado.casos" class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
                   <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
                     <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,14 +251,42 @@
                     </svg>
                     Casos de Éxito Nacional
                   </h4>
-                  <div class="space-y-3">
-                    <div v-for="caso in aliado.casos" :key="caso.titulo" class="bg-white rounded-xl p-4 border">
-                      <h5 class="font-semibold text-[rgb(58,26,29)] mb-2">{{ caso.titulo }}</h5>
-                      <p class="text-sm text-[rgb(58,26,29)]/80">{{ caso.descripcion }}</p>
-                      <span class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                        {{ caso.resultado }}
-                      </span>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div v-for="caso in aliado.casos" :key="caso.titulo" class="bg-white rounded-xl p-4 border border-white/30">
+                      <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <h5 class="font-semibold text-[rgb(58,26,29)] mb-1">{{ caso.titulo }}</h5>
+                          <p class="text-sm text-[rgb(58,26,29)]/80 mb-2">{{ caso.descripcion }}</p>
+                          <span class="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
+                            {{ caso.resultado }}
+                          </span>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                </div>
+
+                <!-- Certificaciones -->
+                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                  <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Certificaciones y Acreditaciones
+                  </h4>
+                  <div class="flex flex-wrap gap-3">
+                    <span v-for="cert in aliado.certificaciones" :key="cert"
+                          class="px-4 py-2 bg-white/70 text-[rgb(58,26,29)] text-sm font-bold rounded-xl border border-white/30 flex items-center gap-2">
+                      <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {{ cert }}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -264,7 +352,7 @@ const aliadosNacionales = [
   {
     nombre: 'TCC - Transporte de Carga Coordinado',
     categoria: 'Líder Nacional en Logística',
-    imagenUrl: 'https://www.portafolio.co/files/article_new_multimedia/uploads/2022/09/20/6329b41db2a33.png', // Reemplaza por imagen de TCC o centro de distribución
+    imagenUrl: 'https://www.portafolio.co/files/article_new_multimedia/uploads/2022/09/20/6329b41db2a33.png',
     descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">TCC</strong> es uno de los operadores logísticos más importantes de Colombia, con más de 25 años de experiencia en el mercado nacional. Su amplia red de distribución y su enfoque en la innovación tecnológica los convierte en un aliado estratégico fundamental para nuestras operaciones en todo el territorio nacional.',
     descripcionAdicional: 'Con presencia en más de 900 municipios y una flota moderna que incluye vehículos especializados para diferentes tipos de carga, TCC ha demostrado ser un socio confiable para envíos que requieren atención especializada. Su sistema de seguimiento en tiempo real y su compromiso con los tiempos de entrega los posiciona como uno de los líderes indiscutibles del sector.',
     servicios: ['Envío Express', 'Carga Consolidada', 'Última Milla', 'Reverse Logistics', 'Cross Docking', 'Almacenamiento'],
@@ -272,6 +360,18 @@ const aliadosNacionales = [
     fechaAlianza: 'Febrero 2020',
     rating: 5,
     enviosCompletados: 85000,
+    fortalezasRegionales: [
+      { region: 'Región Andina', descripcion: 'Cobertura completa de Bogotá, Medellín y ciudades intermedias' },
+      { region: 'Costa Atlántica', descripcion: 'Red especializada en Barranquilla, Cartagena y zona portuaria' },
+      { region: 'Eje Cafetero', descripcion: 'Logística especializada para productos agroindustriales' },
+      { region: 'Llanos Orientales', descripcion: 'Conectividad con zonas petrolíferas y ganaderas' }
+    ],
+    tiemposEntrega: {
+      'Ciudades Principales': '1-2 días',
+      'Ciudades Intermedias': '2-3 días',
+      'Municipios Menores': '3-4 días',
+      'Zonas Rurales': '4-5 días'
+    },
     casos: [
       {
         titulo: 'Proyecto E-commerce Nacional',
@@ -283,12 +383,13 @@ const aliadosNacionales = [
         descripcion: 'Coordinación de devoluciones desde 15 ciudades hacia centro de distribución principal.',
         resultado: '95% recuperación exitosa'
       }
-    ]
+    ],
+    certificaciones: ['ISO 9001', 'BASC', 'OEA', 'ISO 14001', 'OHSAS 18001']
   },
   {
     nombre: 'Servientrega',
     categoria: 'Red Nacional de Mensajería',
-    imagenUrl: 'https://img.lalr.co/cms/2021/02/08151702/servientrega-900.jpg?w=960', // Reemplaza por imagen de Servientrega
+    imagenUrl: 'https://img.lalr.co/cms/2021/02/08151702/servientrega-900.jpg?w=960',
     descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Servientrega</strong> es sinónimo de confianza en Colombia. Con más de 40 años de experiencia, es la empresa de mensajería que ha acompañado el crecimiento del país, conectando familias, empresas y comunidades desde Leticia hasta La Guajira, desde San Andrés hasta el Amazonas.',
     descripcionAdicional: 'Su red capilar de más de 1,400 puntos de atención a nivel nacional y su profundo conocimiento del territorio colombiano los convierte en el aliado perfecto para llegar a destinos que otros consideran imposibles. Servientrega entiende la idiosincrasia colombiana y ha adaptado sus servicios para satisfacer las necesidades específicas de cada región.',
     servicios: ['Mensajería Express', 'Paquetería Nacional', 'Giros y Pagos', 'Logística Rural', 'Servicios Especiales', 'Soluciones B2B'],
@@ -296,6 +397,18 @@ const aliadosNacionales = [
     fechaAlianza: 'Enero 2019',
     rating: 5,
     enviosCompletados: 125000,
+    fortalezasRegionales: [
+      { region: 'Amazonía', descripcion: 'Única red de mensajería con cobertura completa en selva amazónica' },
+      { region: 'Pacífico', descripcion: 'Conectividad especializada con comunidades afrodescendientes del litoral' },
+      { region: 'Orinoquia', descripcion: 'Red robusta en llanos orientales y zonas fronterizas' },
+      { region: 'Insular', descripcion: 'Servicio especializado a San Andrés, Providencia y archipiélagos' }
+    ],
+    tiemposEntrega: {
+      'Capitales': '24 horas',
+      'Intermedias': '1-2 días',
+      'Municipios': '2-3 días',
+      'Zonas Especiales': '3-5 días'
+    },
     casos: [
       {
         titulo: 'Conexión con Zona Rural del Chocó',
@@ -307,12 +420,13 @@ const aliadosNacionales = [
         descripcion: 'Envíos regulares a comunidades indígenas del Amazonas con productos de primera necesidad.',
         resultado: '15 comunidades conectadas'
       }
-    ]
+    ],
+    certificaciones: ['ISO 9001', 'BASC', 'Sello de Calidad', 'OEA', 'Certificación Verde']
   },
   {
     nombre: 'Coordinadora',
     categoria: 'Mensajería Especializada',
-    imagenUrl: 'https://img.lalr.co/cms/2021/06/22164349/MACK2.png?size=sm', // Reemplaza por imagen de Coordinadora
+    imagenUrl: 'https://img.lalr.co/cms/2021/06/22164349/MACK2.png?size=sm',
     descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Coordinadora</strong> se ha especializado en ofrecer soluciones logísticas personalizadas para el mercado empresarial. Con más de 30 años en el mercado colombiano, han desarrollado una propuesta de valor única enfocada en la flexibilidad y la adaptación a las necesidades específicas de cada cliente.',
     descripcionAdicional: 'Su fortaleza radica en el manejo de envíos especiales y su capacidad de personalización de servicios. Coordinadora ha sido pionera en implementar tecnologías de seguimiento y en desarrollar soluciones para sectores específicos como farmacéutico, textil y agroindustrial, ofreciendo condiciones especiales de transporte según el tipo de mercancía.',
     servicios: ['Mensajería Empresarial', 'Carga Especial', 'Sector Farmacéutico', 'Textil y Confección', 'Agro-logística', 'Tecnología'],
@@ -320,6 +434,18 @@ const aliadosNacionales = [
     fechaAlianza: 'Abril 2020',
     rating: 4,
     enviosCompletados: 65000,
+    fortalezasRegionales: [
+      { region: 'Valle del Cauca', descripcion: 'Hub logístico principal con conexión puerto de Buenaventura' },
+      { region: 'Antioquia', descripcion: 'Red especializada en sector textil y manufactura' },
+      { region: 'Cundinamarca', descripcion: 'Cobertura empresarial y conexión con Bogotá' },
+      { region: 'Santander', descripcion: 'Logística industrial y petroquímica especializada' }
+    ],
+    tiemposEntrega: {
+      'Corredores Industriales': '24-48 horas',
+      'Ciudades Principales': '1-2 días',
+      'Zonas Empresariales': '2-3 días',
+      'Municipios Menores': '3-4 días'
+    },
     casos: [
       {
         titulo: 'Cadena de Frío Farmacéutica',
@@ -331,12 +457,13 @@ const aliadosNacionales = [
         descripcion: 'Distribución semanal de productos textiles desde Medellín hacia 20 ciudades principales.',
         resultado: '97% entregas puntuales'
       }
-    ]
+    ],
+    certificaciones: ['ISO 9001', 'BASC', 'GDP', 'BPD', 'Invima']
   },
   {
     nombre: 'Deprisa',
     categoria: 'Envíos Rápidos Nacional',
-    imagenUrl: 'https://zonacaptiva.com/wp-content/uploads/2023/09/Zona-Captiva-post-2023-09-18T152201.306.png', // Reemplaza por imagen de Deprisa
+    imagenUrl: 'https://zonacaptiva.com/wp-content/uploads/2023/09/Zona-Captiva-post-2023-09-18T152201.306.png',
     descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Deprisa</strong> ha revolucionado el concepto de velocidad en envíos nacionales. Como especialistas en entregas rápidas y servicios express, han construido una red optimizada para minimizar los tiempos de tránsito sin comprometer la seguridad y el cuidado de los envíos.',
     descripcionAdicional: 'Su modelo operativo se centra en rutas directas y frecuencias altas entre las principales ciudades del país. Deprisa ha implementado sistemas de clasificación automatizada y manejo predictivo de la demanda, lo que les permite ofrecer ventanas de entrega muy precisas y servicios same-day en ciudades principales.',
     servicios: ['Express Nacional', 'Same Day', 'Next Day', 'Documentos Urgentes', 'E-commerce Rápido', 'Entregas Programadas'],
@@ -344,6 +471,18 @@ const aliadosNacionales = [
     fechaAlianza: 'Junio 2020',
     rating: 4,
     enviosCompletados: 45000,
+    fortalezasRegionales: [
+      { region: 'Bogotá-Cundinamarca', descripcion: 'Same-day y next-day con cobertura metropolitana completa' },
+      { region: 'Medellín-Antioquia', descripcion: 'Red express optimizada para valle de Aburrá' },
+      { region: 'Cali-Valle', descripcion: 'Conexión rápida con corredor Cali-Buenaventura' },
+      { region: 'Barranquilla-Atlántico', descripcion: 'Hub caribeño para distribución costeña' }
+    ],
+    tiemposEntrega: {
+      'Same Day': '2-6 horas',
+      'Next Day': '24 horas',
+      'Express': '1-2 días',
+      'Standard': '2-3 días'
+    },
     casos: [
       {
         titulo: 'Documentos Legales Urgentes',
@@ -355,12 +494,13 @@ const aliadosNacionales = [
         descripcion: 'Servicio same-day para equipos médicos urgentes dentro del área metropolitana.',
         resultado: '95% entregas mismo día'
       }
-    ]
+    ],
+    certificaciones: ['ISO 9001', 'BASC', 'Certificación Express', 'OEA']
   },
   {
     nombre: 'Interrápidísimo',
     categoria: 'Mensajería Integral',
-    imagenUrl: 'https://www.usme.com.co/wp-content/uploads/cache/images/interrapidisimo-usme-bogota/interrapidisimo-usme-bogota-3751659047.jpg', // Reemplaza por imagen de Interrápidísimo
+    imagenUrl: 'https://www.usme.com.co/wp-content/uploads/cache/images/interrapidisimo-usme-bogota/interrapidisimo-usme-bogota-3751659047.jpg',
     descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">Interrápidísimo</strong> representa la evolución de la mensajería tradicional hacia una propuesta integral de servicios logísticos. Con presencia histórica en el mercado colombiano, han sabido adaptarse a los nuevos tiempos manteniendo su esencia de servicio personalizado y cercanía con el cliente.',
     descripcionAdicional: 'Su red combina la tradición de la mensajería colombiana con tecnología moderna, ofreciendo soluciones que van desde el envío de documentos hasta la logística completa para pequeñas y medianas empresas. Interrápidísimo se destaca por su flexibilidad operativa y su capacidad de adaptarse a necesidades específicas de cada cliente.',
     servicios: ['Mensajería Tradicional', 'Paquetería', 'Logística PYME', 'Servicios Financieros', 'Recaudo', 'Distribución Local'],
@@ -368,6 +508,18 @@ const aliadosNacionales = [
     fechaAlianza: 'Marzo 2021',
     rating: 4,
     enviosCompletados: 55000,
+    fortalezasRegionales: [
+      { region: 'Ciudades Intermedias', descripcion: 'Red especializada en capitales departamentales y municipios intermedios' },
+      { region: 'PYMES Regionales', descripcion: 'Soluciones logísticas adaptadas a pequeñas y medianas empresas' },
+      { region: 'Servicios Financieros', descripcion: 'Red de recaudo y pagos en todo el territorio nacional' },
+      { region: 'Distribución Local', descripcion: 'Última milla especializada en centros urbanos' }
+    ],
+    tiemposEntrega: {
+      'Intermunicipal': '1-2 días',
+      'Regional': '2-3 días',
+      'Nacional': '3-4 días',
+      'Rural': '4-6 días'
+    },
     casos: [
       {
         titulo: 'Apoyo a PYMES Regionales',
@@ -379,7 +531,8 @@ const aliadosNacionales = [
         descripcion: 'Implementación de sistema de recaudo para empresa de servicios públicos.',
         resultado: '99.2% efectividad recaudo'
       }
-    ]
+    ],
+    certificaciones: ['ISO 9001', 'Certificación PYME', 'BASC', 'Sello Calidad']
   }
 ]
 
@@ -396,13 +549,66 @@ const ratingPromedio = computed(() => {
   return promedio.toFixed(1)
 })
 
-// Métodos usados en los botones (ajusta la navegación si tu router usa otros nombres/paths)
+// Métodos usados en los botones
 function cotizarNacional () {
-  // Cambia a tu ruta real si es distinta
-  router.push('/cotizar-info') // o: router.push({ name: 'CotizarNacional' })
+  router.push('/cotizar-info')
 }
 
 function masInformacion () {
-  router.push({ name: 'cotizar-info' }) // ruta dada por ti
+  router.push({ name: 'cotizar-info' })
 }
 </script>
+
+<style scoped>
+.section-spacing {
+  @apply mb-16;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, rgb(248,112,62) 0%, rgb(248,112,62) 100%);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(248,112,62);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(248,112,62, 0.8);
+}
+</style>

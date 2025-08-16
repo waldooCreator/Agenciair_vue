@@ -157,21 +157,24 @@
                         <div class="relative glass-effect rounded-3xl p-8 md:p-10 shadow-lg border border-white/50">
                             <!-- Header con imagen -->
                             <div class="mb-8">
-                                <div class="w-full h-48 md:h-64 rounded-2xl mb-6 overflow-hidden shadow-lg">
+                                <!-- CAMBIO: contenedor responsive solo para móvil/tablet; desktop se mantiene -->
+                                <div class="w-full rounded-2xl mb-6 overflow-hidden shadow-lg
+                                            aspect-[4/3] sm:aspect-[4/3] md:aspect-[16/9]
+                                            lg:aspect-auto lg:h-64">
                                     <img :src="aliado.imagenUrl" :alt="aliado.nombre"
-                                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                                        class="block w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                                         loading="lazy" />
                                 </div>
 
                                 <div class="flex flex-wrap items-center gap-4 mb-6">
                                     <span
                                         class="px-4 py-2 bg-[rgb(248,112,62)]/20 text-[rgb(248,112,62)] text-sm font-bold rounded-full">
-                                        {{ aliado . categoria }}
+                                        {{ aliado.categoria }}
                                     </span>
                                     <span
                                         class="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-full flex items-center gap-1">
                                         <div class="w-2 h-2 bg-green-500 rounded-full"></div>
-                                        Aliado desde {{ aliado . fechaAlianza }}
+                                        Aliado desde {{ aliado.fechaAlianza }}
                                     </span>
                                     <div class="flex items-center gap-1">
                                         <div class="flex">
@@ -183,7 +186,7 @@
                                             </svg>
                                         </div>
                                         <span
-                                            class="text-sm text-[rgb(58,26,29)] font-medium ml-1">{{ aliado . rating }}/5</span>
+                                            class="text-sm text-[rgb(58,26,29)] font-medium ml-1">{{ aliado.rating }}/5</span>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +206,7 @@
                                             </svg>
                                             <h4 class="font-bold text-[rgb(58,26,29)]">Cobertura Global</h4>
                                         </div>
-                                        <p class="text-[rgb(58,26,29)]">{{ aliado . cobertura }}</p>
+                                        <p class="text-[rgb(58,26,29)]">{{ aliado.cobertura }}</p>
                                     </div>
 
                                     <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
@@ -216,7 +219,7 @@
                                             <h4 class="font-bold text-[rgb(58,26,29)]">Rendimiento</h4>
                                         </div>
                                         <p class="text-[rgb(58,26,29)]">Más de
-                                            {{ aliado . enviosCompletados . toLocaleString() }} envíos internacionales
+                                            {{ aliado.enviosCompletados.toLocaleString() }} envíos internacionales
                                             exitosos</p>
                                     </div>
                                 </div>
@@ -231,26 +234,69 @@
                                     </div>
                                 </div>
 
-                                <div v-if="aliado.casos" class="bg-blue-50 rounded-2xl p-6 border border-blue-100">
+                                <!-- Ventajas Competitivas -->
+                                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
                                     <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
-                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
+                                        <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4M7 7a3 3 0 00-3 3v0a3 3 0 003 3h3m4-6a3 3 0 013-3v0a3 3 0 013 3v0a3 3 0 01-3 3h-3m-6 0v0a3 3 0 003-3v0a3 3 0 013 3v0a3 3 0 01-3 3h-3z" />
+                                        </svg>
+                                        Ventajas Competitivas
+                                    </h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div v-for="ventaja in aliado.ventajasCompetitivas" :key="ventaja.titulo"
+                                            class="bg-white/70 rounded-xl p-4 border border-white/30">
+                                            <div class="flex items-start gap-3">
+                                                <div class="w-10 h-10 bg-[rgb(248,112,62)] rounded-lg flex items-center justify-center flex-shrink-0">
+                                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="ventaja.iconPath" />
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-semibold text-[rgb(58,26,29)] mb-1">{{ ventaja.titulo }}</h5>
+                                                    <p class="text-sm text-[rgb(58,26,29)]/80">{{ ventaja.descripcion }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tiempos de Entrega -->
+                                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                                    <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Tiempos de Entrega Promedio
+                                    </h4>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        <div v-for="(tiempo, region) in aliado.tiemposEntrega" :key="region"
+                                            class="bg-white/70 rounded-xl p-4 text-center border border-white/30">
+                                            <div class="text-2xl font-black text-[rgb(248,112,62)] mb-1">{{ tiempo }}</div>
+                                            <div class="text-sm text-[rgb(58,26,29)] font-medium">{{ region }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Certificaciones -->
+                                <div class="bg-white/50 rounded-2xl p-6 border border-white/30">
+                                    <h4 class="font-bold text-[rgb(58,26,29)] mb-4 flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
-                                        Casos de Éxito Internacional
+                                        Certificaciones y Acreditaciones
                                     </h4>
-                                    <div class="space-y-3">
-                                        <div v-for="caso in aliado.casos" :key="caso.titulo"
-                                            class="bg-white rounded-xl p-4 border">
-                                            <h5 class="font-semibold text-[rgb(58,26,29)] mb-2">{{ caso . titulo }}
-                                            </h5>
-                                            <p class="text-sm text-[rgb(58,26,29)]/80">{{ caso . descripcion }}</p>
-                                            <span
-                                                class="inline-block mt-2 px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">
-                                                {{ caso . resultado }}
-                                            </span>
-                                        </div>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span v-for="cert in aliado.certificaciones" :key="cert"
+                                            class="px-4 py-2 bg-white/70 text-[rgb(58,26,29)] text-sm font-bold rounded-xl border border-white/30 flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            {{ cert }}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -314,145 +360,156 @@
 </template>
 
 <script setup>
-    import {
-        computed
-    } from 'vue'
+import { computed } from 'vue'
 
-    // Datos de los aliados internacionales
-    const aliadosInternacionales = [{
-            nombre: 'UPS - United Parcel Service',
-            categoria: 'Líder Mundial en Logística',
-            imagenUrl: 'https://imagenes.eltiempo.com/files/image_1200_535/uploads/2025/01/16/67895daddef98.jpeg', // Reemplaza por imagen de UPS o centro logístico internacional
-            descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">UPS</strong> es sinónimo de confiabilidad en envíos internacionales. Como uno de los líderes mundiales indiscutidos en logística, esta alianza estratégica nos permite ofrecer a nuestros clientes acceso directo a la red más extensa y confiable del planeta, con presencia en más de 220 países y territorios.',
-            descripcionAdicional: 'Su tecnología de vanguardia en seguimiento, su flota aérea propia y su experiencia de más de 100 años en el mercado hacen de UPS el socio perfecto para envíos críticos. Desde documentos urgentes hasta mercancía de gran valor, UPS maneja cada envío con los más altos estándares de seguridad y puntualidad que caracterizan a esta empresa americana.',
-            servicios: ['UPS Express', 'UPS Worldwide Express', 'UPS Standard', 'UPS Freight',
-                'UPS Mail Innovations', 'UPS Healthcare'
-            ],
-            cobertura: 'Más de 220 países y territorios mundialmente, con hubs principales en Louisville, Colonia, Shanghai y Filipinas',
-            fechaAlianza: 'Marzo 2019',
-            rating: 5,
-            enviosCompletados: 45000,
-            casos: [{
-                    titulo: 'Envío Urgente de Muestras Médicas a Estados Unidos',
-                    descripcion: 'Transporte crítico de muestras de laboratorio desde Bogotá a Miami en menos de 24 horas.',
-                    resultado: 'Entrega en 18 horas'
-                },
-                {
-                    titulo: 'Proyecto de Exportación Masiva',
-                    descripcion: 'Gestión de 500 envíos semanales de productos colombianos a Europa durante 6 meses.',
-                    resultado: '99.8% entregas exitosas'
-                },
-                {
-                    titulo: 'Envío de Emergencia Humanitaria',
-                    descripcion: 'Coordinación de ayuda humanitaria urgente tras desastre natural en Centroamérica.',
-                    resultado: 'Misión cumplida en 12h'
-                }
-            ]
+// Datos de los aliados internacionales
+const aliadosInternacionales = [{
+    nombre: 'UPS - United Parcel Service',
+    categoria: 'Líder Mundial en Logística',
+    imagenUrl: 'https://imagenes.eltiempo.com/files/image_1200_535/uploads/2025/01/16/67895daddef98.jpeg',
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">UPS</strong> es sinónimo de confiabilidad en envíos internacionales. Como uno de los líderes mundiales indiscutidos en logística, esta alianza estratégica nos permite ofrecer a nuestros clientes acceso directo a la red más extensa y confiable del planeta, con presencia en más de 220 países y territorios.',
+    descripcionAdicional: 'Su tecnología de vanguardia en seguimiento, su flota aérea propia y su experiencia de más de 100 años en el mercado hacen de UPS el socio perfecto para envíos críticos. Desde documentos urgentes hasta mercancía de gran valor, UPS maneja cada envío con los más altos estándares de seguridad y puntualidad que caracterizan a esta empresa americana.',
+    servicios: ['UPS Express', 'UPS Worldwide Express', 'UPS Standard', 'UPS Freight', 'UPS Mail Innovations', 'UPS Healthcare'],
+    cobertura: 'Más de 220 países y territorios mundialmente, con hubs principales en Louisville, Colonia, Shanghai y Filipinas',
+    fechaAlianza: 'Marzo 2019',
+    rating: 5,
+    enviosCompletados: 45000,
+    ventajasCompetitivas: [
+        { 
+            titulo: 'Seguridad Garantizada', 
+            descripcion: 'Sistema de rastreo en tiempo real y seguros completos', 
+            iconPath: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' 
         },
-        {
-            nombre: 'DHL Express',
-            categoria: 'Red Global Express',
-            imagenUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/b9/DHL-Fahrzeug.jpg', // Reemplaza por imagen de DHL o avión de carga
-            descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">DHL Express</strong> representa la excelencia en envíos express internacionales. Como pioneros en la industria de la mensajería internacional y líderes indiscutibles en mercados europeos y asiáticos, DHL nos permite ofrecer servicios premium con tiempos de entrega incomparables a nivel mundial.',
-            descripcionAdicional: 'Su red de hubs estratégicamente ubicados, incluyendo el más grande del mundo en Leipzig, Alemania, y su flota de más de 290 aviones dedicados exclusivamente al transporte express, garantizan que los envíos más críticos lleguen a tiempo. DHL es especialmente fuerte en destinos europeos, asiáticos y del Medio Oriente, complementando perfectamente nuestra capacidad de alcance global.',
-            servicios: ['DHL Express Worldwide', 'DHL Express 12:00', 'DHL Express 9:00', 'DHL Same Day',
-                'DHL Medical Express', 'DHL Automotive'
-            ],
-            cobertura: 'Más de 220 países con fortaleza especial en Europa, Asia y Medio Oriente. Hub principal en Leipzig, Alemania',
-            fechaAlianza: 'Julio 2019',
-            rating: 5,
-            enviosCompletados: 38000,
-            casos: [{
-                    titulo: 'Lanzamiento de Producto en Asia',
-                    descripcion: 'Distribución simultánea de muestras de producto colombiano a 15 países asiáticos en 48 horas.',
-                    resultado: '100% sincronización'
-                },
-                {
-                    titulo: 'Documentos Legales Urgentes a Europa',
-                    descripcion: 'Envío crítico de documentos legales desde Bogotá a Frankfurt con entrega antes de las 9:00 AM.',
-                    resultado: 'Entregado 8:30 AM'
-                },
-                {
-                    titulo: 'Cadena de Frío Farmacéutica',
-                    descripcion: 'Transporte de medicamentos sensibles a temperatura desde Colombia hacia hospitales en Alemania.',
-                    resultado: 'Cadena de frío intacta'
-                }
-            ]
+        { 
+            titulo: 'Entrega Puntual', 
+            descripcion: 'Más de 95% de entregas a tiempo globalmente', 
+            iconPath: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' 
+        },
+        { 
+            titulo: 'Flota Propia', 
+            descripcion: 'Más de 125,000 vehículos y 550 aviones propios', 
+            iconPath: 'M8 9l4-4 4 4m0 6l-4 4-4-4' 
+        },
+        { 
+            titulo: 'Soporte 24/7', 
+            descripcion: 'Atención al cliente especializada las 24 horas', 
+            iconPath: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857' 
         }
-    ]
+    ],
+    tiemposEntrega: {
+        'América': '1-2 días',
+        'Europa': '2-3 días',
+        'Asia': '3-4 días',
+        'Oceanía': '4-5 días'
+    },
+    certificaciones: ['ISO 14001', 'TAPA FSR', 'C-TPAT', 'AEO', 'IATA CEIV Pharma']
+}, {
+    nombre: 'DHL Express',
+    categoria: 'Express Internacional',
+    imagenUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/DHL_Logo.svg/2560px-DHL_Logo.svg.png',
+    descripcionCompleta: '<strong class="text-[rgb(248,112,62)]">DHL Express</strong> es el líder indiscutible en envíos express internacionales. Con su característica agilidad alemana y presencia en más de 220 países, DHL nos permite ofrecer soluciones de envío rápido que conectan Colombia con el mundo en tiempo récord.',
+    descripcionAdicional: 'Su red de distribución express más grande del mundo, combinada con tecnología de seguimiento de última generación y un compromiso inquebrantable con la puntualidad, hace de DHL el socio ideal para envíos urgentes y de alto valor. Desde documentos críticos hasta muestras médicas, DHL maneja cada envío con la precisión suiza que los caracteriza.',
+    servicios: ['DHL Express Worldwide', 'DHL Express 12:00', 'DHL Express 9:00', 'DHL Medical Express', 'DHL Same Day', 'DHL Automotive'],
+    cobertura: '220+ países y territorios con red express líder mundial, hubs principales en Leipzig, Cincinnati, Hong Kong y Bahréin',
+    fechaAlianza: 'Enero 2020',
+    rating: 5,
+    enviosCompletados: 38000,
+    ventajasCompetitivas: [
+        { 
+            titulo: 'Express Líder', 
+            descripcion: 'Red express #1 mundial con entregas en 24-48 horas', 
+            iconPath: 'M13 10V3L4 14h7v7l9-11h-7z' 
+        },
+        { 
+            titulo: 'Tracking Avanzado', 
+            descripcion: 'Seguimiento en tiempo real con precisión minuto a minuto', 
+            iconPath: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z' 
+        },
+        { 
+            titulo: 'Especialización', 
+            descripcion: 'Expertos en envíos médicos, farmacéuticos y alta tecnología', 
+            iconPath: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' 
+        },
+        { 
+            titulo: 'Garantía Express', 
+            descripcion: 'Garantía de entrega a tiempo o reembolso completo', 
+            iconPath: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' 
+        }
+    ],
+    tiemposEntrega: {
+        'América': '1-2 días',
+        'Europa': '1-2 días',
+        'Asia': '2-3 días',
+        'Oceanía': '2-3 días'
+    },
+    certificaciones: ['ISO 14001', 'GDP', 'CEIV Pharma', 'TAPA FSR', 'AEO']
+}];
 
-    // Calcular estadísticas
-    const totalAliados = computed(() => {
-        return aliadosInternacionales.length
-    })
+// Computed properties para las estadísticas
+const totalAliados = computed(() => aliadosInternacionales.length);
 
-    const totalPaises = computed(() => {
-        return '220' // Ambos cubren más de 220 países
-    })
+const totalPaises = computed(() => {
+    return 220; // Basado en la cobertura máxima de los aliados
+});
 
-    const ratingPromedio = computed(() => {
-        let sumaRatings = 0
-        aliadosInternacionales.forEach(aliado => {
-            sumaRatings += aliado.rating
-        })
-        return (sumaRatings / aliadosInternacionales.length).toFixed(1)
-    })
+const ratingPromedio = computed(() => {
+    const suma = aliadosInternacionales.reduce((acc, aliado) => acc + aliado.rating, 0);
+    return (suma / aliadosInternacionales.length).toFixed(1);
+});
 
-    // Funciones para los botones
-    const cotizarInternacional = () => {
-        console.log('Cotizar envío internacional')
-    }
+// Métodos para las acciones
+const cotizarInternacional = () => {
+    console.log('Redirigiendo a cotización internacional...');
+};
 
-    const masInformacion = () => {
-        console.log('Más información sobre envíos internacionales')
-    }
+const masInformacion = () => {
+    console.log('Mostrando más información...');
+};
 </script>
 
 <style scoped>
-    .gradient-bg {
-        background: linear-gradient(135deg, rgb(248, 112, 62) 0%, rgb(248, 112, 62) 100%);
-    }
+.section-spacing {
+    @apply mb-16;
+}
 
-    .glass-effect {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-    }
+.glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 
-    .animate-float {
-        animation: float 6s ease-in-out infinite;
-    }
+.gradient-bg {
+    background: linear-gradient(135deg, rgb(248,112,62) 0%, rgb(248,112,62) 100%);
+}
 
-    @keyframes float {
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
 
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
+.animate-float { animation: float 3s ease-in-out infinite; }
 
-        50% {
-            transform: translateY(-10px);
-        }
-    }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container { @apply px-4; }
+}
 
-    .section-spacing {
-        margin-bottom: 4rem;
-    }
+/* === Solo móvil/tablet: mejorar logos y evitar recortes en imágenes muy anchas === */
+@media (max-width: 1024px) {
+  /* Detecta logos por nombre o extensión y usa contain para que no se corten */
+  img[src*="logo"], 
+  img[src*="Logo"], 
+  img[src$=".svg"], 
+  img[src*="DHL_Logo"] {
+    object-fit: contain !important;
+    background: #fff;
+    padding: 12px;
+  }
+}
 
-    @media (min-width: 768px) {
-        .section-spacing {
-            margin-bottom: 6rem;
-        }
-    }
-
-    .prose {
-        max-width: none;
-    }
-
-    .prose p {
-        margin-bottom: 1.5rem;
-    }
-
-    .prose strong {
-        font-weight: 700;
-    }
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f0; }
+::-webkit-scrollbar-thumb { background: rgb(248,112,62); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(248,112,62, 0.8); }
 </style>
