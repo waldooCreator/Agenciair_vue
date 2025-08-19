@@ -1,5 +1,5 @@
 <template>
-  <main class="min-h-screen bg-[rgb(241,241,240)]">
+  <main class="min-h-screen bg-[rgb(241,234,218)]">
     <!-- HERO SECTION -->
     <section class="relative overflow-hidden">
 

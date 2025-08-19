@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div
     class="
       bg-[rgba(235,102,55,255)]
@@ -23,7 +23,13 @@
   >
     <!-- LOGO/TÍTULO (botón al inicio) -->
     <router-link to="/" class="text-lg sm:text-xl md:text-2xl font-bold">
-      Agencia Ir
+      <img
+        src="/images/image.png"
+        alt="Agencia Ir"
+        class="block h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain select-none"
+        loading="lazy"
+        decoding="async"
+      />
     </router-link>
 
     <!-- BOTÓN HAMBURGUESA (móvil) -->
@@ -75,13 +81,13 @@
         >
           <button
             @click="irAHacerEnvio"
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             Hacer envío
           </button>
           <button
             @click="irACotizarEnvio"
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             Cotiza tu envío
           </button>
@@ -92,7 +98,7 @@
       <div class="relative">
         <button
           @click="toggleMobileDropdown('servicios')"
-          class="flex items-center justify-between w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duration-200"
+          class="flex items-center justify-between w-full text-left text-orange-600 font-medium py-2.5 px-4 hover:bg-orange-50 transition duración-200"
         >
           <span>Servicios</span>
           <svg
@@ -110,17 +116,17 @@
           class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded"
         >
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             Pick-Up
           </button>
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             UPS Internacional
           </button>
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             TCC
           </button>
@@ -149,17 +155,17 @@
           class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded"
         >
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             De Cúcuta Pal' Mundo
           </button>
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             Cliente Leal
           </button>
           <button
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-sm font-medium"
+            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
             Acumula tus Box
           </button>
@@ -202,13 +208,13 @@
         <div v-show="dropdownsVisible.envia" class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[160px]">
           <button
             @click="irAHacerEnvio"
-            class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap"
+            class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap"
           >
             Hacer envío
           </button>
           <button
             @click="irACotizarEnvio"
-            class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap"
+            class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap"
           >
             Cotiza tu envío
           </button>
@@ -224,13 +230,13 @@
           Servicios
         </button>
         <div v-show="dropdownsVisible.servicios" class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[180px]">
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             Pick-Up
           </button>
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             UPS Internacional
           </button>
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             TCC
           </button>
         </div>
@@ -239,19 +245,19 @@
       <!-- Beneficios -->
       <div class="relative" @mouseenter="mostrarDropdown('beneficios')" @mouseleave="ocultarDropdown('beneficios')">
         <button
-          class="text-white font-medium border-b-2 border-transparent transition duration-300 py-1"
+          class="text-white font-medium border-b-2 border-transparent transition duración-300 py-1"
           :class="{ 'border-white': dropdownsVisible.beneficios }"
         >
           Beneficios
         </button>
         <div v-show="dropdownsVisible.beneficios" class="absolute left-0 mt-2 z-20 bg-white rounded-xl shadow-lg py-2 min-w-[200px]">
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             De Cúcuta Pal' Mundo
           </button>
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             Cliente Leal
           </button>
-          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition font-semibold whitespace-nowrap">
+          <button class="block w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap">
             Acumula tus Box
           </button>
         </div>

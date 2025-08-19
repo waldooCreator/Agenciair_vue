@@ -4,6 +4,6 @@
 
 @layer base {
 html, body {
-@apply m-0 p-0 bg-[rgb(241,241,240)];
+@apply m-0 p-0  bg-[rgb(241,234,218)];
 }
 }

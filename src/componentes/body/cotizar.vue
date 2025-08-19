@@ -77,6 +77,14 @@
         >
           Cotizar Envío
         </button>
+
+        <!-- NUEVO: botón para ir al rastreador -->
+        <button
+          @click.stop="rastrear"
+          class="w-full mt-2 bg-white text-[rgb(235,102,55)] border-2 border-[rgb(235,102,55)] font-medium py-2 px-4 rounded-lg hover:bg-[rgba(235,102,55,0.05)] transition-colors duration-200 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]"
+        >
+          Rastrear Envío
+        </button>
       </div>
     </div>
   </div>
@@ -84,12 +92,12 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, defineEmits } from 'vue'
-import { useRouter } from 'vue-router' // agregado para redirección
+import { useRouter } from 'vue-router'
 
 const emit = defineEmits(['abrio', 'cerro'])
-const router = useRouter() // instancia del router
+const router = useRouter()
 
-const root = ref(null)  // contenedor raíz para detectar click-outside
+const root = ref(null)
 const isExpanded = ref(false)
 const origen = ref('')
 const destino = ref('')
@@ -127,7 +135,6 @@ const onClickOutside = (e) => {
 
 const cotizar = () => {
   if (origen.value.trim() && destino.value.trim() && peso.value && altura.value && ancho.value && largo.value) {
-    // === NUEVO: guardamos un "payload" en sessionStorage ===
     const payload = {
       origen: origen.value,
       destino: destino.value,
@@ -137,14 +144,15 @@ const cotizar = () => {
       largo: largo.value
     }
     sessionStorage.setItem('cotizacion', JSON.stringify(payload))
-
-    // Navegamos (dejé tus query params tal cual)
-    router.push({ 
-      name: 'CotizarInfo', 
-      query: payload
-    })
+    router.push({ name: 'CotizarInfo', query: payload })
   } else {
     alert('Por favor completa todos los campos')
   }
+}
+
+/* NUEVO: redirige al componente de rastreo que te envié
+   Cambia 'RastrearGuia' por el name/path que tengas en tu router para ese componente. */
+const rastrear = () => {
+  router.push({ name: 'RastrearGuia' })
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[rgba(241,241,240,1)] font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
+  <div class="bg-[rgb(241,234,218)] font-sans antialiased text-[15px] sm:text-base md:text-[17px] lg:text-[18px]">
     <div class="py-16 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
 
       <!-- TÍTULO PRINCIPAL -->

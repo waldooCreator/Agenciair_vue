@@ -13,6 +13,8 @@ import Target1Info from '../componentes/Targets-info/target1-info.vue'
 import Target2Info from '../componentes/Targets-info/target2-info.vue'
 import Target3Info from '@/componentes/Targets-info/target3-info.vue'
 
+// 🔹 Import corregido: usa rastreo-info.vue
+import RastrearGuia from '@/componentes/redireccionar/rastreo-info.vue'
 
 const routes = [
   {
@@ -59,6 +61,15 @@ const routes = [
     component: Mapa,
     meta: { hideHeader: true }
   },
+
+  //  Ruta del rastreador
+  {
+    path: '/rastrear-guia',
+    name: 'RastrearGuia',
+    component: RastrearGuia,
+    meta: { hideHeader: true }
+  },
+
   // Rutas de los targets
   {
     path: '/target1-info',
@@ -85,15 +96,12 @@ const router = createRouter({
   routes,
   // 📌 Controla el scroll siempre que navegas
   scrollBehavior(to, from, savedPosition) {
-    // Si hay ancla (#id), ve a ese elemento (header de noticias, etc.)
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }
     }
-    // Si vienes con back/forward del navegador:
     if (savedPosition) {
       return savedPosition
     }
-    // Por defecto, siempre arriba
     return { left: 0, top: 0, behavior: 'smooth' }
   }
 })

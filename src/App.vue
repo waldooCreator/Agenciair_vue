@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="min-h-screen bg-[rgba(241,241,240,1)]">
+    <div id="app" class="min-h-screen bg-[rgb(241,234,218)]">
         <!-- Header (se oculta si la ruta tiene meta.hideHeader) -->
         <HeaderComponent v-if="!route.meta.hideHeader" />
 
