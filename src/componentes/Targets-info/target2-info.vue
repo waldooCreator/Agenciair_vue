@@ -93,6 +93,38 @@
         </div>
       </nav>
       <!-- /NAV FIJO -->
+      <!-- TOC MOBILE/TABLET (inline al inicio) -->
+<div class="lg:ml-72 lg:pl-8 md:px-10 px-6">
+  <div class="lg:hidden max-w-4xl mx-auto -mt-2 mb-6 md:mb-8">
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm p-4 md:p-5">
+      <div class="flex items-center gap-2 text-[rgb(58,26,29)] font-semibold mb-3">
+        <svg class="w-4 h-4 text-[rgb(248,112,62)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M3 12h18M3 19h18"/>
+        </svg>
+        <span>Contenido</span>
+      </div>
+      <div class="grid gap-1">
+        <a
+          v-for="item in tocItems"
+          :key="item.id"
+          href="#"
+          @click.prevent="scrollToId(item.id)"
+          :class="[
+            'flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition',
+            activeId === item.id
+              ? 'bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] font-semibold'
+              : 'text-[rgb(58,26,29)] hover:bg-[rgb(248,112,62)]/5'
+          ]"
+        >
+          <span class="w-6 h-6 inline-flex items-center justify-center rounded-full bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] text-xs font-bold">
+            {{ item.num }}
+          </span>
+          <span class="truncate">{{ item.label }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
       <!-- Contenido principal con margen ajustado para desktop -->
       <div class="lg:ml-72 lg:pl-8 md:px-10 px-6">
@@ -382,9 +414,7 @@
 <script setup>
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
-
 // Datos de los aliados nacionales
 const aliadosNacionales = [
   {
@@ -621,16 +651,12 @@ const ratingPromedio = computed(() => {
   return promedio.toFixed(1)
 })
 
-// Métodos usados en los botones
-function cotizarNacional () {
-  const router = useRouter()
-  router.push('/cotizar-info')
-}
+// Navegar a CotizarInfo
+const cotizarNacional = () => router.push({ name: 'CotizarInfo' })
 
-function masInformacion () {
-  const router = useRouter()
-  router.push({ name: 'cotizar-info' })
-}
+// Déjalo como log (o cámbialo si tienes otra ruta real)
+const masInformacion = () => console.log('Mostrando más información...')
+
 </script>
 
 <!-- Estilo global solo para el fondo del body -->

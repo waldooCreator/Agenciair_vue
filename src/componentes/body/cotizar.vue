@@ -70,20 +70,11 @@
             </div>
           </div>
         </div>
-
         <button
           @click="cotizar"
           class="w-full mt-4 bg-[rgb(235,102,55)] hover:bg-[rgba(235,102,55,0.9)] text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]"
         >
           Cotizar Envío
-        </button>
-
-        <!-- NUEVO: botón para ir al rastreador -->
-        <button
-          @click.stop="rastrear"
-          class="w-full mt-2 bg-white text-[rgb(235,102,55)] border-2 border-[rgb(235,102,55)] font-medium py-2 px-4 rounded-lg hover:bg-[rgba(235,102,55,0.05)] transition-colors duration-200 text-[15px] sm:text-base md:text-[17px] lg:text-[18px]"
-        >
-          Rastrear Envío
         </button>
       </div>
     </div>
@@ -148,11 +139,5 @@ const cotizar = () => {
   } else {
     alert('Por favor completa todos los campos')
   }
-}
-
-/* NUEVO: redirige al componente de rastreo que te envié
-   Cambia 'RastrearGuia' por el name/path que tengas en tu router para ese componente. */
-const rastrear = () => {
-  router.push({ name: 'RastrearGuia' })
 }
 </script>
