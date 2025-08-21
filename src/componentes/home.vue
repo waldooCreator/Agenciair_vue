@@ -20,6 +20,7 @@
                 <!-- Mobile App Component -->
                 <MobileappComponent />
             </div>
+            <Separador2 />
         </div>
     </main>
     <!-- Footer Component -->
@@ -32,5 +33,6 @@
     import Separador1 from "./body/separador1.vue";
     import TargetsComponent from "./body/targets.vue";
     import MobileappComponent from "./body/mobileapp.vue";
+    import Separador2 from "./redireccionar/separador2.vue";
     import FooterComponent from "./footers/footer.vue";
 </script>

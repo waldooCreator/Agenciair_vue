@@ -6,13 +6,13 @@
 
       <!-- Carrusel -->
       <div class="relative h-48 sm:h-56 md:h-64 lg:h-[20rem] xl:h-[24rem] 2xl:h-[28rem]">
-        <!-- Nueva transición: slide (sin mode="out-in" para que se superpongan) -->
+        <!-- Transición slide -->
         <Transition name="slide">
           <img
-            :src="images[currentIndex]"
-            :key="images[currentIndex]"
+            :src="galleryImages[currentIndex].src"
+            :key="galleryImages[currentIndex].src"
             class="absolute inset-0 w-full h-full object-cover"
-            :alt="`Slide ${currentIndex + 1}`"
+            :alt="galleryImages[currentIndex].alt"
           />
         </Transition>
       </div>
@@ -20,7 +20,7 @@
       <!-- Indicadores -->
       <div class="absolute bottom-3 md:bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 md:gap-3">
         <button
-          v-for="(img, i) in images"
+          v-for="(img, i) in galleryImages"
           :key="i"
           @click="currentIndex = i"
           class="w-2.5 h-2.5 md:w-3 md:h-3 lg:w-4 lg:h-4 rounded-full transition-colors duration-200"
@@ -62,21 +62,21 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const images = [
-  '/images/Gemini_Generated_Image_9zjii59zjii59zji.png',
-  '/images/neta.png',
-  '/images/paquete.png',
+const galleryImages = [
+  { src: '/images/Gemini_Generated_Image_9zjii59zjii59zji.png', alt: 'Slide 1' },
+  { src: '/images/neta.png', alt: 'Slide 2' },
+  { src: '/images/paquete.png', alt: 'Slide 3' }
 ]
 
 const currentIndex = ref(0)
 let interval = null
 
 function prevSlide() {
-  currentIndex.value = currentIndex.value === 0 ? images.length - 1 : currentIndex.value - 1
+  currentIndex.value = currentIndex.value === 0 ? galleryImages.length - 1 : currentIndex.value - 1
 }
 
 function nextSlide() {
-  currentIndex.value = (currentIndex.value + 1) % images.length
+  currentIndex.value = (currentIndex.value + 1) % galleryImages.length
 }
 
 onMounted(() => {
