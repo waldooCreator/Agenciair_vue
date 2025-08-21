@@ -4,13 +4,13 @@
 
       <!-- TÍTULO PRINCIPAL -->
       <div class="text-center mb-12 md:mb-16 lg:mb-20 max-w-5xl mx-auto px-4">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
+        <h2 class="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
           SOMOS EXPERTOS EN LOGÍSTICA
         </h2>
         <div class="flex justify-center my-3">
           <span class="block w-24 h-1 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></span>
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
+        <h2 class="text-3xl sm:text-4xl lg:text-4xl font-extrabold text-[rgb(58,26,29)] uppercase leading-tight">
           CONOCE NUESTROS PORTALES
         </h2>
       </div>

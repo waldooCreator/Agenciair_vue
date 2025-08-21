@@ -23,8 +23,14 @@ import MisionVision from '@/componentes/nosotros/mision-vision.vue'
 import NuestraHistoria from '@/componentes/nosotros/nuestra-historia.vue'
 import Valores from '@/componentes/nosotros/valores.vue'
 
-// 🔹 Nuevo import del componente Aliados
+// Aliados
 import Separador2 from '@/componentes/redireccionar/separador2.vue'
+
+// Importar servicios
+import Embalaje from '@/componentes/servicios/embalaje.vue'
+import InteligenciaComercial from '@/componentes/servicios/inteligencia-comercial.vue'
+import NuevosMercados from '@/componentes/servicios/nuevos-mercados.vue'
+import Recoleccion from '@/componentes/servicios/recoleccion.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -49,14 +55,19 @@ const routes = [
   { path: '/target2-info', name: 'Target2Info', component: Target2Info, meta: { hideHeader: true } },
   { path: '/target3-info', name: 'Target3Info', component: Target3Info, meta: { hideHeader: true } },
 
-  // 🔹 Nueva ruta Aliados
-  { path: '/aliados', name: 'Separador2', component: Separador2, meta: { hideHeader: true } }
+  // Aliados
+  { path: '/aliados', name: 'Separador2', component: Separador2, meta: { hideHeader: true } },
+
+  // Rutas de Servicios
+  { path: '/servicio-de-embalaje', name: 'Embalaje', component: Embalaje, meta: { hideHeader: true } },
+  { path: '/asesoria-en-inteligencia-comercial', name: 'InteligenciaComercial', component: InteligenciaComercial, meta: { hideHeader: true } },
+  { path: '/investigacion-de-nuevos-mercados', name: 'NuevosMercados', component: NuevosMercados, meta: { hideHeader: true } },
+  { path: '/recoleccion-en-fabrica', name: 'Recoleccion', component: Recoleccion, meta: { hideHeader: true } }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  // 📌 Controla el scroll siempre que navegas
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return { el: to.hash, behavior: 'smooth' }

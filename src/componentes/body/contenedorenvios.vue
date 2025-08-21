@@ -1,73 +1,71 @@
 <template>
-    <div class="ml-6 mr-6 mt-4">
-        <!-- DESKTOP Y TABLET: Siempre flex side by side -->
-        <div 
-            class="hidden md:flex justify-between items-center"
-        >
-            <!-- Rastreo Component -->
+    <div class="ml-2 mr-2 md:ml-6 md:mr-6 mt-4"> <!-- MÁS ANCHO en móvil -->
+        <!-- DESKTOP Y TABLET: -->
+        <div class="hidden md:flex justify-between items-center">
+            
+            
             <RastreoComponent />
             
-            <!-- Cotizar Component -->
-            <CotizarComponent />
-        </div>
-
-        <!-- MÓVIL: Lógica especial -->
-        <div class="md:hidden space-y-2">
-            <!-- Rastreo siempre visible en móvil -->
-            <div 
-                class="transition-all duration-300 relative z-20"
-                :class="{
-                    'mb-2': !rastreoExpandido,
-                    'mb-48': rastreoExpandido
-                }"
-            >
-                <RastreoComponent @abrio="manejarRastreoAbierto" @cerro="manejarRastreoCerrado" />
-            </div>
             
-            <!-- Cotizar con expansión especial en móvil -->
-            <div 
-                class="transition-all duration-300 relative z-10"
-                :class="{
-                    'mt-2': !rastreoExpandido,
-                    'mt-8': rastreoExpandido
-                }"
-            >
+            <CotizarComponent />
+            
+            
+        </div>
+        <!-- MÓVIL: -->
+        <div class="md:hidden space-y-2 flex flex-col items-center"> <!-- CENTRADO Y MÁS ANCHO -->
+            <div class="w-full max-w-[380px] transition-all duration-300 relative z-20">
+                
+                
+                <RastreoComponent @abrio="manejarRastreoAbierto" @cerro="manejarRastreoCerrado" />
+                
+                
+            </div>
+            <div v-if="!rastreoExpandido"
+                class="w-full max-w-[380px] transition-all duration-300 relative z-10">
+                
                 <CotizarComponent @abrio="manejarCotizarAbierto" @cerro="manejarCotizarCerrado" />
+                
+                
+            </div>
             </div>
         </div>
-    </div>
 </template>
 
+
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import RastreoComponent from './rastreo.vue'
-import CotizarComponent from './cotizar.vue'
+    import {
+        ref,
+        onMounted,
+        onUnmounted
+    } from 'vue'
+    import RastreoComponent from './rastreo.vue'
+    import CotizarComponent from './cotizar.vue'
 
-const rastreoExpandido = ref(false)
-const cotizarExpandido = ref(false)
+    const rastreoExpandido = ref(false)
+    const cotizarExpandido = ref(false)
 
-const manejarRastreoAbierto = () => {
-    rastreoExpandido.value = true
-    // Cerrar cotizar cuando se abre rastreo
-    cotizarExpandido.value = false
-}
+    const manejarRastreoAbierto = () => {
+        rastreoExpandido.value = true
+        // Cerrar cotizar cuando se abre rastreo
+        cotizarExpandido.value = false
+    }
 
-const manejarRastreoCerrado = () => {
-    rastreoExpandido.value = false
-}
+    const manejarRastreoCerrado = () => {
+        rastreoExpandido.value = false
+    }
 
-const manejarCotizarAbierto = () => {
-    cotizarExpandido.value = true
-    // Cerrar rastreo cuando se abre cotizar
-    rastreoExpandido.value = false
-}
+    const manejarCotizarAbierto = () => {
+        cotizarExpandido.value = true
+        // Cerrar rastreo cuando se abre cotizar
+        rastreoExpandido.value = false
+    }
 
-const manejarCotizarCerrado = () => {
-    cotizarExpandido.value = false
-}
+    const manejarCotizarCerrado = () => {
+        cotizarExpandido.value = false
+    }
 
-const cerrarCotizar = () => {
-    // Cuando se abre rastreo, cerrar cotizar si está abierto
-    cotizarExpandido.value = false
-}
+    const cerrarCotizar = () => {
+        // Cuando se abre rastreo, cerrar cotizar si está abierto
+        cotizarExpandido.value = false
+    }
 </script>
