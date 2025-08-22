@@ -96,20 +96,41 @@
               </ul>
             </div>
 
-            <div class="grid grid-cols-3 gap-3 md:gap-4">
-              <div class="bg-white border border-[rgb(248,112,62)]/20 rounded-2xl p-4 text-center shadow-sm">
-                <div class="text-xl md:text-2xl font-extrabold text-[rgb(58,26,29)]">+24k</div>
-                <div class="text-[13px] md:text-sm text-[rgb(58,26,29)]/70">Envíos guiados</div>
-              </div>
-              <div class="bg-white border border-[rgb(248,112,62)]/20 rounded-2xl p-4 text-center shadow-sm">
-                <div class="text-xl md:text-2xl font-extrabold text-[rgb(58,26,29)]">98%</div>
-                <div class="text-[13px] md:text-sm text-[rgb(58,26,29)]/70">Satisfacción</div>
-              </div>
-              <div class="bg-white border border-[rgb(248,112,62)]/20 rounded-2xl p-4 text-center shadow-sm">
-                <div class="text-xl md:text-2xl font-extrabold text-[rgb(58,26,29)]">+40</div>
-                <div class="text-[13px] md:text-sm text-[rgb(58,26,29)]/70">Aliados</div>
+            <!-- KPIs: tres tarjetas compactas y centradas -->
+            <div class="flex md:justify-end">
+              <div class="flex flex-wrap justify-center gap-4 md:gap-5">
+                <!-- Envíos guiados -->
+                <div
+                  class="bg-white/95 border border-[rgb(248,112,62)]/15 rounded-2xl px-5 py-4 shadow-[0_6px_16px_rgba(96,58,38,0.08)] hover:shadow-[0_10px_22px_rgba(96,58,38,0.12)] transition-shadow w-[150px] sm:w-[170px] text-center"
+                >
+                  <div class="text-2xl md:text-3xl font-black text-[rgb(58,26,29)] leading-none">+24k</div>
+                  <div class="mt-1 text-[12px] md:text-sm text-[rgb(58,26,29)]/70 leading-snug">
+                    Envíos guiados
+                  </div>
+                </div>
+
+                <!-- Satisfacción -->
+                <div
+                  class="bg-white/95 border border-[rgb(248,112,62)]/15 rounded-2xl px-5 py-4 shadow-[0_6px_16px_rgba(96,58,38,0.08)] hover:shadow-[0_10px_22px_rgba(96,58,38,0.12)] transition-shadow w-[150px] sm:w-[170px] text-center"
+                >
+                  <div class="text-2xl md:text-3xl font-black text-[rgb(58,26,29)] leading-none">98%</div>
+                  <div class="mt-1 text-[12px] md:text-sm text-[rgb(58,26,29)]/70 leading-snug">
+                    Satisfacción
+                  </div>
+                </div>
+
+                <!-- Aliados -->
+                <div
+                  class="bg-white/95 border border-[rgb(248,112,62)]/15 rounded-2xl px-5 py-4 shadow-[0_6px_16px_rgba(96,58,38,0.08)] hover:shadow-[0_10px_22px_rgba(96,58,38,0.12)] transition-shadow w-[150px] sm:w-[170px] text-center"
+                >
+                  <div class="text-2xl md:text-3xl font-black text-[rgb(58,26,29)] leading-none">+40</div>
+                  <div class="mt-1 text-[12px] md:text-sm text-[rgb(58,26,29)]/70 leading-snug">
+                    Aliados
+                  </div>
+                </div>
               </div>
             </div>
+            <!-- /KPIs -->
           </div>
         </div>
       </div>
@@ -255,7 +276,7 @@
         </div>
       </article>
 
-      <!-- VALORES -->
+      <!-- VALORES (íconos nuevos + texto mejor compuesto) -->
       <div id="valores" class="group relative mt-10 scroll-mt-24">
         <div class="absolute -inset-1 bg-[rgb(248,112,62)] rounded-3xl blur-md opacity-0 group-hover:opacity-20 transition duration-500"></div>
         <div class="relative bg-white/95 backdrop-blur-md rounded-3xl p-6 md:p-10 shadow-lg border border-white/50">
@@ -266,68 +287,72 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Servicio -->
-            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
-              <div class="w-16 h-16 md:w-16 md:h-16 xl:w-20 xl:h-20 bg-[rgb(248,112,62)] rounded-full flex items-center justify-center mb-4 text-white">
-                <svg class="h-7 w-7 md:w-8 md:h-8 xl:w-10 xl:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="flex flex-col text-left bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+              <div class="w-16 h-16 xl:w-20 xl:h-20 bg-gradient-to-br from-[rgb(248,112,62)] to-[#f46f3a] rounded-full flex items-center justify-center mb-4 text-white ring-4 ring-white shadow">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-[rgb(58,26,29)] mb-2">Servicio</h3>
-              <p class="text-gray-700 text-justify">
+              <p class="text-gray-700 text-sm md:text-base leading-relaxed">
                 Servir a nuestros clientes para satisfacer su necesidad de envío correcta, generando una experiencia única y diferenciadora.
               </p>
-              <div class="mt-auto pt-4 flex flex-wrap gap-2 justify-center">
+              <div class="mt-auto pt-4 flex flex-wrap gap-2">
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Empatía</span>
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Calidad</span>
               </div>
             </div>
 
             <!-- Cumplimiento -->
-            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
-              <div class="w-16 h-16 md:w-16 md:h-16 xl:w-20 xl:h-20 bg-[rgb(248,112,62)] rounded-full flex items-center justify-center mb-4 text-white">
-                <svg class="h-7 w-7 md:w-8 md:h-8 xl:w-10 xl:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3" />
+            <div class="flex flex-col text-left bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+              <div class="w-16 h-16 xl:w-20 xl:h-20 bg-gradient-to-br from-[rgb(248,112,62)] to-[#f46f3a] rounded-full flex items-center justify-center mb-4 text-white ring-4 ring-white shadow">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5h6a2 2 0 012 2v11a2 2 0 01-2 2H9a2 2 0 01-2-2V7a2 2 0 012-2z" />
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 3h6v4H9z" />
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 14l2 2 4-4" />
                 </svg>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-[rgb(58,26,29)] mb-2">Cumplimiento</h3>
-              <p class="text-gray-700 text-justify">
+              <p class="text-gray-700 text-sm md:text-base leading-relaxed">
                 Compromiso con responsabilidades regulatorias y comerciales para alcanzar metas y objetivos trazados.
               </p>
-              <div class="mt-auto pt-4 flex flex-wrap gap-2 justify-center">
+              <div class="mt-auto pt-4 flex flex-wrap gap-2">
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Disciplina</span>
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Plazos</span>
               </div>
             </div>
 
             <!-- Confianza -->
-            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
-              <div class="w-16 h-16 md:w-16 md:h-16 xl:w-20 xl:h-20 bg-[rgb(248,112,62)] rounded-full flex items-center justify-center mb-4 text-white">
-                <svg class="h-7 w-7 md:w-8 md:h-8 xl:w-10 xl:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3zM5.5 20a6.5 6.5 0 0113 0" />
+            <div class="flex flex-col text-left bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+              <div class="w-16 h-16 xl:w-20 xl:h-20 bg-gradient-to-br from-[rgb(248,112,62)] to-[#f46f3a] rounded-full flex items-center justify-center mb-4 text-white ring-4 ring-white shadow">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2l7 4v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z" />
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
                 </svg>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-[rgb(58,26,29)] mb-2">Confianza</h3>
-              <p class="text-gray-700 text-justify">
+              <p class="text-gray-700 text-sm md:text-base leading-relaxed">
                 Trabajo con amor, conocimiento y compromiso para ganar la fe de nuestros clientes en cada proceso.
               </p>
-              <div class="mt-auto pt-4 flex flex-wrap gap-2 justify-center">
+              <div class="mt-auto pt-4 flex flex-wrap gap-2">
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Transparencia</span>
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Seguridad</span>
               </div>
             </div>
 
             <!-- Trabajo en equipo -->
-            <div class="flex flex-col items-center text-center bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
-              <div class="w-16 h-16 md:w-16 md:h-16 xl:w-20 xl:h-20 bg-[rgb(248,112,62)] rounded-full flex items-center justify-center mb-4 text-white">
-                <svg class="h-7 w-7 md:w-8 md:h-8 xl:w-10 xl:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-4-4h-1M7 20H2v-2a4 4 0 014-4h1m8-5a4 4 0 11-8 0 4 4 0 018 0z" />
+            <div class="flex flex-col text-left bg-white rounded-2xl border border-[rgb(248,112,62)]/20 p-6 shadow-sm hover:shadow-md transition-shadow h-full">
+              <div class="w-16 h-16 xl:w-20 xl:h-20 bg-gradient-to-br from-[rgb(248,112,62)] to-[#f46f3a] rounded-full flex items-center justify-center mb-4 text-white ring-4 ring-white shadow">
+                <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+                  <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-4-4h-1M7 20H2v-2a4 4 0 014-4h1" />
                 </svg>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-[rgb(58,26,29)] mb-2">Trabajo en equipo</h3>
-              <p class="text-gray-700 text-justify">
+              <p class="text-gray-700 text-sm md:text-base leading-relaxed">
                 Integración de habilidades y conocimientos para alcanzar objetivos comunes propios de la organización.
               </p>
-              <div class="mt-auto pt-4 flex flex-wrap gap-2 justify-center">
+              <div class="mt-auto pt-4 flex flex-wrap gap-2">
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Colaboración</span>
                 <span class="text-[11px] uppercase tracking-wide bg-[rgb(248,112,62)]/10 text-[rgb(248,112,62)] px-2.5 py-1 rounded-full border border-[rgb(248,112,62)]/20">Sinergia</span>
               </div>

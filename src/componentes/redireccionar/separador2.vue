@@ -21,12 +21,16 @@
           :class="getResponsiveClass(index)"
           :style="{ animationDelay: `${index * 120}ms` }"
         >
-          <!-- TARJETA -->
-          <div
-            class="bg-white rounded-2xl p-5 md:p-6 border border-neutral-200 
+          <!-- TARJETA CLICABLE (enlace externo) -->
+          <a
+            class="block bg-white rounded-2xl p-5 md:p-6 border border-neutral-200 
                    shadow-[0_6px_20px_rgba(0,0,0,0.06)] 
                    hover:shadow-[0_10px_28px_rgba(0,0,0,0.10)] 
-                   transition-all duration-300 transform hover:-translate-y-1"
+                   transition-all duration-300 transform hover:-translate-y-1 cursor-pointer outline-none"
+            :href="partner.href"
+            target="_blank"
+            rel="noopener"
+            :aria-label="`Abrir sitio oficial de ${partner.name}`"
           >
             <div class="aspect-square flex items-center justify-center overflow-hidden rounded-xl">
               <img
@@ -37,7 +41,7 @@
               />
             </div>
 
-            <!-- Contenedor de título con altura fija para simetría -->
+            <!-- Título -->
             <div class="mt-3 text-center min-h-[2.5rem] sm:min-h-[2.75rem] flex items-center justify-center">
               <h3
                 class="font-semibold text-[rgb(58,26,29)] leading-snug whitespace-normal"
@@ -53,7 +57,7 @@
                      bg-emerald-400/90 ring-2 ring-white"
               aria-hidden="true"
             ></span>
-          </div>
+          </a>
 
           <!-- TOOLTIP -->
           <div
@@ -75,13 +79,13 @@ export default {
   data() {
     return {
       partners: [
-        { name: 'Cámara de Comercio', src: '/aliados/camaracomercio.png' },
-        { name: 'Coordinadora', src: '/aliados/coordinadora.jpg' },
-        { name: 'DHL', src: '/aliados/dhl-1.svg' },
-        { name: 'Interrapidísimo', src: '/aliados/interrapidisimo.png' },
-        { name: 'Servientrega', src: '/aliados/Servientrega.png' },
-        { name: 'TCC', src: '/aliados/tcc.png' },
-        { name: 'UPS', src: '/aliados/UPS.jpg' }
+        { name: 'Cámara de Comercio',   src: '/aliados/camaracomercio.png',   href: 'https://www.cccucuta.org.co/' },
+        { name: 'Coordinadora',         src: '/aliados/coordinadora.jpg',     href: 'https://www.coordinadora.com/' },
+        { name: 'DHL',                  src: '/aliados/dhl-1.svg',            href: 'https://www.dhl.com/' },
+        { name: 'Interrapidísimo',      src: '/aliados/interrapidisimo.png',  href: 'https://www.interrapidisimo.com/' },
+        { name: 'Servientrega',         src: '/aliados/Servientrega.png',     href: 'https://www.servientrega.com/' },
+        { name: 'TCC',                  src: '/aliados/tcc.png',              href: 'https://www.tcc.com.co/' },
+        { name: 'UPS',                  src: '/aliados/UPS.jpg',              href: 'https://www.ups.com/' }
       ]
     }
   },
@@ -89,54 +93,34 @@ export default {
     this.animateOnScroll()
   },
   methods: {
-    // Tamaño de fuente responsive; reduce un poco más si el nombre es largo
+    // Tamaño de fuente: reduce si el nombre es largo
     nameSizeClass(name) {
       const isLong = name.length > 14
-      // clamp(min, preferida en función del viewport, max)
-      // móvil/tablet ajustan con vw; en desktop fijamos a 16px/15px
       return isLong
         ? 'text-[clamp(11px,3.2vw,14px)] sm:text-[clamp(11px,2.0vw,14px)] lg:text-[15px]'
         : 'text-[clamp(12px,3.4vw,15px)] sm:text-[clamp(12px,2.2vw,15px)] lg:text-[16px]'
     },
 
-    // ✅ SOLO móvil/tablet; en desktop no se altera nada.
+    // Centrado del último ítem en móvil/tablet cuando hay número impar
     getResponsiveClass(index) {
       const isLast = index === this.partners.length - 1
       if (!isLast) return ''
-
       const classes = []
-
-      // 📱 MÓVIL (2 columnas): centrar sin agrandar
       if (this.partners.length % 2 === 1) {
-        classes.push(
-          'col-span-2',
-          'mx-auto',
-          'mobile-last-eq',
-          'sm:col-span-1',
-          'sm:mx-0'
-        )
+        classes.push('col-span-2','mx-auto','mobile-last-eq','sm:col-span-1','sm:mx-0')
       }
-
-      // 📲 TABLET (3 columnas): centrar en columna 2
       if (this.partners.length % 3 === 1) {
-        classes.push('sm:col-start-2', 'lg:col-start-auto')
+        classes.push('sm:col-start-2','lg:col-start-auto')
       }
-
-      // 🖥️ En desktop no hereda nada raro
-      classes.push('lg:col-span-1', 'lg:mx-0')
-
+      classes.push('lg:col-span-1','lg:mx-0')
       return classes.join(' ')
     },
 
     animateOnScroll() {
       const observer = new IntersectionObserver(
-        entries =>
-          entries.forEach(e =>
-            e.isIntersecting && e.target.classList.add('animate-fade-in-up')
-          ),
+        entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('animate-fade-in-up')),
         { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
       )
-
       this.$nextTick(() =>
         document.querySelectorAll('.partner-card').forEach(c => observer.observe(c))
       )
@@ -164,7 +148,7 @@ export default {
 .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
 .partner-card { opacity: 0; transform: translateY(18px); }
 
-/* 📱 Forzar que la última tarjeta centrada tenga el MISMO ancho que una columna en móvil */
+/* 📱 Igualar ancho del último centrado en móvil */
 @media (max-width: 639px) {
   .mobile-last-eq { width: calc(50% - 0.625rem); }
 }
