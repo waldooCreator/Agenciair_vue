@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen" style="background: linear-gradient(135deg, #f1ea da 0%, #e8dcc6 100%);">
+  <div class="min-h-screen" style="background: linear-gradient(135deg, #f1eada 0%, #e8dcc6 100%);">
     <!-- Hero Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="text-center">
@@ -152,11 +152,61 @@
         </div>
       </div>
     </div>
+
+    <!-- Contact CTA Section (contenedor blanco, mismo estilo del otro componente) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      <div class="bg-white rounded-3xl p-10 md:p-12 text-center" style="box-shadow: 0 25px 50px rgba(96, 58, 38, 0.15);">
+        <div class="w-14 h-14 mx-auto mb-6 rounded-full flex items-center justify-center" style="background: rgb(248, 112, 63);">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h1.28a2 2 0 011.789 1.106l1.12 2.24a2 2 0 01-.45 2.309l-.87.87a16 16 0 006.06 6.06l.87-.87a2 2 0 012.309-.45l2.24 1.12A2 2 0 0121 19.72V21a2 2 0 01-2 2h-1a18 18 0 01-18-18V5z"/>
+          </svg>
+        </div>
+
+        <h3 class="text-3xl font-extrabold mb-2" style="color: rgb(58, 29, 34);">Contáctanos</h3>
+        <p class="max-w-xl mx-auto mb-8 text-base md:text-lg" style="color: rgba(58,29,34,0.8);">
+          ¿Necesitas más información? Llámanos o escríbenos y te atenderemos con gusto.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            :href="`tel:${telefonoLink}`"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white shadow-md transition-transform"
+            style="background: rgb(248, 112, 63); box-shadow: 0 10px 20px rgba(241,88,42,0.2);"
+            @mouseenter="$event.currentTarget.style.transform = 'translateY(-2px)'"
+            @mouseleave="$event.currentTarget.style.transform = 'translateY(0)'"
+            aria-label="Llamar por teléfono"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h1.28a2 2 0 011.789 1.106l1.12 2.24a2 2 0 01-.45 2.309l-.87.87a16 16 0 006.06 6.06l.87-.87a2 2 0 012.309-.45l2.24 1.12A2 2 0 0121 19.72V21a2 2 0 01-2 2h-1a18 18 0 01-18-18V5z"/>
+            </svg>
+            {{ telefonoTexto }}
+          </a>
+
+          <a
+            :href="whatsappHref"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold"
+            style="color: rgb(248, 112, 63); background: rgba(248, 112, 63, 0.08); border: 1px solid rgba(248, 112, 63, 0.3);"
+            @mouseenter="$event.currentTarget.style.background = 'rgba(248,112,63,0.12)'"
+            @mouseleave="$event.currentTarget.style.background = 'rgba(248,112,63,0.08)'"
+            aria-label="Escribir por WhatsApp"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.62-6.003C.122 5.281 5.403 0 12.057 0c3.18 0 6.167 1.24 8.413 3.488A11.86 11.86 0 0124 12.053c-.003 6.653-5.284 11.94-11.938 11.94a11.9 11.9 0 01-6.013-1.616L.057 24zm6.597-3.807c1.74 1.037 3.276 1.662 5.392 1.662 5.448 0 9.886-4.434 9.889-9.877.003-5.462-4.415-9.89-9.881-9.893-5.45 0-9.887 4.434-9.89 9.878 0 2.225.726 3.891 1.947 5.605l-.997 3.648 3.54-.023zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.03-.967-.272-.099-.47-.148-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.058-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.241-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.148.198 2.096 3.2 5.084 4.487.711.306 1.265.489 1.697.626.713.227 1.362.195 1.875.118.572-.085 1.758-.718 2.006-1.41.248-.694.248-1.289.173-1.414z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -195,30 +245,43 @@ const features = ref([
   }
 ])
 
+// Todas las imágenes apuntan a la misma ruta solicitada
+const IMAGE_URL = '/public/images/recoleccion.png'
+
 const services = ref([
   {
     title: "Embalaje Industrial",
     description: "Protección especializada para maquinaria pesada y equipos industriales con materiales resistentes y técnicas avanzadas.",
-    image: "/public/images/embalaje.png"
+    image: IMAGE_URL
   },
   {
     title: "Embalaje de Productos Frágiles",
     description: "Técnicas especializadas para cristalería, cerámica y productos delicados que requieren máxima protección.",
-    image: "/public/images/embalaje2.png"
+    image: IMAGE_URL
   },
   {
     title: "Embalaje Alimentario",
     description: "Soluciones que mantienen la frescura y calidad de productos alimenticios durante el transporte internacional.",
-    image: "/public/images/embalaje.png"
+    image: IMAGE_URL
   },
   {
     title: "Embalaje Farmacéutico",
     description: "Condiciones controladas para medicamentos y productos farmacéuticos con certificaciones internacionales.",
-    image: "/public/images/embalaje2.png"
+    image: IMAGE_URL
   }
 ])
 
-const mainImage = ref("/public/images/embalaje.png")
+const mainImage = ref(IMAGE_URL)
+
+// Contacto
+const telefonoTexto = '+57 300 123 4567'
+const telefonoLink = '+573001234567'
+const whatsappNumber = '573001234567' // sin +
+
+const whatsappHref = computed(() => {
+  const msg = encodeURIComponent('Hola, quiero información sobre sus servicios.')
+  return `https://wa.me/${whatsappNumber}?text=${msg}`
+})
 
 function solicitarCotizacion() {
   router.push('/cotizar-embalaje')
@@ -245,11 +308,11 @@ function verMasDetalles(service) {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+  transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  transform: translateY(0);
   }
 }
 </style>

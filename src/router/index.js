@@ -19,9 +19,9 @@ import Target3Info from '@/componentes/Targets-info/target3-info.vue'
 import RastrearGuia from '@/componentes/redireccionar/rastreo-info.vue'
 
 // Importar sección Nosotros
-import MisionVision from '@/componentes/nosotros/mision-vision.vue'
+
 import NuestraHistoria from '@/componentes/nosotros/nuestra-historia.vue'
-import Valores from '@/componentes/nosotros/valores.vue'
+
 
 // Aliados
 import Separador2 from '@/componentes/redireccionar/separador2.vue'
@@ -46,10 +46,9 @@ const routes = [
   { path: '/rastrear-guia', name: 'RastrearGuia', component: RastrearGuia, meta: { hideHeader: true } },
 
   // Sección Nosotros
-  { path: '/nosotros/mision-vision', name: 'MisionVision', component: MisionVision, meta: { hideHeader: true } },
+  
   { path: '/nosotros/nuestra-historia', name: 'NuestraHistoria', component: NuestraHistoria, meta: { hideHeader: true } },
-  { path: '/nosotros/valores', name: 'Valores', component: Valores, meta: { hideHeader: true } },
-
+  
   // Targets
   { path: '/target1-info', name: 'Target1Info', component: Target1Info, meta: { hideHeader: true } },
   { path: '/target2-info', name: 'Target2Info', component: Target2Info, meta: { hideHeader: true } },

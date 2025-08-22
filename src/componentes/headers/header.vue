@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div
     class="bg-[rgba(235,102,55,255)] text-white rounded-full shadow-md relative flex items-center justify-between
       px-3 sm:px-4 md:px-8 lg:px-16
@@ -38,9 +38,17 @@
       ></span>
     </button>
 
+    <!-- OVERLAY (cerrar al hacer click fuera, solo móvil) -->
+    <div
+      v-show="mobileMenuOpen"
+      class="fixed inset-0 bg-black/10 md:hidden z-30"
+      @click="closeMobileMenu"
+    ></div>
+
     <!-- MENÚ MÓVIL -->
     <div
       v-show="mobileMenuOpen"
+      @click.stop
       class="md:hidden absolute top-full right-4 sm:right-6 mt-2 bg-white rounded-xl shadow-xl py-3
         w-[80vw] max-w-[350px] z-40 border border-gray-100"
     >
@@ -62,16 +70,23 @@
           </svg>
         </button>
         <div v-show="mobileDropdowns.envia" class="bg-orange-50 border-l-2 border-orange-200 ml-4 mr-2 rounded">
+          <!-- (1) Agregar iconos en móvil -->
           <button
             @click="irAHacerEnvio"
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
+            class="flex items-center w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
+            <svg class="w-4 h-4 mr-2 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2m0 0v-8"/>
+            </svg>
             Hacer envío
           </button>
           <button
             @click="irACotizarEnvio"
-            class="block w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
+            class="flex items-center w-full text-left px-4 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-xs sm:text-[13px] font-medium leading-tight"
           >
+            <svg class="w-4 h-4 mr-2 text-orange-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 14h.01M12 11h.01M12 17V7a5 5 0 00-10 0v10a5 5 0 0010 0z"/>
+            </svg>
             Cotiza tu envío
           </button>
         </div>
@@ -202,7 +217,7 @@
             class="flex items-center w-full text-left px-6 py-2 !text-[rgb(58,29,34)] hover:bg-orange-100 transition text-[13px] lg:text-sm leading-tight font-semibold whitespace-nowrap"
           >
             <svg class="w-4 h-4 mr-2 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2m0 0v-8"/>
             </svg>
             Hacer envío
           </button>
@@ -368,6 +383,11 @@ function toggleMobileMenu() {
       nosotros: false
     }
   }
+}
+
+function closeMobileMenu() {
+  mobileMenuOpen.value = false
+  mobileDropdowns.value = { envia: false, servicios: false, nosotros: false }
 }
 
 function toggleMobileDropdown(tipo) {
