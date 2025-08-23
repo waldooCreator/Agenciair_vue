@@ -10,23 +10,25 @@ import terminosCondiciones from '@/componentes/redireccionar/terminos-condicione
 import CotizarInfo from '@/componentes/redireccionar/cotizar-info.vue'
 import Mapa from '@/componentes/redireccionar/mapa.vue'
 
-// Importar componentes de targets
+// Noticias
+import Noticia1 from '@/componentes/redireccionar/noticia1.vue'
+import Noticia2 from '@/componentes/redireccionar/noticia2.vue'
+
+// Targets
 import Target1Info from '../componentes/Targets-info/target1-info.vue'
 import Target2Info from '../componentes/Targets-info/target2-info.vue'
 import Target3Info from '@/componentes/Targets-info/target3-info.vue'
 
-// Import corregido: rastreo
+// Rastreo
 import RastrearGuia from '@/componentes/redireccionar/rastreo-info.vue'
 
-// Importar sección Nosotros
-
+// Nosotros
 import NuestraHistoria from '@/componentes/nosotros/nuestra-historia.vue'
-
 
 // Aliados
 import Separador2 from '@/componentes/redireccionar/separador2.vue'
 
-// Importar servicios
+// Servicios
 import Embalaje from '@/componentes/servicios/embalaje.vue'
 import InteligenciaComercial from '@/componentes/servicios/inteligencia-comercial.vue'
 import NuevosMercados from '@/componentes/servicios/nuevos-mercados.vue'
@@ -42,13 +44,20 @@ const routes = [
   { path: '/terminos-condiciones', name: 'TerminosCondiciones', component: terminosCondiciones, meta: { hideHeader: true } },
   { path: '/mapa', name: 'Mapa', component: Mapa, meta: { hideHeader: true } },
 
+  // Noticias (rutas reales)
+  { path: '/redireccionar/noticia1', name: 'Noticia1', component: Noticia1, meta: { hideHeader: true } },
+  { path: '/redireccionar/noticia2', name: 'Noticia2', component: Noticia2, meta: { hideHeader: true } },
+
+  // Redirecciones compatibles con /noticia/1 y /noticia/2
+  { path: '/noticia/1', redirect: { name: 'Noticia1' } },
+  { path: '/noticia/2', redirect: { name: 'Noticia2' } },
+
   // Ruta del rastreador
   { path: '/rastrear-guia', name: 'RastrearGuia', component: RastrearGuia, meta: { hideHeader: true } },
 
   // Sección Nosotros
-  
   { path: '/nosotros/nuestra-historia', name: 'NuestraHistoria', component: NuestraHistoria, meta: { hideHeader: true } },
-  
+
   // Targets
   { path: '/target1-info', name: 'Target1Info', component: Target1Info, meta: { hideHeader: true } },
   { path: '/target2-info', name: 'Target2Info', component: Target2Info, meta: { hideHeader: true } },
@@ -57,23 +66,22 @@ const routes = [
   // Aliados
   { path: '/aliados', name: 'Separador2', component: Separador2, meta: { hideHeader: true } },
 
-  // Rutas de Servicios
+  // Servicios
   { path: '/servicio-de-embalaje', name: 'Embalaje', component: Embalaje, meta: { hideHeader: true } },
   { path: '/asesoria-en-inteligencia-comercial', name: 'InteligenciaComercial', component: InteligenciaComercial, meta: { hideHeader: true } },
   { path: '/investigacion-de-nuevos-mercados', name: 'NuevosMercados', component: NuevosMercados, meta: { hideHeader: true } },
-  { path: '/recoleccion-en-fabrica', name: 'Recoleccion', component: Recoleccion, meta: { hideHeader: true } }
+  { path: '/recoleccion-en-fabrica', name: 'Recoleccion', component: Recoleccion, meta: { hideHeader: true } },
+
+  // 404 -> Home (opcional)
+  { path: '/:pathMatch(.*)*', redirect: { name: 'Home' } }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return { el: to.hash, behavior: 'smooth' }
-    }
-    if (savedPosition) {
-      return savedPosition
-    }
+    if (to.hash) return { el: to.hash, behavior: 'smooth' }
+    if (savedPosition) return savedPosition
     return { left: 0, top: 0, behavior: 'smooth' }
   }
 })

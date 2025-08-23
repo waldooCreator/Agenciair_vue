@@ -1,88 +1,94 @@
 <template>
   <footer class="relative w-full">
-    <!-- Curva superior del footer SIN carrusel -->
+    <!-- Curva superior del footer -->
     <div class="relative w-full overflow-hidden">
-      <!-- SVG de la curva -->
       <svg class="w-full h-16 md:h-20 lg:h-24" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path d="M0,0 C360,100 1080,100 1440,0 L1440,120 L0,120 Z" fill="rgb(248, 112, 62)"></path>
       </svg>
     </div>
 
-    <!-- Contenido principal del footer -->
+    <!-- Sección Call-to-Action -->
     <div class="text-white w-full" style="background-color: rgb(248, 112, 62);">
-      <!-- Newsletter -->
-      <div class="py-6 md:py-8">
-        <div class="container mx-auto px-4 text-center max-w-4xl">
-          <h3 class="text-base md:text-lg font-semibold mb-2">
-            Suscríbete a nuestros boletines, con toda la
+      <div class="py-6 sm:py-8 md:py-12">
+        <div class="container mx-auto px-4 sm:px-6 text-center max-w-4xl">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3">
+            ¿Listo para enviar tu mercancía?
           </h3>
-          <p class="text-sm mb-4 opacity-90">
-            actualidad del mercado logístico
+          <p class="text-sm sm:text-base md:text-lg mb-4 sm:mb-6 text-white text-opacity-90 leading-relaxed">
+            Cotiza tu envío en segundos y descubre nuestras tarifas competitivas
           </p>
           <button
-            @click="handleNewsletterSubscription"
-            class="bg-white text-orange-600 font-bold py-2 px-6 md:px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-            SUSCRÍBETE AQUÍ
+            @click="handleCotizarEnvio"
+            class="bg-white text-orange-600 font-bold py-2 sm:py-3 px-6 sm:px-8 md:px-10 rounded-full hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base">
+            COTIZAR AHORA
           </button>
-        </div>
-      </div>
-
-      <!-- Navigation Links -->
-      <div class="border-t border-orange-300 py-3 md:py-4">
-        <div class="container mx-auto px-4">
-          <div class="flex flex-wrap justify-center items-center text-xs md:text-sm space-x-1 md:space-x-3">
-            <a href="#" class="hover:text-yellow-300">PORTAL COURIER</a>
-            <span class="text-orange-200 hidden md:inline">|</span>
-            <a href="#" class="hover:text-yellow-300">PORTAL TRANSPORTE</a>
-            <span class="text-orange-200 hidden md:inline">|</span>
-            <a href="#" class="hover:text-yellow-300">PORTAL CARGA INTERNACIONAL</a>
-            <span class="text-orange-200 hidden md:inline">|</span>
-            <a href="#" class="hover:text-yellow-300">PORTAL OPERACIÓN LOGÍSTICA</a>
-            <span class="text-orange-200 hidden md:inline">|</span>
-            <a href="#" class="hover:text-yellow-300">PORTAL Agencia IR CORPORATIVO</a>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer inferior -->
+    <!-- Footer principal -->
     <div class="text-white w-full" style="background-color: rgb(58, 29, 34);">
-      <div class="container mx-auto px-4 py-6 md:py-8">
-        <!-- Logo y redes sociales -->
-        <div class="flex flex-col lg:flex-row justify-between items-center mb-6 space-y-4 lg:space-y-0">
-          <div class="flex justify-center lg:justify-start w-full lg:w-auto">
-            <div class="relative">
-              <div class="bg-white rounded-lg flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300 p-3">
-                <img src="/images/logo.png" alt="Logo" class="h-12 md:h-16 w-auto object-contain">
-              </div>
-            </div>
+      <div class="container mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
+        
+        <!-- Logo -->
+        <div class="flex justify-center mb-6 sm:mb-8">
+          <div class="bg-white rounded-lg p-2 sm:p-3 shadow-lg">
+            <img src="/images/logo.png" alt="Agencia Ir Mercancía y Mensajería" class="h-10 sm:h-12 md:h-16 w-auto object-contain">
           </div>
         </div>
 
-        <!-- Información de contacto -->
-        <div class="text-center space-y-3">
-          <div class="space-y-1 text-sm md:text-base text-orange-100">
-            <p class="font-medium">
-              Carrera 68 No. 67B - 35 Teléfono +571 407 12 12, Medellín, Colombia, CO.
-            </p>
+        <!-- Título y descripción -->
+        <div class="text-center mb-8 sm:mb-10">
+          <h4 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+            Agencia Ir Mercancía y Mensajería
+          </h4>
+          <p class="text-sm sm:text-base md:text-lg text-orange-100 max-w-3xl mx-auto leading-relaxed px-2">
+            Agencia dedicada a realizar envíos de paquetería y mensajería a lo largo y ancho del territorio nacional y en el mundo.
+          </p>
+        </div>
+        
+        <!-- Información de contacto - Responsive: 1 columna en móvil, 3 en desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto mb-8">
+          
+          <!-- Ubicaciones -->
+          <div class="text-center">
+            <h5 class="font-bold text-white text-lg sm:text-xl mb-4 uppercase tracking-wide">Cúcuta</h5>
+            <p class="text-orange-100 text-sm sm:text-base mb-6">Av. 6 # 12-05 Centro</p>
+            
+            <h5 class="font-bold text-white text-lg sm:text-xl mb-4 uppercase tracking-wide">Bucaramanga</h5>
+            <p class="text-orange-100 text-sm sm:text-base">Cra 35 # 52 - 24</p>
+            <p class="text-orange-100 text-sm sm:text-base">Cabecera del llano, Santander</p>
           </div>
-          <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4 text-xs md:text-sm text-orange-200">
-            <a href="#" class="hover:text-white">Centro de Ayudas</a>
-            <span class="hidden md:inline">•</span>
-            <a href="#" class="hover:text-white">Términos y Condiciones</a>
-            <span class="hidden md:inline">•</span>
-            <a href="#" class="hover:text-white">Líneas de atención en el país</a>
-            <span class="hidden md:inline">•</span>
-            <a href="#" class="hover:text-white">Certificado de Entregas</a>
-            <span class="hidden md:inline">•</span>
-            <a href="#" class="hover:text-white">Sistemas de Información</a>
-            <span class="hidden md:inline">•</span>
-            <a href="#" class="hover:text-white">Aplicativo Móvil</a>
+
+          <!-- Teléfonos -->
+          <div class="text-center">
+            <h5 class="font-bold text-white text-lg sm:text-xl mb-4 uppercase tracking-wide">Contáctanos</h5>
+            <div class="space-y-3">
+              <a href="tel:+573176420646" class="block text-orange-100 hover:text-white transition-colors text-base sm:text-lg font-medium">
+                +(57) 317 642 0646
+              </a>
+              <a href="tel:+573158703463" class="block text-orange-100 hover:text-white transition-colors text-base sm:text-lg font-medium">
+                +(57) 315 870 3463
+              </a>
+            </div>
+          </div>
+
+          <!-- Horarios -->
+          <div class="text-center">
+            <h5 class="font-bold text-white text-lg sm:text-xl mb-4 uppercase tracking-wide">Horarios de Atención</h5>
+            <div class="text-orange-100 space-y-1">
+              <p class="font-medium text-white text-sm sm:text-base">Lunes a Viernes:</p>
+              <p class="text-sm sm:text-base">8:00 am - 12:00 pm</p>
+              <p class="text-sm sm:text-base">2:00 pm - 6:00 pm</p>
+              <p class="font-medium text-white mt-3 text-sm sm:text-base">Sábados:</p>
+              <p class="text-sm sm:text-base">9:00 am - 1:00 pm</p>
+            </div>
           </div>
         </div>
-        <div class="text-center mt-6 pt-4 border-t border-orange-500">
-          <p class="text-xs md:text-sm text-orange-200">
-            © {{ currentYear }} Tu Empresa. Todos los derechos reservados.
+        <!-- Copyright -->
+        <div class="text-center pt-4 border-t border-orange-500 border-opacity-30">
+          <p class="text-xs sm:text-sm md:text-base text-orange-200 leading-relaxed px-2">
+            © {{ currentYear }} Agencia Ir Mercancía y Mensajería. Todos los derechos reservados.
           </p>
         </div>
       </div>
@@ -99,13 +105,9 @@ export default {
     }
   },
   methods: {
-    handleNewsletterSubscription() {
-      console.log('Newsletter subscription clicked');
+    handleCotizarEnvio() {
+      this.$router.push('/cotizar-info');
     }
   }
 }
 </script>
-
-<style scoped>
-/* Estilos básicos del footer */
-</style>

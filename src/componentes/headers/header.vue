@@ -8,15 +8,16 @@
       mt-4 md:mt-4 mb-6 md:mb-10"
   >
     <!-- LOGO -->
-    <router-link to="/" class="text-lg sm:text-xl md:text-2xl font-bold">
-      <img
-        src="/images/image.png"
-        alt="Agencia Ir"
-        class="block h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain select-none"
-        loading="lazy"
-        decoding="async"
-      />
-    </router-link>
+<router-link to="/" class="flex items-center gap-2 sm:gap-3 text-lg sm:text-xl md:text-2xl font-bold">
+  <img
+    src="/images/image.png" 
+    alt="Agencia Ir"
+    class="h-7 sm:h-8 md:h-9 lg:h-10 w-auto object-contain select-none"
+    loading="lazy"
+    decoding="async"
+  />
+  <span class="text-white">Agencia Ir</span>
+</router-link>
 
     <!-- BOTÓN HAMBURGUESA (móvil) -->
     <button

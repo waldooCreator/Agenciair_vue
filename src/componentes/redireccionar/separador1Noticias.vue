@@ -139,15 +139,15 @@
                     </svg>
                   </button>
 
-                  <router-link
-                    to="/"
+                  <button
+                    @click="verMas(post.id)"
                     class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-6 py-3 rounded-xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duration-300 flex items-center gap-2 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40"
                   >
-                    <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                    <span>Ver más</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
-                    <span>Volver al inicio</span>
-                  </router-link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -160,6 +160,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const posts = ref([
   {
@@ -197,5 +200,10 @@ function copyLink(id) {
     // Fallback si clipboard no está disponible
     console.log('Enlace:', url)
   })
+}
+
+// Función para ver más detalles
+function verMas(id) {
+  router.push(`/noticia/${id}`)
 }
 </script>
