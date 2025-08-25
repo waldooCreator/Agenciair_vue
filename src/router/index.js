@@ -36,7 +36,7 @@ import Recoleccion from '@/componentes/servicios/recoleccion.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/hacer-envio', name: 'HacerEnvio', component: HacerEnvio },
+  { path: '/hacer-envio', name: 'HacerEnvio', component: HacerEnvio, meta: { hideHeader: true, hideBack: false } },
   { path: '/register', name: 'Register', component: Register },
   { path: '/sesion', name: 'Sesion', component: Sesion },
   { path: '/cotizar-info', name: 'CotizarInfo', component: CotizarInfo, meta: { hideHeader: true } },

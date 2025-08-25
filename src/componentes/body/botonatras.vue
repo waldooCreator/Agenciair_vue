@@ -45,6 +45,15 @@ export default {
         hideOnPaths: {
             type: Array,
             default: () => ['/']
+        },
+
+        /**
+         * Si está en true, ignora todas las reglas de ocultación
+         * y siempre muestra el botón (útil para páginas específicas)
+         */
+        forceShow: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
@@ -73,6 +82,9 @@ export default {
             return this.hideOnPaths.includes(this.currentPath);
         },
         shouldHide() {
+            // Si forceShow está activo, nunca ocultar
+            if (this.forceShow) return false;
+            
             return this.metaHides || this.shouldHideByRoute || this.shouldHideByPath;
         }
     },

@@ -126,26 +126,28 @@
                   </p>
                 </div>
 
-                <!-- Botones de acción -->
+                <!-- Botones de acción - INTERCAMBIADOS -->
                 <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                  <!-- Ver más ahora es el botón predominante -->
                   <button
-                    type="button"
-                    @click="copyLink(post.id)"
+                    @click="verMas(post.id)"
                     class="group relative overflow-hidden bg-[rgb(248,112,62)] hover:bg-[rgb(248,112,62)]/90 text-white font-bold px-6 py-3 rounded-xl shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
                   >
-                    <span class="relative z-10">Copiar enlace</span>
+                    <span class="relative z-10">Ver más</span>
                     <svg class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                   </button>
 
+                  <!-- Copiar enlace ahora es el botón secundario -->
                   <button
-                    @click="verMas(post.id)"
+                    type="button"
+                    @click="copyLink(post.id)"
                     class="group font-bold text-[rgb(248,112,62)] hover:text-[rgb(248,112,62)]/80 px-6 py-3 rounded-xl bg-[rgb(248,112,62)]/10 hover:bg-[rgb(248,112,62)]/20 transition-all duration-300 flex items-center gap-2 border-2 border-[rgb(248,112,62)]/20 hover:border-[rgb(248,112,62)]/40"
                   >
-                    <span>Ver más</span>
+                    <span>Copiar enlace</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
                     </svg>
                   </button>
                 </div>

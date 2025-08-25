@@ -62,9 +62,9 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const servicesData = [
-  { key: 'courier',            title: 'SERVICIOS',           image: '/images/agg-Pica.png', route: '/target1-info' },
-  { key: 'transporte',         title: 'TRANSPORTE',          image: '/images/neta.png',     route: '/target2-info' },
-  { key: 'cargaInternacional', title: 'CARGA INTERNACIONAL', image: '/images/avion.png',    route: '/target3-info' }
+  { key: 'courier',            title: 'ENVIOS INTERNACIONALES',           image: '/images/agg-Pica.png', route: '/target1-info' },
+  { key: 'transporte',         title: 'ENVIOS NACIONALES',          image: '/images/neta.png',     route: '/target2-info' },
+  { key: 'cargaInternacional', title: 'ENVIOS  A VENEZUELA', image: '/images/avion.png',    route: '/target3-info' }
 ]
 
 function go(path) {
