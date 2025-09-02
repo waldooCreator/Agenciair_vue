@@ -1,9 +1,9 @@
 <template>
     <!-- Main Content Area - Más cerca del header -->
     <main class="w-full max-w-7xl mx-auto px-10 mb-2">
-        <!-- Index Component (Carousel) - Con margen superior para separar del rastreo -->
+        <!-- Carrusel Component (Carousel) - Con margen superior para separar del rastreo -->
         <div class="mt-20">
-            <IndexComponent />
+            <CarruselComponent />
         </div>
 
         <!-- Contenedor horizontal para Rastreo y Cotizar -->
@@ -11,7 +11,7 @@
 
         <!-- Separador visual -->
         <div class="mt-14">
-            <Separador1 />
+            <ComponenteNoticia />
         </div>
 
         <div class="flex flex-col gap-2">
@@ -22,10 +22,10 @@
 
             <div class="mb-24">
                 <!-- Mobile App Component -->
-                <MobileappComponent />
+                <RedesComponent />
             </div>
 
-            <Separador2 />
+            <AliadosComponent/>
         </div>
     </main>
 
@@ -34,11 +34,11 @@
 </template>
 
 <script setup>
-    import IndexComponent from "./body/index.vue";
+    import CarruselComponent from "./body/carrusel.vue";
     import ContenedorEnvios from './body/contenedorenvios.vue'
-    import Separador1 from "./body/separador1.vue";
+    import ComponenteNoticia from "./body/Componentenoticia.vue";
     import TargetsComponent from "./body/targets.vue";
-    import MobileappComponent from "./body/mobileapp.vue";
-    import Separador2 from "./redireccionar/separador2.vue";
+    import RedesComponent from "./body/redes.vue";
+    import AliadosComponent from "./body/aliados.vue";
     import FooterComponent from "./footers/footer.vue";
 </script>

@@ -38,7 +38,7 @@
 
           <!-- Botón (solo ajuste tipografía para que coincida con referencia) -->
           <router-link
-            to="/separador1-noticias"
+            to="/todaslasnoticias"
             role="button"
             class="inline-block bg-white text-orange-600 font-bold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-red-300 text-[15px] sm:text-[17px] md:text-[18px] lg:text-[20px]"
           >

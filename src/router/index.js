@@ -5,7 +5,7 @@ import Home from '../componentes/home.vue'
 import HacerEnvio from '../componentes/redireccionar/hacerenvio.vue'
 import Register from '../componentes/redireccionar/register.vue'
 import Sesion from '@/componentes/redireccionar/sesion.vue'
-import Separador1Noticias from '../componentes/redireccionar/separador1Noticias.vue'
+import TodasLasNoticias from '../componentes/redireccionar/todaslasnoticias.vue'
 import terminosCondiciones from '@/componentes/redireccionar/terminos-condiciones.vue'
 import CotizarInfo from '@/componentes/redireccionar/cotizar-info.vue'
 import Mapa from '@/componentes/redireccionar/mapa.vue'
@@ -27,7 +27,7 @@ import RastrearGuia from '@/componentes/redireccionar/rastreo-info.vue'
 import NuestraHistoria from '@/componentes/nosotros/nuestra-historia.vue'
 
 // Aliados
-import Separador2 from '@/componentes/redireccionar/separador2.vue'
+
 
 // Servicios
 import Embalaje from '@/componentes/servicios/embalaje.vue'
@@ -35,13 +35,16 @@ import InteligenciaComercial from '@/componentes/servicios/inteligencia-comercia
 import NuevosMercados from '@/componentes/servicios/nuevos-mercados.vue'
 import Recoleccion from '@/componentes/servicios/recoleccion.vue'
 
+// Mercancia Prohibida
+import MercanciaProhibida from '@/componentes/redireccionar/mercanciaprohibida.vue'
+
 const routes = [
   { path: '/', name: 'Home', component: Home },
   { path: '/hacer-envio', name: 'HacerEnvio', component: HacerEnvio, meta: { hideHeader: true, hideBack: false } },
   { path: '/register', name: 'Register', component: Register },
   { path: '/sesion', name: 'Sesion', component: Sesion },
   { path: '/cotizar-info', name: 'CotizarInfo', component: CotizarInfo, meta: { hideHeader: true } },
-  { path: '/separador1-noticias', name: 'Separador1Noticias', component: Separador1Noticias, meta: { hideHeader: true } },
+  { path: '/todaslasnoticias', name: 'TodasLasNoticias', component: TodasLasNoticias, meta: { hideHeader: true } },
   { path: '/terminos-condiciones', name: 'TerminosCondiciones', component: terminosCondiciones, meta: { hideHeader: true } },
   { path: '/mapa', name: 'Mapa', component: Mapa, meta: { hideHeader: true } },
 
@@ -66,13 +69,16 @@ const routes = [
   { path: '/target4-info', name: 'Target4Info', component: Target4Info, meta: { hideHeader: true } },
 
   // Aliados
-  { path: '/aliados', name: 'Separador2', component: Separador2, meta: { hideHeader: true } },
+  
 
   // Servicios
   { path: '/servicio-de-embalaje', name: 'Embalaje', component: Embalaje, meta: { hideHeader: true } },
   { path: '/asesoria-en-inteligencia-comercial', name: 'InteligenciaComercial', component: InteligenciaComercial, meta: { hideHeader: true } },
   { path: '/investigacion-de-nuevos-mercados', name: 'NuevosMercados', component: NuevosMercados, meta: { hideHeader: true } },
   { path: '/recoleccion-en-fabrica', name: 'Recoleccion', component: Recoleccion, meta: { hideHeader: true } },
+
+  // Mercancia Prohibida
+  { path: '/mercancia-prohibida', name: 'MercanciaProhibida', component: MercanciaProhibida, meta: { hideHeader: true } },
 
   // 404 -> Home (opcional)
   { path: '/:pathMatch(.*)*', redirect: { name: 'Home' } }
