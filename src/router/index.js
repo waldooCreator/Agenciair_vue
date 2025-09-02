@@ -18,6 +18,7 @@ import Noticia2 from '@/componentes/redireccionar/noticia2.vue'
 import Target1Info from '../componentes/Targets-info/target1-info.vue'
 import Target2Info from '../componentes/Targets-info/target2-info.vue'
 import Target3Info from '@/componentes/Targets-info/target3-info.vue'
+import Target4Info from '@/componentes/Targets-info/target4-info.vue'
 
 // Rastreo
 import RastrearGuia from '@/componentes/redireccionar/rastreo-info.vue'
@@ -62,6 +63,7 @@ const routes = [
   { path: '/target1-info', name: 'Target1Info', component: Target1Info, meta: { hideHeader: true } },
   { path: '/target2-info', name: 'Target2Info', component: Target2Info, meta: { hideHeader: true } },
   { path: '/target3-info', name: 'Target3Info', component: Target3Info, meta: { hideHeader: true } },
+  { path: '/target4-info', name: 'Target4Info', component: Target4Info, meta: { hideHeader: true } },
 
   // Aliados
   { path: '/aliados', name: 'Separador2', component: Separador2, meta: { hideHeader: true } },
