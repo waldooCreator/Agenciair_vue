@@ -56,122 +56,142 @@
             </div>
         </div>
 
-        <!-- Main Image Section -->
+        <!-- Services Gallery Section - IMAGEN INTEGRADA AQUÍ -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <div class="bg-white rounded-3xl overflow-hidden" style="box-shadow: 0 25px 50px rgba(96, 58, 38, 0.15);">
-                <div class="relative h-96 md:h-[500px]"
-                    style="background: linear-gradient(135deg, #603a26 0%, #4a2f1e 100%);">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: rgb(58, 29, 34);">
+                    Nuestros Servicios de Recolección
+                </h2>
+                <p class="text-lg max-w-2xl mx-auto" style="color: rgba(58, 29, 34, 0.8);">
+                    Soluciones logísticas personalizadas que se adaptan perfectamente a los tiempos y necesidades de tu
+                    empresa
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 lg:p-12 mb-8">
+                <div class="max-w-6xl mx-auto">
+                    <!-- IMAGEN INTEGRADA CON LAS MISMAS DIMENSIONES -->
                     <img v-if="mainImage" :src="mainImage" alt="Recolección de mercancía en fábrica"
-                        class="w-full h-full object-cover" />
-                    <div v-else class="absolute inset-0 flex items-center justify-center">
+                        class="w-full h-64 md:h-80 object-cover rounded-md mb-8" />
+
+                    <!-- Placeholder si no hay imagen -->
+                    <div v-else
+                        class="w-full h-64 md:h-80 bg-gradient-to-r from-gray-100 to-gray-200 rounded-xl mb-8 flex items-center justify-center">
                         <div class="text-center p-8">
-                            <div class="w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-6"
-                                style="background: rgba(241, 88, 42, 0.2);">
-                                <svg class="w-16 h-16" style="color: #f1582a;" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                                style="background: rgba(248, 112, 63, 0.2);">
+                                <svg class="w-8 h-8" style="color: rgb(248, 112, 63);" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M3 7h18M5 12h14M7 17h10" />
                                 </svg>
                             </div>
-                            <p class="text-lg" style="color: rgba(241, 234, 218, 0.8);">
-                                Imagen principal del servicio de recolección
+                            <p class="text-sm text-gray-500">
+                                Imagen del servicio de recolección
                             </p>
                         </div>
                     </div>
-                </div>
 
-                <div class="p-8 md:p-12">
-                    <h3 class="text-2xl font-bold mb-4" style="color: rgb(248, 112, 63);">AGENCIA IR</h3>
+                    <h2
+                        class="text-2xl md:text-3xl lg:text-4xl font-black text-[rgb(58,26,29)] leading-tight mb-8 text-center">
+                        Control Total desde tu Fábrica
+                    </h2>
+
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4" style="color: rgb(248, 112, 63);">AGENCIA IR</h3>
+                        <p class="text-lg leading-relaxed mb-6" style="color: rgb(58, 29, 34);">
+                            ofrece recolección de mercancía directamente en la fábrica de nuestros asociados.
+                            Coordinamos
+                            ventanas de carga, verificamos documentación y garantizamos el inicio del traslado con
+                            protocolos de seguridad y trazabilidad desde el primer minuto.
+                        </p>
+
+                        <p class="text-lg leading-relaxed mb-6" style="color: rgb(58, 29, 34);">
+                            Nuestra red cubre todo el area metropolitana de Cúcuta y contamos con vehículos adecuados
+                            para
+                            distintos tipos de carga. Integramos confirmaciones fotográficas en sitio, guías digitales y
+                            seguimiento en tiempo
+                            real para que tengas control total del proceso.
+                        </p>
+                    </div>
+
                     <p class="text-lg leading-relaxed mb-6" style="color: rgb(58, 29, 34);">
-                        ofrece recolección de mercancía directamente en la fábrica de nuestros asociados. Coordinamos
-                        ventanas de carga, verificamos documentación y garantizamos el inicio del traslado con
-                        protocolos
-                        de seguridad y trazabilidad desde el primer minuto.
+                        La tecnología avanzada permite monitorear de manera precisa
+                        cada etapa del proceso de recolección, garantizando un control
+                        total desde el momento en que el producto sale de tu planta.
+                        Gracias a sistemas de seguimiento en tiempo real, es posible conocer
+                        la ubicación, el estado y las condiciones de cada envío. Esto asegura
+                        transparencia en la operación y genera confianza tanto para la empresa
+                        como para los clientes. Además, permite anticipar cualquier eventualidad
+                        y dar respuestas rápidas y oportunas.
                     </p>
 
-                    <p class="leading-relaxed" style="color: rgba(58, 29, 34, 0.8);">
-                        Nuestra red cubre todo el area metropolitana de Cúcuta y contamos con vehículos adecuados para
-                        distintos tipos de
-                        carga. Integramos confirmaciones fotográficas en sitio, guías digitales y seguimiento en tiempo
-                        real para que tengas control total del proceso.
+                    <p class="text-lg leading-relaxed mb-14" style="color: rgb(58, 29, 34);">
+                        Con este nivel de control tecnológico, la trazabilidad se
+                        convierte en un factor clave para optimizar recursos y
+                        mejorar la eficiencia logística. Los datos recolectados en
+                        cada punto del trayecto facilitan la toma de decisiones estratégicas.
+                        De esta manera, no solo se garantiza la seguridad de la carga, sino
+                        también el cumplimiento de los tiempos establecidos.
+                        Así, la empresa fortalece su competitividad en un mercado cada vez más exigente y globalizado.
                     </p>
+
+                    <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                        <!-- Tiempo Real -->
+                        <div class="text-center p-6">
+                            <div
+                                class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Seguimiento en Vivo
+                            </h3>
+                            <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Ubicación GPS actualizada cada
+                                minuto</p>
+                        </div>
+
+                        <!-- Notificaciones -->
+                        <div class="text-center p-6">
+                            <div
+                                class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Alertas Inteligentes
+                            </h3>
+                            <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Confirmación de recolección y
+                                entrega instantánea</p>
+                        </div>
+
+                        <!-- Seguridad -->
+                        <div class="text-center p-6">
+                            <div
+                                class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
+                                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 11c1.105 0 2 .895 2 2v2a2 2 0 11-4 0v-2c0-1.105.895-2 2-2z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17 11V7a5 5 0 00-10 0v4m-2 0h14v10H5V11z" />
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Máxima Protección
+                            </h3>
+                            <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Verificación fotográfica en cada
+                                punto clave</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Services Gallery Section -->
-<!-- Services Gallery Section -->
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: rgb(58, 29, 34);">
-            Nuestros Servicios de Recolección
-        </h2>
-        <p class="text-lg max-w-2xl mx-auto" style="color: rgba(58, 29, 34, 0.8);">
-            Soluciones logísticas personalizadas que se adaptan perfectamente a los tiempos y necesidades de tu empresa
-        </p>
-    </div>
-
-    <div class="bg-white rounded-2xl shadow-lg p-6 lg:p-12 mb-8">
-        <div class="max-w-6xl mx-auto">
-            <h2
-                class="text-2xl md:text-3xl lg:text-4xl font-black text-[rgb(58,26,29)] leading-tight mb-8 text-center">
-                Control Total desde tu Fábrica</h2>
-
-            <p
-                class="text-base md:text-lg text-[rgb(58,26,29)] leading-relaxed mb-12 text-center max-w-4xl mx-auto">
-                Tecnología avanzada para monitorear cada paso del proceso de recolección, desde el momento que sale de tu planta hasta su destino final.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
-                <!-- Tiempo Real -->
-                <div class="text-center p-6">
-                    <div
-                        class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
-                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Seguimiento en Vivo</h3>
-                    <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Ubicación GPS actualizada cada minuto</p>
-                </div>
-
-                <!-- Notificaciones -->
-                <div class="text-center p-6">
-                    <div
-                        class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
-                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Alertas Inteligentes</h3>
-                    <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Confirmación de recolección y entrega instantánea</p>
-                </div>
-
-                <!-- Seguridad -->
-                <div class="text-center p-6">
-                    <div
-                        class="w-20 h-20 lg:w-24 lg:h-24 bg-[rgba(235,102,55,255)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10 lg:w-12 lg:h-12 text-[rgba(235,102,55,255)]" fill="none"
-                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 11c1.105 0 2 .895 2 2v2a2 2 0 11-4 0v-2c0-1.105.895-2 2-2z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17 11V7a5 5 0 00-10 0v4m-2 0h14v10H5V11z" />
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold text-[rgb(58,26,29)] mb-3 text-lg lg:text-xl">Máxima Protección</h3>
-                    <p class="text-sm lg:text-base text-[rgb(58,26,29)]/60">Verificación fotográfica en cada punto clave</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-        <!-- Contact CTA Section (en contenedor blanco) -->
+        <!-- Contact CTA Section -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
             <div class="bg-white rounded-3xl p-10 md:p-12 text-center"
                 style="box-shadow: 0 25px 50px rgba(96, 58, 38, 0.15);">
@@ -271,31 +291,8 @@
         }
     ])
 
-    // Todas las imágenes apuntan a la misma ruta solicitada
+    // Imagen principal - usar la misma ruta
     const IMAGE_URL = '/public/images/recoleccion.png'
-
-    const services = ref([{
-            title: 'Recolección Programada',
-            description: 'Ideal para líneas de producción con despachos semanales o diarios. Configuramos rutas y horarios fijos.',
-            image: IMAGE_URL
-        },
-        {
-            title: 'Urgente / Mismo Día',
-            description: 'Respuesta prioritaria con ventanas cortas. Asignación inmediata de vehículo y confirmación en sitio.',
-            image: IMAGE_URL
-        },
-        {
-            title: 'Recolección para Exportación',
-            description: 'Verificación de documentos, embalaje final en planta y sellado según requerimientos del destino.',
-            image: IMAGE_URL
-        },
-        {
-            title: 'Manipulación Especializada',
-            description: 'Cargas frágiles, voluminosas o con control de temperatura. Equipos y personal certificados.',
-            image: IMAGE_URL
-        }
-    ])
-
     const mainImage = ref(IMAGE_URL)
 
     // Datos de contacto (ajusta a tus reales)

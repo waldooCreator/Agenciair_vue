@@ -193,8 +193,10 @@
                             términos y condiciones
                         </router-link>
                         y la
-                        <a href="#" class="text-[rgba(235,102,55,255)] hover:underline font-medium">política de
-                            privacidad</a>
+                        <router-link to="/politica-de-privacidad"
+                            class="text-[rgb(248,112,62)] hover:underline font-medium">
+                            política de privacidad
+                        </router-link>
                     </label>
                 </div>
 

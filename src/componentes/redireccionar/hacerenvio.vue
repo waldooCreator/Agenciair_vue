@@ -175,11 +175,24 @@
                                                         clip-rule="evenodd" />
                                                 </svg>
                                             </div>
-                                            <span class="text-sm text-[rgb(248,112,62)] font-medium">
-                                                Declaro que mi envío no es <strong>Mercancía de Prohibido
-                                                    Transporte</strong>
-                                                <router-link to="/mercancia-prohibida"
-                                                    class="underline hover:no-underline ml-1">Ver lista</router-link>
+                                            <span class="text-sm text-gray-700 font-medium">
+                                                Declaro que el envio no contiene
+                                                <router-link to ="/mercancia-prohibida"
+                                                    class="text-[rgb(248,112,62)] hover:underline font-medium">
+                                                    mercancía prohibida
+
+                                                </router-link> 
+
+                                                y acepto la
+                                                <router-link to = "/carta-de-responsabilidad" 
+                                                    class="text-[rgb(248,112,62)] hover:underline font-medium">
+                                                    Carta de responsabilidad
+                                                </router-link>
+                                                    
+
+
+                                               
+
                                             </span>
                                         </label>
 
